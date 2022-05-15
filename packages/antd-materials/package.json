@@ -1,0 +1,26 @@
+{
+  "name": "@seada/antd-materials",
+  "version": "0.0.1-alpha.3",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "scripts": {
+    "lowcode:dev": "build-scripts start --config ./build.lowcode.js --port 5551",
+    "lowcode:build": "build-scripts build --config ./build.lowcode.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.3",
+    "@alifd/build-plugin-lowcode": "^0.2.0",
+    "build-plugin-component-multiple": "^1.0.0-beta.5"
+  },
+  "dependencies": {
+    "@ant-design/pro-table": "^2.71.4",
+    "@types/react": "^18.0.9"
+  },
+  "componentConfig": {
+    "materialSchema": "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.3/build/lowcode/assets-prod.json"
+  }
+}
