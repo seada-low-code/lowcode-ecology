@@ -35,7 +35,4 @@ yarn start:materials
 
 // 构建物料
 yarn build:materials
-
-// 发布到cdn，这一过程会自动执行构建物料
-yarn release:materials
 ```

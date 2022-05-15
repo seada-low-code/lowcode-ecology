@@ -10,7 +10,6 @@
     "start": "cd demo && yarn start",
     "start:materials": "cd packages/antd-materials && yarn lowcode:dev",
     "build:materials": "cd packages/antd-materials && yarn lowcode:build",
-    "release:materials": "cd packages/antd-materials && yarn cdn",
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean",
     "build": "lerna run build",
