@@ -1,5 +1,3 @@
-import { PluginUndoRedo } from '@seada/antd-plugins'
-import { BoolSetter } from '@seada/antd-setters'
 import { ILowCodePluginContext, plugins, project } from '@alilc/lowcode-engine'
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext'
 import ComponentsPane from '@alilc/lowcode-plugin-components-pane'
@@ -7,9 +5,12 @@ import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject'
 import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
+import { PluginUndoRedo } from '@seada/antd-plugins'
+import { BoolSetter } from '@seada/antd-setters'
 import { Button } from 'antd'
 import React from 'react'
 import assets from '../../assets/assets.json'
+import { getPageSchema, saveSchema } from './helper'
 
 export default async function registerPlugins() {
   await plugins.register(ManualPlugin)
@@ -34,8 +35,10 @@ export default async function registerPlugins() {
 
         material.setAssets(await injectAssets(assets))
 
+        const pageSchema = getPageSchema()
+
         // 加载 schema
-        project.openDocument()
+        project.openDocument(pageSchema)
       }
     }
   }
@@ -84,7 +87,7 @@ export default async function registerPlugins() {
       async init() {
         const { setters, skeleton } = ctx
         // 注册setterMap
-        setters.registerSetter(setterMap)
+        setters.registerSetter(setterMap as any)
         // 注册插件
         // 注册事件绑定面板
         skeleton.add({
@@ -126,15 +129,7 @@ export default async function registerPlugins() {
           props: {
             align: 'right'
           },
-          content: (
-            <Button
-              onClick={() => {
-                console.log('保存')
-              }}
-            >
-              保存到本地
-            </Button>
-          )
+          content: <Button onClick={() => saveSchema()}>保存到本地</Button>
         })
         skeleton.add({
           name: 'resetSchema',
