@@ -6,7 +6,11 @@ import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
 import { PluginUndoRedo } from '@seada/antd-plugins'
+<<<<<<< HEAD
 import { BoolSetter } from '@seada/antd-setters'
+=======
+import { BoolSetter, EventsSetter } from '@seada/antd-setters'
+>>>>>>> fa19395 (feat: 添加EventsSetter)
 import { Button } from 'antd'
 import React from 'react'
 import assets from '../../assets/assets.json'
@@ -81,6 +85,7 @@ export default async function registerPlugins() {
     const { setterMap, pluginMap } = AliLowCodeEngineExt
 
     setterMap['BoolSetter'] = BoolSetter
+    setterMap['EventsSetter'] = EventsSetter
 
     return {
       name: 'ext-setters-registry',
