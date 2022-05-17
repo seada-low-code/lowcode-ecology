@@ -8,9 +8,6 @@
       "forcePublish": true,
       "exact": true,
       "message": "chore(versions): 😊 publish %s"
-    },
-    "publish": {
-      "registry": "https://npm.shopee.io"
     }
   }
 }
