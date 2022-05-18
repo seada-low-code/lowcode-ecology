@@ -5,7 +5,7 @@ import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject'
 import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
-import { PluginUndoRedo } from '@seada/antd-plugins'
+import { PluginSimulatorResizer, PluginUndoRedo } from '@seada/antd-plugins'
 import { BoolSetter } from '@seada/antd-setters'
 import { Button } from 'antd'
 import React from 'react'
@@ -46,6 +46,8 @@ export default async function registerPlugins() {
   await plugins.register(editorInit)
 
   await plugins.register(PluginUndoRedo)
+
+  await plugins.register(PluginSimulatorResizer)
 
   const builtinPluginRegistry = (ctx: ILowCodePluginContext) => {
     return {
