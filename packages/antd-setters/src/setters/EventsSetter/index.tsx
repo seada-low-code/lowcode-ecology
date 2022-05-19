@@ -30,15 +30,21 @@ export interface IEventsSetterProps {
  * @param props
  * @returns
  */
-const EventsSetter: React.FC<IEventsSetterProps> = (props) => {
+const EventsSetter: React.FC<IEventsSetterProps> = ({
+  value,
+  definition,
+  onChange
+}) => {
   const [selectedEvent, setSelectedEvent] = useState<string>('')
   const [visible, setVisible] = useState<boolean>(false)
   const [selectedAction, setSelectedAction] = useState()
-  const [events, setEvents] = useState<string[]>([])
+  const [events, setEvents] = useState<
+    Array<string | { label: string; value: string }>
+  >([])
+  const [curEditIndex, setCurEditIndex] = useState<number>(-1)
 
   useEffect(() => {
     // 初始化事件列表
-    const { definition } = props
     if (!Array.isArray(definition) || !definition.length) return
     setEvents(
       definition.reduce((prev, val) => {
@@ -46,6 +52,18 @@ const EventsSetter: React.FC<IEventsSetterProps> = (props) => {
       }, [])
     )
   }, [])
+
+  useEffect(() => {
+    if (!visible) {
+      resetModal()
+    }
+  }, [visible])
+
+  const resetModal = () => {
+    setSelectedAction(null)
+    setSelectedEvent('')
+    setCurEditIndex(-1)
+  }
 
   /**
    * 显示事件配置modal
