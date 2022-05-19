@@ -19,6 +19,6 @@
     "paths": {
       "@alilc/antd-plugin-*": ["packages/plugin-*/src"]
     },
-    "lib": ["ESNext"]
+    "lib": ["ESNext", "DOM"]
   }
 }
