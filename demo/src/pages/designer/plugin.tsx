@@ -11,7 +11,12 @@ import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
 import { PluginUndoRedo } from '@seada/antd-plugins'
-import { BoolSetter, NumberSetter, TextAreaSetter } from '@seada/antd-setters'
+import {
+  BoolSetter,
+  NumberSetter,
+  StringSetter,
+  TextAreaSetter
+} from '@seada/antd-setters'
 import { Button } from 'antd'
 import React from 'react'
 import assets from '../../assets/assets.json'
@@ -92,6 +97,10 @@ export default async function registerPlugins() {
     } as RegisteredSetter
     setterMap['TextAreaSetter'] = {
       component: TextAreaSetter,
+      isDynamic: false
+    } as RegisteredSetter
+    setterMap['StringSetter'] = {
+      component: StringSetter,
       isDynamic: false
     } as RegisteredSetter
 
