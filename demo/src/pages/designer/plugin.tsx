@@ -1,4 +1,9 @@
-import { ILowCodePluginContext, plugins, project } from '@alilc/lowcode-engine'
+import {
+  ILowCodePluginContext,
+  plugins,
+  project,
+  RegisteredSetter
+} from '@alilc/lowcode-engine'
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext'
 import ComponentsPane from '@alilc/lowcode-plugin-components-pane'
 import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject'
@@ -81,7 +86,10 @@ export default async function registerPlugins() {
     const { setterMap, pluginMap } = AliLowCodeEngineExt
 
     setterMap['BoolSetter'] = BoolSetter
-    setterMap['EventsSetter'] = EventsSetter
+    setterMap['EventsSetter'] = {
+      component: EventsSetter,
+      isDynamic: false
+    } as RegisteredSetter
 
     return {
       name: 'ext-setters-registry',

@@ -64,14 +64,14 @@ export default {
     lodash: 'var window._'
   },
   scripts: [
-    'https://g.alicdn.com/code/lib/react/18.0.0/umd/react.development.min.js',
-    'https://g.alicdn.com/code/lib/react-dom/18.0.0/umd/react-dom.development.min.js',
+    'https://g.alicdn.com/code/lib/react/18.0.0/umd/react.production.min.js',
+    'https://g.alicdn.com/code/lib/react-dom/18.0.0/umd/react-dom.production.min.js',
     'https://g.alicdn.com/code/lib/prop-types/15.7.2/prop-types.js',
     'https://g.alicdn.com/platform/c/react15-polyfill/0.0.1/dist/index.js',
     'https://g.alicdn.com/platform/c/lodash/4.6.1/lodash.min.js',
     'https://g.alicdn.com/mylib/moment/2.24.0/min/moment.min.js',
     'https://g.alicdn.com/code/lib/alifd__next/1.23.24/next.min.js',
-    'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@latest/dist/js/engine-core.js',
+    'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.0.8/dist/js/engine-core.js',
     'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@latest/dist/js/engine-ext.js'
   ]
 }
