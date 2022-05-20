@@ -14,6 +14,7 @@ import { PluginUndoRedo } from '@seada/antd-plugins'
 import {
   BoolSetter,
   NumberSetter,
+  SelectSetter,
   StringSetter,
   TextAreaSetter
 } from '@seada/antd-setters'
@@ -101,6 +102,10 @@ export default async function registerPlugins() {
     } as RegisteredSetter
     setterMap['StringSetter'] = {
       component: StringSetter,
+      isDynamic: false
+    } as RegisteredSetter
+    setterMap['SelectSetter'] = {
+      component: SelectSetter,
       isDynamic: false
     } as RegisteredSetter
 
