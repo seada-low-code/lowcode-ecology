@@ -25,6 +25,25 @@ export interface IEventsSetterProps {
   onChange?: (value?: unknown) => void
 }
 
+export enum ActionType {
+  BuiltIn = 'builtIn',
+  Custom = 'custom'
+}
+
+export interface IAction {
+  type: ActionType
+  name: string
+  desc?: string
+}
+
+const builtInActions: IAction[] = [
+  {
+    type: ActionType.BuiltIn,
+    name: 'openPage',
+    desc: '打开页面'
+  }
+]
+
 /**
  * 事件属性配置组件，支持在一个事件中配置多个动作
  * @param props
@@ -37,7 +56,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
 }) => {
   const [selectedEvent, setSelectedEvent] = useState<string>('')
   const [visible, setVisible] = useState<boolean>(false)
-  const [selectedAction, setSelectedAction] = useState()
+  const [selectedAction, setSelectedAction] = useState<IAction>()
   const [events, setEvents] = useState<
     Array<string | { label: string; value: string }>
   >([])
@@ -83,8 +102,12 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
     setSelectedEvent(eventName)
   }
 
-  const handleSelectAction = () => {
-    // 选择动作
+  /**
+   * 选中动作触发
+   * @param action 动作数据
+   */
+  const handleSelectAction = (action: IAction) => {
+    setSelectedAction(action)
   }
 
   const hideModal = () => {
@@ -92,7 +115,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
   }
 
   const handleOk = () => {
-    // 确认事件配置
+    // TODO: 确认事件配置
   }
 
   return (
@@ -146,26 +169,30 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
           {selectedEvent ? (
             <div className="list-container">
               <ul className="list">
-                {/* {PLATFORM_METHODS.map((item) => {
-                  const key = isStr(item) ? item : item.value
+                {/* 这里显示内置事件 */}
+                {builtInActions.map((item) => {
+                  const { name, desc } = item
+                  const { name: selectedActionName, type } =
+                    selectedAction || {}
                   return (
                     <li
                       className={`${
-                        selectedAction?.type === 'platform' &&
-                        selectedAction?.name === key
+                        type === ActionType.BuiltIn &&
+                        selectedActionName === name
                           ? 'is-selected'
                           : ''
                       }`}
-                      onClick={() => handleSelectAction('platform', key)}
-                      key={key}
+                      onClick={() => handleSelectAction(item)}
+                      key={`built_in_${name}`}
                     >
-                      {isStr(item) ? item : item.label}
+                      {desc || 'name'}
                     </li>
                   )
-                })} */}
+                })}
               </ul>
               <Divider className="action-divider" />
               <ul className="list">
+                {/* 这里显示自定义事件 */}
                 {/* <li
                   className={`${
                     selectedAction?.type === 'custom' ? 'is-selected' : ''
