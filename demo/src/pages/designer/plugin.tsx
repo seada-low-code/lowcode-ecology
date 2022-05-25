@@ -2,7 +2,8 @@ import {
   event,
   ILowCodePluginContext,
   plugins,
-  project
+  project,
+  RegisteredSetter
 } from '@alilc/lowcode-engine'
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext'
 import ComponentsPane from '@alilc/lowcode-plugin-components-pane'
@@ -15,7 +16,13 @@ import {
   PluginSimulatorResizer,
   PluginUndoRedo
 } from '@seada/antd-plugins'
-import { BoolSetter } from '@seada/antd-setters'
+import {
+  BoolSetter,
+  NumberSetter,
+  SelectSetter,
+  StringSetter,
+  TextAreaSetter
+} from '@seada/antd-setters'
 import { Button } from 'antd'
 import React from 'react'
 import assets from '../../assets/assets.json'
@@ -92,6 +99,22 @@ export default async function registerPlugins() {
     const { setterMap, pluginMap } = AliLowCodeEngineExt
 
     setterMap['BoolSetter'] = BoolSetter
+    setterMap['NumberSetter'] = {
+      component: NumberSetter,
+      isDynamic: false
+    } as RegisteredSetter
+    setterMap['TextAreaSetter'] = {
+      component: TextAreaSetter,
+      isDynamic: false
+    } as RegisteredSetter
+    setterMap['StringSetter'] = {
+      component: StringSetter,
+      isDynamic: false
+    } as RegisteredSetter
+    setterMap['SelectSetter'] = {
+      component: SelectSetter,
+      isDynamic: false
+    } as RegisteredSetter
 
     return {
       name: 'ext-setters-registry',
