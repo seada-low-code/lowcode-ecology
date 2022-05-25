@@ -18,6 +18,7 @@ import {
 } from '@seada/antd-plugins'
 import {
   BoolSetter,
+  EventsSetter,
   NumberSetter,
   SelectSetter,
   StringSetter,
@@ -113,6 +114,10 @@ export default async function registerPlugins() {
     } as RegisteredSetter
     setterMap['SelectSetter'] = {
       component: SelectSetter,
+      isDynamic: false
+    } as RegisteredSetter
+    setterMap['EventsSetter'] = {
+      component: EventsSetter,
       isDynamic: false
     } as RegisteredSetter
 
