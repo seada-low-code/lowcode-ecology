@@ -159,7 +159,7 @@ export default async function registerPlugins() {
         })
         hotkey.bind('command+s', (e) => {
           e.preventDefault()
-          console.log('保存')
+          saveSchema()
         })
       }
     }

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Divider, Empty, Modal } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
+import { ISchema, createSchemaField } from '@formily/react'
+import { isStr, isPlainObj } from '@formily/shared'
 import { EventsSetterHeader } from './EventsSetterHeader'
 import './index.less'
-
-const isStr = (val?: any) => {
-  return typeof val === 'string'
-}
 
 interface IEventItem {
   name: string
@@ -32,17 +30,47 @@ export enum ActionType {
 
 export interface IAction {
   type: ActionType
-  name: string
+  name?: string
   desc?: string
+  params?: ISchema
 }
 
+// 内置动作，点击内置动作选项后渲染参数表单，表单使用 formily 渲染
 const builtInActions: IAction[] = [
   {
     type: ActionType.BuiltIn,
     name: 'openPage',
-    desc: '打开页面'
+    desc: '打开页面',
+    params: {
+      type: 'object',
+      properties: {
+        url: {
+          type: 'string',
+          'x-component': 'Input'
+        }
+      }
+    }
+  },
+  {
+    type: ActionType.BuiltIn,
+    name: 'message',
+    desc: '消息提示'
+  },
+  {
+    type: ActionType.BuiltIn,
+    name: 'goBack',
+    desc: '返回上一页'
+  },
+  {
+    type: ActionType.BuiltIn,
+    name: 'openModal ',
+    desc: '打开弹窗'
   }
 ]
+
+const SchemaField = createSchemaField({
+  components: {}
+})
 
 /**
  * 事件属性配置组件，支持在一个事件中配置多个动作
@@ -193,14 +221,18 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
               <Divider className="action-divider" />
               <ul className="list">
                 {/* 这里显示自定义事件 */}
-                {/* <li
+                <li
                   className={`${
-                    selectedAction?.type === 'custom' ? 'is-selected' : ''
+                    selectedAction?.type === ActionType.Custom
+                      ? 'is-selected'
+                      : ''
                   }`}
-                  onClick={() => handleSelectAction('custom', CUSTOM_ACTION)}
+                  onClick={() =>
+                    handleSelectAction({ type: ActionType.Custom })
+                  }
                 >
                   自定义代码
-                </li> */}
+                </li>
               </ul>
             </div>
           ) : (

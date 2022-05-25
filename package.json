@@ -75,6 +75,8 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@formily/react": "^2.1.2",
+    "@formily/shared": "^2.1.2",
     "antd": "^4.20.2",
     "lodash": "^4.17.21"
   }
