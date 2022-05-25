@@ -1,11 +1,20 @@
-import { ILowCodePluginContext, plugins, project } from '@alilc/lowcode-engine'
+import {
+  event,
+  ILowCodePluginContext,
+  plugins,
+  project
+} from '@alilc/lowcode-engine'
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext'
 import ComponentsPane from '@alilc/lowcode-plugin-components-pane'
 import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject'
 import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
-import { PluginSimulatorResizer, PluginUndoRedo } from '@seada/antd-plugins'
+import {
+  PluginSave,
+  PluginSimulatorResizer,
+  PluginUndoRedo
+} from '@seada/antd-plugins'
 import { BoolSetter } from '@seada/antd-setters'
 import { Button } from 'antd'
 import React from 'react'
@@ -117,48 +126,10 @@ export default async function registerPlugins() {
   // 注册中英文切换
   await plugins.register(ZhEnPlugin)
 
-  // 注册保存面板
-  const saveSample = (ctx: ILowCodePluginContext) => {
-    return {
-      name: 'saveSample',
-      async init() {
-        const { skeleton, hotkey } = ctx
-
-        skeleton.add({
-          name: 'saveSample',
-          area: 'topArea',
-          type: 'Widget',
-          props: {
-            align: 'right'
-          },
-          content: <Button onClick={() => saveSchema()}>保存到本地</Button>
-        })
-        skeleton.add({
-          name: 'resetSchema',
-          area: 'topArea',
-          type: 'Widget',
-          props: {
-            align: 'right'
-          },
-          content: (
-            <Button
-              onClick={() => {
-                console.log('重置')
-              }}
-            >
-              重置页面
-            </Button>
-          )
-        })
-        hotkey.bind('command+s', (e) => {
-          e.preventDefault()
-          console.log('保存')
-        })
-      }
-    }
-  }
-  saveSample.pluginName = 'saveSample'
-  await plugins.register(saveSample)
+  await plugins.register(PluginSave)
+  event.on('common:save', () => {
+    saveSchema()
+  })
 
   const previewSample = (ctx: ILowCodePluginContext) => {
     return {
