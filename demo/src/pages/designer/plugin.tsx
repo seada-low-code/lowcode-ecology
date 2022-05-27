@@ -20,6 +20,7 @@ import {
   BoolSetter,
   EventsSetter,
   NumberSetter,
+  RadioGroupSetter,
   SelectSetter,
   StringSetter,
   TextAreaSetter
@@ -118,6 +119,10 @@ export default async function registerPlugins() {
     } as RegisteredSetter
     setterMap['EventsSetter'] = {
       component: EventsSetter,
+      isDynamic: false
+    } as RegisteredSetter
+    setterMap['RadioGroupSetter'] = {
+      component: RadioGroupSetter,
       isDynamic: false
     } as RegisteredSetter
 
