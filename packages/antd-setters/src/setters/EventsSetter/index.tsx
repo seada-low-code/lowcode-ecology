@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Button, Divider, Empty, Modal } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
-import { ISchema, createSchemaField } from '@formily/react'
-import { isStr, isPlainObj } from '@formily/shared'
+import { ISchema } from '@formily/react'
+import { isStr } from '@formily/shared'
+import { createForm } from '@formily/core'
+import { Form } from '@formily/antd'
+import { SchemaField } from './SchemaField'
 import { EventsSetterHeader } from './EventsSetterHeader'
 import './index.less'
 
@@ -45,8 +48,18 @@ const builtInActions: IAction[] = [
       type: 'object',
       properties: {
         url: {
+          name: 'url',
           type: 'string',
+          title: 'url',
+          'x-decorator': 'FormItem',
           'x-component': 'Input'
+        },
+        isBlank: {
+          name: 'isBlank',
+          type: 'boolean',
+          title: '在新页面打开',
+          'x-decorator': 'FormItem',
+          'x-component': 'Switch'
         }
       }
     }
@@ -68,10 +81,6 @@ const builtInActions: IAction[] = [
   }
 ]
 
-const SchemaField = createSchemaField({
-  components: {}
-})
-
 /**
  * 事件属性配置组件，支持在一个事件中配置多个动作
  * @param props
@@ -89,6 +98,8 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
     Array<string | { label: string; value: string }>
   >([])
   const [curEditIndex, setCurEditIndex] = useState<number>(-1)
+
+  const form = useMemo(() => createForm(), [])
 
   useEffect(() => {
     // 初始化事件列表
@@ -244,28 +255,15 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
         </div>
         <div className="events-setter__right">
           <EventsSetterHeader title="3.参数/代码配置" />
-          {selectedAction ? (
-            <div className="config-container">
-              {/* 如果选中了动作，渲染配置表单；如果选中了自定义方法，渲染编辑器直接写代码 */}
-              {/* <Form
-                form={form}
-                labelWidth={80}
-                labelAlign="left"
-                size={'small'}
-              >
-                <SchemaField
-                  components={{ Empty }}
-                  schema={selectedAction.schema}
-                  scope={isPlainObj(context.scope) ? { ...context.scope } : {}}
-                />
-              </Form> */}
-            </div>
-          ) : (
-            <Empty
-              image={Empty.PRESENTED_IMAGE_SIMPLE}
-              description="请选择执行动作"
-            />
-          )}
+          <div className="config-container">
+            {/* 如果选中了动作，渲染配置表单；如果选中了自定义方法，渲染编辑器直接写代码 */}
+            <Form form={form} labelAlign="left" size="small" labelWidth={80}>
+              <SchemaField
+                components={{ Empty }}
+                schema={selectedAction?.params || {}}
+              />
+            </Form>
+          </div>
         </div>
       </Modal>
     </>
