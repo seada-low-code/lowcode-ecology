@@ -29,7 +29,8 @@ import {
   ValidatorSetter,
   ReactionsSetter,
   DrawerSetter,
-  SizeInput
+  SizeInput,
+  VarFormItem
 } from './components'
 import React from 'react'
 import './styles.less'
@@ -70,6 +71,7 @@ export const SchemaField: any = createSchemaField({
     FormTab,
     ArrayCollapse,
     Empty,
-    PreviewText
+    PreviewText,
+    VarFormItem
   }
 })
