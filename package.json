@@ -7,6 +7,7 @@
     "packages/*"
   ],
   "scripts": {
+    "preinstall": "cd demo && yarn",
     "start": "cd demo && yarn start",
     "start:materials": "cd packages/antd-materials && yarn lowcode:dev",
     "build:materials": "cd packages/antd-materials && yarn lowcode:build",
