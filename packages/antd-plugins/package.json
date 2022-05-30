@@ -14,5 +14,8 @@
   "license": "MIT",
   "devDependencies": {
     "@alilc/lowcode-engine": "^1.0.6"
+  },
+  "dependencies": {
+    "@seada/antd-setters": "^0.0.1-alpha.3"
   }
 }
