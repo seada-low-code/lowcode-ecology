@@ -1,6 +1,6 @@
 # lowcode-ecology
 
-阿里[lowcode-engine](https://lowcode-engine.cn/)生态项目，基于 antd 组件库实现，包括 plugins、setters 和 materials。
+阿里[lowcode-engine](https://lowcode-engine.cn/)生态项目，基于 antd 和 formily 组件库实现，包括 plugins、setters 和 materials。
 
 ## 开发
 
