@@ -18,9 +18,6 @@ yarn
 demo 项目基于 umi4 实现，配置 alias 指向 packages 里面的包，修改 packages 里面的代码可以实现热更新调试。
 
 ```bash
-// 进入demo目录安装依赖
-cd demo && yarn
-
 // 在 demo 目录或者项目根目录执行 yarn start 启动 demo，打开lcoalhost:8000即可访问
 yarn start
 ```
