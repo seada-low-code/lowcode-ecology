@@ -1,6 +1,6 @@
 # formily materials
 
-这里是lowcode engine 的 formily antd资产包。用于表单搭建, 如果你对 formily 完全陌生，可以[在此](https://v2.formilyjs.org/zh-CN/guide)对 formily 进行快速学习。
+这里是 lowcode engine 的 formily antd 资产包。用于表单搭建, 如果你对 formily 完全陌生，可以[在此](https://v2.formilyjs.org/zh-CN/guide)对 formily 进行快速学习。
 
 ## how to use
 
@@ -11,17 +11,14 @@ npm install @seada/antd-plugins
 ```
 
 ```javascript
-import {PluginFormily} from '@seada/antd-plugins'
-import {
-  plugins,
-} from '@alilc/lowcode-engine'
-
+import { PluginFormily } from '@seada/antd-plugins';
+import { plugins } from '@alilc/lowcode-engine';
 
 async function registerPlugins() {
-  await plugins.register(PluginFormily)
+  await plugins.register(PluginFormily);
 }
 
-registerPlugins()
+registerPlugins();
 ```
 
 2. assets.json 中添加资产包
@@ -57,10 +54,9 @@ registerPlugins()
     }
   ]
 }
-
 ```
 
-> 资产包可以自行构建并上传至你的cdn，使用时替换链接即可。
+> 资产包可以自行构建并上传至你的 cdn，使用时替换链接即可。
 
 ## formily expand
 
