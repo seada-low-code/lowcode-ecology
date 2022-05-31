@@ -14,12 +14,12 @@
       "version": "0.1.1",
       "library": "SeadaFormilyMaterials",
       "urls": [
-        "https://cdn.scredit.sg/th/seada/live/react-components@0.1.2/lowcode/view.js",
-        "https://cdn.scredit.sg/th/seada/live/react-components@0.1.2/lowcode/view.css"
+        "https://cdn.jsdelivr.net/npm/@seada/formily-materials@latest/build/lowcode/view.js",
+        "https://cdn.jsdelivr.net/npm/@seada/formily-materials@latest/build/lowcode/view.css"
       ],
       "editUrls": [
-        "https://cdn.scredit.sg/th/seada/live/react-components@0.1.2/lowcode/view.js",
-        "https://cdn.scredit.sg/th/seada/live/react-components@0.1.2/lowcode/view.css"
+        "https://cdn.jsdelivr.net/npm/@seada/formily-materials@latest/build/lowcode/view.js",
+        "https://cdn.jsdelivr.net/npm/@seada/formily-materials@latest/build/lowcode/view.css"
       ]
     }
   ],
@@ -30,9 +30,9 @@
         "package": "@seada/formily-materials",
         "version": "0.1.1"
       },
-      "url": "https://cdn.scredit.sg/th/seada/live/react-components@0.1.2/lowcode/meta.js",
+      "url": "https://cdn.jsdelivr.net/npm/@seada/formily-materials@latest/build/lowcode/meta.js",
       "urls": {
-        "default": "https://cdn.scredit.sg/th/seada/live/react-components@0.1.2/lowcode/meta.js"
+        "default": "https://cdn.jsdelivr.net/npm/@seada/formily-materials@latest/build/lowcode/meta.js"
       }
     }
   ]

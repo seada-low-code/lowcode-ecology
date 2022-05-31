@@ -1,6 +1,5 @@
 {
   "name": "@seada/formily-materials",
-  "private": true,
   "version": "0.0.1-alpha.3",
   "description": "formily-materials",
   "main": "lib/index.js",
