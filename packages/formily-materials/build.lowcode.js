@@ -1,4 +1,5 @@
-import { name, version } from './package.json';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { name, version } = require('@ant-design/icons');
 
 const library = 'SeadaFormilyMaterials';
 
