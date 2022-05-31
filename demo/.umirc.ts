@@ -71,7 +71,7 @@ export default {
     'https://g.alicdn.com/platform/c/lodash/4.6.1/lodash.min.js',
     'https://g.alicdn.com/mylib/moment/2.24.0/min/moment.min.js',
     'https://g.alicdn.com/code/lib/alifd__next/1.23.24/next.min.js',
-    'https://cdn.scredit.sg/id/seada/test/engine-core.js',
+    'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.0.9-beta.8/dist/js/engine-core.js',
     'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@latest/dist/js/engine-ext.js'
   ]
 }
