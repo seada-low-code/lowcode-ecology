@@ -1660,7 +1660,23 @@
   dependencies:
     tslib "^2.1.0"
 
-"@formily/core@2.1.4", "@formily/core@^2.0.0-rc.3":
+"@formily/antd@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@formily/antd/-/antd-2.1.4.tgz#8836ebce4a14a3f4a18c7854e213d3f5c3d79cdb"
+  integrity sha512-SdJRHnGEiWN3gliMBcpu14VLlTzdjZUuPP7epbSL96KU1Y/eBul5B7q6gbRZ48/k3otTuMnm9DaEjsoiCBpoHA==
+  dependencies:
+    "@formily/core" "2.1.4"
+    "@formily/grid" "2.1.4"
+    "@formily/json-schema" "2.1.4"
+    "@formily/react" "2.1.4"
+    "@formily/reactive" "2.1.4"
+    "@formily/reactive-react" "2.1.4"
+    "@formily/shared" "2.1.4"
+    classnames "^2.2.6"
+    react-sortable-hoc "^1.11.0"
+    react-sticky-box "^1.0.2"
+
+"@formily/core@2.1.4", "@formily/core@^2.0.0-rc.3", "@formily/core@^2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@formily/core/-/core-2.1.4.tgz#9e315c3fef08d158224d0b2f97e1308bf2526812"
   integrity sha512-zvMDHhuJoki1JGjkGgK7IcV8edCvXXOzm8eNwT0TT4UbsvR4h6fQbhStw4MgVAJg/jliWYuHY/CSh4CdusxqIg==
@@ -1707,7 +1723,7 @@
   resolved "https://registry.yarnpkg.com/@formily/path/-/path-2.1.4.tgz#883ad88b59544d7aa08528984dc44322fd4e419d"
   integrity sha512-9eQ/G/fe/zsKcWhIHvX/70AVR3ZCfcCiOoZ60noiMRr/U5+k7rrPBYx82zgiIEG0YuiwIwi2XXcogdFX1VjPEA==
 
-"@formily/react@2.1.4", "@formily/react@^2.0.0-rc.3":
+"@formily/react@2.1.4", "@formily/react@^2.0.0-rc.3", "@formily/react@^2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@formily/react/-/react-2.1.4.tgz#c8f3ca1e7fa5e096c05b57e31156438203eb2560"
   integrity sha512-9nbdKqQSXWrisQIlfLk94xYGpmol0oJeP0Pg70HvwyY41pFojL8pUBdkZvpuO7X5IXeqlE/u7Bbzoo8XENLwkQ==
