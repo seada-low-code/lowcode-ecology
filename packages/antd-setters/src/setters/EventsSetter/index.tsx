@@ -154,7 +154,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
   }
 
   const handleOk = () => {
-    // TODO: 确认事件配置
+    // 如果是内置方法，校验表单
   }
 
   return (
