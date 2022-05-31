@@ -14,7 +14,8 @@ import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
 import {
   PluginSave,
   PluginSimulatorResizer,
-  PluginUndoRedo
+  PluginUndoRedo,
+  PluginFormily
 } from '@seada/antd-plugins'
 import {
   BoolSetter,
@@ -66,6 +67,8 @@ export default async function registerPlugins() {
   await plugins.register(PluginUndoRedo)
 
   await plugins.register(PluginSimulatorResizer)
+
+  await plugins.register(PluginFormily)
 
   const builtinPluginRegistry = (ctx: ILowCodePluginContext) => {
     return {
