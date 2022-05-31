@@ -5,8 +5,8 @@ import { ISchema } from '@formily/react'
 import { isStr } from '@formily/shared'
 import { createForm } from '@formily/core'
 import { Form } from '@formily/antd'
-import { SchemaField } from './SchemaField'
-import { EventsSetterHeader } from './EventsSetterHeader'
+import { SchemaField } from './components/SchemaField'
+import { Header } from './components/Header'
 import './index.less'
 
 interface IEventItem {
@@ -179,7 +179,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
         cancelText="取消"
       >
         <div className="events-setter__left">
-          <EventsSetterHeader title="1.触发事件" />
+          <Header title="1.触发事件" />
           {events.length ? (
             <ul className="list">
               {events.map((item) => {
@@ -203,7 +203,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
           )}
         </div>
         <div className="events-setter__middle">
-          <EventsSetterHeader title="2.执行动作" />
+          <Header title="2.执行动作" />
           {/* 选中了触发事件才显示动作列表 */}
           {selectedEvent ? (
             <div className="list-container">
@@ -254,7 +254,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
           )}
         </div>
         <div className="events-setter__right">
-          <EventsSetterHeader title="3.参数/代码配置" />
+          <Header title="3.参数/代码配置" />
           <div className="config-container">
             {/* 如果选中了动作，渲染配置表单；如果选中了自定义方法，渲染编辑器直接写代码 */}
             <Form form={form} labelAlign="left" size="small" labelWidth={80}>
