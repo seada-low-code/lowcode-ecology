@@ -1,5 +1,4 @@
-import { createFormItemSchema } from '../utils/formilyFieldShared';
-import { uuid } from '../../src/shared';
+import { uuid, createFormItemSchema } from '../utils';
 import { ISchema } from '@formily/react';
 
 const Switch: ISchema = {

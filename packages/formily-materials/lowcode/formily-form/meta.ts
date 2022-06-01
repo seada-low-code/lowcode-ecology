@@ -1,6 +1,6 @@
 import { snippets } from './snippets';
 import props from './propsSchema';
-import { uuid } from '../../src/shared';
+import { uuid } from '../utils';
 
 const FormilyFormMeta = {
   componentName: 'FormilyForm',

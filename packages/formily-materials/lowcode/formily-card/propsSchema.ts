@@ -1,5 +1,4 @@
-import { createVoidItemSchema } from '../utils/formilyFieldShared';
-import { uuid } from '../../src/shared';
+import { uuid, createVoidItemSchema } from '../utils';
 
 export const Card = {
   type: 'object',
