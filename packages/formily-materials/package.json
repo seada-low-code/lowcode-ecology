@@ -69,6 +69,6 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/@seada/formily-materials@0.1.47/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@seada/formily-materials@0.0.1-alpha.3/build/lowcode/assets-prod.json"
   }
 }
