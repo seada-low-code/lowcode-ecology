@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Button, Divider, Empty, Modal } from 'antd'
-import { PlusOutlined } from '@ant-design/icons'
+import { Button, Divider, Empty, Modal, Tooltip } from 'antd'
+import { CloseOutlined, PlusOutlined } from '@ant-design/icons'
 import { ISchema } from '@formily/react'
-import { isStr } from '@formily/shared'
+import { isArr, isStr } from '@formily/shared'
 import { createForm } from '@formily/core'
 import { Form } from '@formily/antd'
 import { SchemaField } from './components/SchemaField'
@@ -20,10 +20,15 @@ interface IDefinitionItem {
   list?: IEventItem[]
 }
 
+interface IValueItem {
+  eventName: string
+  actions: IAction[]
+}
+
 export interface IEventsSetterProps {
   definition: IDefinitionItem[]
-  value?: unknown
-  onChange?: (value?: unknown) => void
+  value?: IValueItem[]
+  onChange?: (value?: IValueItem[]) => void
 }
 
 export enum ActionType {
@@ -36,6 +41,7 @@ export interface IAction {
   name?: string
   desc?: string
   params?: ISchema
+  value?: any
 }
 
 // 内置动作，点击内置动作选项后渲染参数表单，表单使用 formily 渲染
@@ -172,11 +178,77 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
     setVisible(true)
   }
 
+  const handleEditAction = (
+    eventName: string,
+    index: number,
+    action: IAction
+  ) => {
+    setSelectedEvent(eventName)
+    setSelectedAction(action)
+    showModal()
+  }
+
+  const handleRemoveAction = (eventName: string, index: number) => {}
+
   /**
    * 渲染已经配置的动作列表
    */
   const renderActionList = () => {
-    return null
+    if (!isArr(value) || !value.length) {
+      return (
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无数据" />
+      )
+    }
+    return value.map((item) => {
+      const { eventName, actions } = item
+      return (
+        <div key={`event_${eventName}`} className="event-item">
+          <div className="event-name">{eventName}</div>
+          {actions.map((action, index) => {
+            const { type, name } = action
+            return type === 'custom' ? (
+              <div
+                className="action-item"
+                key={`action_${name}`}
+                onClick={() => handleEditAction(eventName, index, action)}
+              >
+                <div className="action-item__label">自定义代码</div>
+                <div
+                  className="action-item__action"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleRemoveAction(eventName, index)
+                  }}
+                >
+                  <Tooltip title="删除动作">
+                    <CloseOutlined />
+                  </Tooltip>
+                </div>
+              </div>
+            ) : (
+              <div
+                className="action-item"
+                key={`action_${index}`}
+                onClick={() => handleEditAction(eventName, index, action)}
+              >
+                <div className="action-item__label">{action.name}</div>
+                <div
+                  className="action-item__action"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleRemoveAction(eventName, index)
+                  }}
+                >
+                  <Tooltip title="删除动作">
+                    <CloseOutlined />
+                  </Tooltip>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      )
+    })
   }
 
   const handleSelectEvent = (eventName: string) => {
@@ -199,8 +271,20 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
     // 校验表单
     try {
       await form.validate()
-      // 校验通过，写值到动作列表
-      console.log('form value:', form.values)
+      // 校验通过
+      const { values } = form
+      if (curEditIndex === -1) {
+        // 往事件添加一个动作
+        onChange?.([
+          {
+            eventName: selectedEvent,
+            actions: [{ ...selectedAction, value: { ...values } }]
+          }
+        ])
+        hideModal()
+        return
+      }
+      // 此时是编辑动作，修改curEditIndex的值
     } catch (e) {
       console.error('校验失败：', e)
     }
