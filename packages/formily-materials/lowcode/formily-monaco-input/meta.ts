@@ -7,7 +7,7 @@ const FormilyInputMeta = {
   group: 'Formily',
   category: '输入组件',
   npm: {
-    package: '@seada/react-components',
+    package: '@seada/formily-materials',
     version: 'latest',
     exportName: 'FormilyMonacoInput',
     main: 'src/index.tsx',

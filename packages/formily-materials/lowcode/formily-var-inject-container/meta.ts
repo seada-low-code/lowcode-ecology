@@ -7,7 +7,7 @@ const FormilyInputMeta = {
   group: 'Formily',
   category: '变量组件',
   npm: {
-    package: '@seada/react-components',
+    package: '@seada/formily-materials',
     version: 'latest',
     exportName: 'FormilyVarInjectContainer',
     main: 'src/index.tsx',
