@@ -7,7 +7,7 @@ const FormilyInputMeta = {
   group: 'Formily',
   category: '自增组件',
   npm: {
-    package: '@seada/react-components',
+    package: '@seada/formily-materials',
     version: 'latest',
     exportName: 'FormilyArrayTable',
     main: 'src/index.tsx',

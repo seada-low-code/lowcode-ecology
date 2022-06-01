@@ -59,5 +59,5 @@ class MonacoInput extends Component<IMonacoInputProps, any> {
 
 export default createSchemaComponent({
   componentName: 'MonacoInput',
-  component: MonacoInput,
+  component: MonacoInput as any,
 });
