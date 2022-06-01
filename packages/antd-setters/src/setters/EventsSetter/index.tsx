@@ -52,7 +52,8 @@ const builtInActions: IAction[] = [
           type: 'string',
           title: 'url',
           'x-decorator': 'FormItem',
-          'x-component': 'Input'
+          'x-component': 'Input',
+          required: true
         },
         isBlank: {
           name: 'isBlank',
@@ -67,7 +68,20 @@ const builtInActions: IAction[] = [
   {
     type: ActionType.BuiltIn,
     name: 'message',
-    desc: '消息提示'
+    desc: '消息提示',
+    params: {
+      type: 'object',
+      properties: {
+        message: {
+          name: 'message',
+          type: 'string',
+          title: '消息内容',
+          'x-decorator': 'FormItem',
+          'x-component': 'Input',
+          required: true
+        }
+      }
+    }
   },
   {
     type: ActionType.BuiltIn,
@@ -78,6 +92,34 @@ const builtInActions: IAction[] = [
     type: ActionType.BuiltIn,
     name: 'openModal ',
     desc: '打开弹窗'
+  }
+]
+
+const customActions: IAction[] = [
+  {
+    type: ActionType.Custom,
+    name: 'custom',
+    desc: '自定义代码',
+    params: {
+      type: 'object',
+      properties: {
+        name: {
+          name: 'name',
+          type: 'string',
+          title: '动作名称',
+          'x-decorator': 'FormItem',
+          'x-component': 'Input',
+          required: true
+        },
+        isSetExtendParams: {
+          name: 'isSetExtendParams',
+          type: 'boolean',
+          title: '扩展参数设置',
+          'x-decorator': 'FormItem',
+          'x-component': 'Switch'
+        }
+      }
+    }
   }
 ]
 
@@ -153,8 +195,15 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
     setVisible(false)
   }
 
-  const handleOk = () => {
-    // 如果是内置方法，校验表单
+  const handleOk = async () => {
+    // 校验表单
+    try {
+      await form.validate()
+      // 校验通过，写值到动作列表
+      console.log('form value:', form.values)
+    } catch (e) {
+      console.error('校验失败：', e)
+    }
   }
 
   return (
@@ -224,7 +273,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
                       onClick={() => handleSelectAction(item)}
                       key={`built_in_${name}`}
                     >
-                      {desc || 'name'}
+                      {desc || name}
                     </li>
                   )
                 })}
@@ -238,9 +287,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
                       ? 'is-selected'
                       : ''
                   }`}
-                  onClick={() =>
-                    handleSelectAction({ type: ActionType.Custom })
-                  }
+                  onClick={() => handleSelectAction(customActions[0])}
                 >
                   自定义代码
                 </li>
@@ -255,15 +302,21 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
         </div>
         <div className="events-setter__right">
           <Header title="3.参数/代码配置" />
-          <div className="config-container">
-            {/* 如果选中了动作，渲染配置表单；如果选中了自定义方法，渲染编辑器直接写代码 */}
-            <Form form={form} labelAlign="left" size="small" labelWidth={80}>
-              <SchemaField
-                components={{ Empty }}
-                schema={selectedAction?.params || {}}
-              />
-            </Form>
-          </div>
+          {!selectedAction?.params ? (
+            <Empty
+              image={Empty.PRESENTED_IMAGE_SIMPLE}
+              description={!selectedAction ? '请选择执行动作' : '暂无配置项'}
+            />
+          ) : (
+            <div className="config-container">
+              <Form form={form} labelAlign="left" size="small" labelWidth={80}>
+                <SchemaField
+                  components={{ Empty }}
+                  schema={selectedAction?.params || {}}
+                />
+              </Form>
+            </div>
+          )}
         </div>
       </Modal>
     </>
