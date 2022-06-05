@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Button, Collapse, Divider, Empty, Modal, Tooltip } from 'antd'
-import { CloseOutlined, PlusOutlined } from '@ant-design/icons'
+import { Button, Collapse, Divider, Empty, message, Modal, Tooltip } from 'antd'
+import { DeleteOutlined, PlusOutlined } from '@ant-design/icons'
 import { ISchema } from '@formily/react'
 import { isArr, isStr } from '@formily/shared'
 import { createForm } from '@formily/core'
 import { Form } from '@formily/antd'
+import { cloneDeep } from 'lodash'
 import { SchemaField } from './components/SchemaField'
 import { Header } from './components/Header'
 import './index.less'
@@ -149,7 +150,13 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
   >([])
   const [curEditIndex, setCurEditIndex] = useState<number>(-1)
 
-  const form = useMemo(() => createForm(), [selectedAction])
+  const form = useMemo(
+    () =>
+      createForm({
+        values: selectedAction?.value
+      }),
+    [selectedAction]
+  )
 
   useEffect(() => {
     // 初始化事件列表
@@ -187,6 +194,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
   ) => {
     setSelectedEvent(eventName)
     setSelectedAction(action)
+    setCurEditIndex(index)
     showModal()
   }
 
@@ -224,7 +232,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
                       }}
                     >
                       <Tooltip title="删除动作">
-                        <CloseOutlined />
+                        <DeleteOutlined />
                       </Tooltip>
                     </div>
                   </div>
@@ -243,7 +251,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
                       }}
                     >
                       <Tooltip title="删除动作">
-                        <CloseOutlined />
+                        <DeleteOutlined />
                       </Tooltip>
                     </div>
                   </div>
@@ -278,18 +286,32 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
       await form.validate()
       // 校验通过
       const { values } = form
-      if (curEditIndex === -1) {
-        // 往事件添加一个动作
+      const action: IAction = { ...selectedAction, value: { ...values } }
+      if (!isArr(value) || value.length === 0) {
         onChange?.([
           {
             eventName: selectedEvent,
-            actions: [{ ...selectedAction, value: { ...values } }]
+            actions: [action]
           }
         ])
         hideModal()
         return
       }
-      // 此时是编辑动作，修改curEditIndex的值
+      const copiedVal = cloneDeep(value)
+      const idx = copiedVal.findIndex((val) => val.eventName === selectedEvent)
+      if (idx === -1) {
+        message.error(`Cannot find event ${selectedEvent}`)
+        return
+      }
+      if (curEditIndex === -1) {
+        // 往对应事件添加一个动作
+        copiedVal[idx].actions.push(action)
+      } else {
+        // 此时是编辑动作，修改curEditIndex的值
+        copiedVal[idx].actions[curEditIndex] = action
+      }
+      onChange?.(copiedVal)
+      hideModal()
     } catch (e) {
       console.error('校验失败：', e)
     }
