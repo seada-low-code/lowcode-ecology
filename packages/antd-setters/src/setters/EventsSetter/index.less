@@ -70,7 +70,6 @@
     align-items: center;
     line-height: 32px;
     padding: 0 16px;
-    cursor: pointer;
     &:hover {
       background-color: #f1f2f5;
     }
@@ -80,6 +79,9 @@
       font-size: 12px !important;
     }
     &__action {
+      .anticon:not(:last-of-type) {
+        margin-right: 12px;
+      }
       svg {
         color: rgba(0, 0, 0, 0.6);
         font-size: 12px;

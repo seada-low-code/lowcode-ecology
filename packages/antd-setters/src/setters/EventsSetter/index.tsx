@@ -1,6 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Button, Collapse, Divider, Empty, Modal, Tooltip } from 'antd'
-import { DeleteOutlined, PlusOutlined } from '@ant-design/icons'
+import {
+  Button,
+  Collapse,
+  Divider,
+  Empty,
+  Modal,
+  Tooltip,
+  Popconfirm
+} from 'antd'
+import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons'
 import { ISchema } from '@formily/react'
 import { isArr, isStr } from '@formily/shared'
 import { createForm } from '@formily/core'
@@ -198,7 +206,15 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
     showModal()
   }
 
-  const handleRemoveAction = (eventName: string, index: number) => {}
+  const handleRemoveAction = (eventIdx: number, actionIdx: number) => {
+    const copied = cloneDeep(value)
+    copied[eventIdx].actions.splice(actionIdx)
+    if (!copied[eventIdx].actions.length) {
+      // 如果把所有的动作都删除了，这个事件也删除掉
+      copied.splice(eventIdx)
+    }
+    onChange?.(copied)
+  }
 
   /**
    * 渲染已经配置的动作列表
@@ -211,48 +227,31 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
     }
     return (
       <Collapse>
-        {value.map((item) => {
+        {value.map((item, eventIdx) => {
           const { eventName, actions } = item
           return (
             <Panel header={eventName} key={`event_${eventName}`}>
-              {actions.map((action, index) => {
-                const { type, name } = action
-                return type === 'custom' ? (
-                  <div
-                    className="action-item"
-                    key={`action_${name}`}
-                    onClick={() => handleEditAction(eventName, index, action)}
-                  >
-                    <div className="action-item__label">自定义代码</div>
-                    <div
-                      className="action-item__action"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        handleRemoveAction(eventName, index)
-                      }}
-                    >
-                      <Tooltip title="删除动作">
-                        <DeleteOutlined />
-                      </Tooltip>
-                    </div>
-                  </div>
-                ) : (
-                  <div
-                    className="action-item"
-                    key={`action_${index}`}
-                    onClick={() => handleEditAction(eventName, index, action)}
-                  >
+              {actions.map((action, actionIdx) => {
+                const { name } = action
+                return (
+                  <div className="action-item" key={`action_${name}`}>
                     <div className="action-item__label">{action.name}</div>
-                    <div
-                      className="action-item__action"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        handleRemoveAction(eventName, index)
-                      }}
-                    >
-                      <Tooltip title="删除动作">
+                    <div className="action-item__action">
+                      <EditOutlined
+                        onClick={() =>
+                          handleEditAction(eventName, actionIdx, action)
+                        }
+                      />
+                      <Popconfirm
+                        title="确认删除吗?"
+                        placement="topRight"
+                        onConfirm={(e) => {
+                          e.stopPropagation()
+                          handleRemoveAction(eventIdx, actionIdx)
+                        }}
+                      >
                         <DeleteOutlined />
-                      </Tooltip>
+                      </Popconfirm>
                     </div>
                   </div>
                 )
@@ -287,26 +286,26 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
       // 校验通过
       const { values } = form
       const action: IAction = { ...selectedAction, value: { ...values } }
-      const copiedVal = cloneDeep(value) || []
-      const idx = copiedVal.findIndex((val) => val.eventName === selectedEvent)
+      const copied = cloneDeep(value) || []
+      const idx = copied.findIndex((val) => val.eventName === selectedEvent)
       if (idx === -1) {
         // 新增一个事件
-        copiedVal.push({
+        copied.push({
           eventName: selectedEvent,
           actions: [action]
         })
-        onChange?.(copiedVal)
+        onChange?.(copied)
         hideModal()
         return
       }
       if (curEditIndex === -1) {
         // 往对应事件添加一个动作
-        copiedVal[idx].actions.push(action)
+        copied[idx].actions.push(action)
       } else {
         // 此时是编辑动作，修改curEditIndex的值
-        copiedVal[idx].actions[curEditIndex] = action
+        copied[idx].actions[curEditIndex] = action
       }
-      onChange?.(copiedVal)
+      onChange?.(copied)
       hideModal()
     } catch (e) {
       console.error('校验失败：', e)
