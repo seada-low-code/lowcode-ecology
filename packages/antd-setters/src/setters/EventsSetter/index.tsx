@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Button, Divider, Empty, Modal, Tooltip } from 'antd'
+import { Button, Collapse, Divider, Empty, Modal, Tooltip } from 'antd'
 import { CloseOutlined, PlusOutlined } from '@ant-design/icons'
 import { ISchema } from '@formily/react'
 import { isArr, isStr } from '@formily/shared'
@@ -8,6 +8,8 @@ import { Form } from '@formily/antd'
 import { SchemaField } from './components/SchemaField'
 import { Header } from './components/Header'
 import './index.less'
+
+const { Panel } = Collapse
 
 interface IEventItem {
   name: string
@@ -147,7 +149,7 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
   >([])
   const [curEditIndex, setCurEditIndex] = useState<number>(-1)
 
-  const form = useMemo(() => createForm(), [])
+  const form = useMemo(() => createForm(), [selectedAction])
 
   useEffect(() => {
     // 初始化事件列表
@@ -199,56 +201,59 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
         <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无数据" />
       )
     }
-    return value.map((item) => {
-      const { eventName, actions } = item
-      return (
-        <div key={`event_${eventName}`} className="event-item">
-          <div className="event-name">{eventName}</div>
-          {actions.map((action, index) => {
-            const { type, name } = action
-            return type === 'custom' ? (
-              <div
-                className="action-item"
-                key={`action_${name}`}
-                onClick={() => handleEditAction(eventName, index, action)}
-              >
-                <div className="action-item__label">自定义代码</div>
-                <div
-                  className="action-item__action"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    handleRemoveAction(eventName, index)
-                  }}
-                >
-                  <Tooltip title="删除动作">
-                    <CloseOutlined />
-                  </Tooltip>
-                </div>
-              </div>
-            ) : (
-              <div
-                className="action-item"
-                key={`action_${index}`}
-                onClick={() => handleEditAction(eventName, index, action)}
-              >
-                <div className="action-item__label">{action.name}</div>
-                <div
-                  className="action-item__action"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    handleRemoveAction(eventName, index)
-                  }}
-                >
-                  <Tooltip title="删除动作">
-                    <CloseOutlined />
-                  </Tooltip>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      )
-    })
+    return (
+      <Collapse>
+        {value.map((item) => {
+          const { eventName, actions } = item
+          return (
+            <Panel header={eventName} key={`event_${eventName}`}>
+              {actions.map((action, index) => {
+                const { type, name } = action
+                return type === 'custom' ? (
+                  <div
+                    className="action-item"
+                    key={`action_${name}`}
+                    onClick={() => handleEditAction(eventName, index, action)}
+                  >
+                    <div className="action-item__label">自定义代码</div>
+                    <div
+                      className="action-item__action"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleRemoveAction(eventName, index)
+                      }}
+                    >
+                      <Tooltip title="删除动作">
+                        <CloseOutlined />
+                      </Tooltip>
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    className="action-item"
+                    key={`action_${index}`}
+                    onClick={() => handleEditAction(eventName, index, action)}
+                  >
+                    <div className="action-item__label">{action.name}</div>
+                    <div
+                      className="action-item__action"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleRemoveAction(eventName, index)
+                      }}
+                    >
+                      <Tooltip title="删除动作">
+                        <CloseOutlined />
+                      </Tooltip>
+                    </div>
+                  </div>
+                )
+              })}
+            </Panel>
+          )
+        })}
+      </Collapse>
+    )
   }
 
   const handleSelectEvent = (eventName: string) => {
