@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Button, Collapse, Divider, Empty, message, Modal, Tooltip } from 'antd'
+import { Button, Collapse, Divider, Empty, Modal, Tooltip } from 'antd'
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons'
 import { ISchema } from '@formily/react'
 import { isArr, isStr } from '@formily/shared'
@@ -287,20 +287,16 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
       // 校验通过
       const { values } = form
       const action: IAction = { ...selectedAction, value: { ...values } }
-      if (!isArr(value) || value.length === 0) {
-        onChange?.([
-          {
-            eventName: selectedEvent,
-            actions: [action]
-          }
-        ])
-        hideModal()
-        return
-      }
-      const copiedVal = cloneDeep(value)
+      const copiedVal = cloneDeep(value) || []
       const idx = copiedVal.findIndex((val) => val.eventName === selectedEvent)
       if (idx === -1) {
-        message.error(`Cannot find event ${selectedEvent}`)
+        // 新增一个事件
+        copiedVal.push({
+          eventName: selectedEvent,
+          actions: [action]
+        })
+        onChange?.(copiedVal)
+        hideModal()
         return
       }
       if (curEditIndex === -1) {
