@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1-alpha.4",
+  "version": "0.0.1-alpha.5",
   "useWorkspaces": true,
   "npmClient": "yarn",
   "npmClientArgs": ["--ignore-engines", "--no-package-lock"],
@@ -9,5 +9,8 @@
       "exact": true,
       "message": "chore(versions): 😊 publish %s"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
