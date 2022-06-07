@@ -1,15 +1,14 @@
 {
   "name": "@seada/antd-materials",
-  "version": "0.0.1-alpha.3",
+  "version": "0.0.1-alpha.4",
   "description": "",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "scripts": {
     "start": "build-scripts start",
-    "build": "build-scripts build",
+    "build": "npm run lowcode:build",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js --port 5551",
-    "lowcode:build": "build-scripts build --config ./build.lowcode.js",
-    "prepublishOnly": "npm run build && npm run lowcode:build"
+    "lowcode:build": "build-scripts build --config ./build.lowcode.js"
   },
   "keywords": [],
   "author": "",
