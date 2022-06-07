@@ -1,6 +1,6 @@
 {
   "name": "@seada/antd-setters",
-  "version": "0.0.1-alpha.5",
+  "version": "0.0.1-alpha.6",
   "description": "",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -24,5 +24,5 @@
     "@monaco-editor/react": "^4.4.5",
     "monaco-editor": "^0.33.0"
   },
-  "gitHead": "43b99d3107b3604039a2fdd4009028449941f78e"
+  "gitHead": "eea735f466b0184f3a4be074574e5668f0908b06"
 }
