@@ -3,6 +3,7 @@ yarn-error.log
 dist
 lib
 esm
+es
 package-lock.json
 .tmp
 build
