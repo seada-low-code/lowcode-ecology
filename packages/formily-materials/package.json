@@ -71,5 +71,8 @@
     "isComponentLibrary": true,
     "materialSchema": "https://unpkg.com/@seada/formily-materials@0.0.1-alpha.5/build/lowcode/assets-prod.json"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "gitHead": "eea735f466b0184f3a4be074574e5668f0908b06"
 }
