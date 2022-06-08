@@ -15,7 +15,6 @@ const LowcodePluginFormily = (ctx: ILowCodePluginContext) => {
       // 设置component name属性
       project.currentDocument.onAddNode((node) => {
         node.setPropValue('__component_name', node.componentName)
-        console.log('node', node)
       })
     }
   }
