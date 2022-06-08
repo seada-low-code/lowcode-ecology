@@ -13,7 +13,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@alilc/lowcode-engine": "^1.0.6"
+    "@alilc/lowcode-engine": "^1.0.9"
   },
   "dependencies": {
     "@seada/antd-setters": "0.0.1-alpha.7"

@@ -12,10 +12,10 @@ import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
 import {
+  PluginFormily,
   PluginSave,
   PluginSimulatorResizer,
-  PluginUndoRedo,
-  PluginFormily
+  PluginUndoRedo
 } from '@seada/antd-plugins'
 import {
   BoolSetter,
@@ -23,6 +23,7 @@ import {
   NumberSetter,
   RadioGroupSetter,
   SelectSetter,
+  SlotSetter,
   StringSetter,
   TextAreaSetter
 } from '@seada/antd-setters'
@@ -128,6 +129,8 @@ export default async function registerPlugins() {
       component: RadioGroupSetter,
       isDynamic: false
     } as RegisteredSetter
+
+    setterMap.SlotSetter = SlotSetter as any
 
     return {
       name: 'ext-setters-registry',
