@@ -122,6 +122,23 @@
     semver "^7.3.5"
     zen-logger "^1.1.0"
 
+"@alilc/lowcode-designer@1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-designer/-/lowcode-designer-1.0.9.tgz#5854b3fc17b2d1d7719342466ce7b87fe45cd201"
+  integrity sha512-y94AooT09e/IMhZK853MhjA+jQWeP2xCyJ3cEFJ6U7ooBoXPTgh4Jx5gdc/P2CHMRqMcmG+JMR60wmh3DG7QpA==
+  dependencies:
+    "@alilc/lowcode-editor-core" "1.0.9"
+    "@alilc/lowcode-shell" "1.0.9"
+    "@alilc/lowcode-types" "1.0.9"
+    "@alilc/lowcode-utils" "1.0.9"
+    classnames "^2.2.6"
+    enzyme "^3.11.0"
+    enzyme-adapter-react-16 "^1.15.5"
+    react "^16"
+    react-dom "^16.7.0"
+    semver "^7.3.5"
+    zen-logger "^1.1.0"
+
 "@alilc/lowcode-editor-core@1.0.8":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@alilc/lowcode-editor-core/-/lowcode-editor-core-1.0.8.tgz#4ca5392248d43e6c40412de059fc46c8baccf102"
@@ -130,6 +147,26 @@
     "@alifd/next" "^1.19.16"
     "@alilc/lowcode-types" "1.0.8"
     "@alilc/lowcode-utils" "1.0.8"
+    classnames "^2.2.6"
+    debug "^4.1.1"
+    intl-messageformat "^9.3.1"
+    lodash.get "^4.4.2"
+    mobx "^6.3.0"
+    mobx-react "^7.2.0"
+    power-di "^2.2.4"
+    react "^16"
+    react-dom "^16.7.0"
+    store "^2.0.12"
+    zen-logger "^1.1.0"
+
+"@alilc/lowcode-editor-core@1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-editor-core/-/lowcode-editor-core-1.0.9.tgz#b282a62a2d032c216805e4f9e449e4235c23298d"
+  integrity sha512-szjjl/Tt57qC00cf+eilZppR2IWSTa8LvPQCUhTT1FliQlxmMm2d0nczznUtHN01hSsKuob1svg20Ila50aggg==
+  dependencies:
+    "@alifd/next" "^1.19.16"
+    "@alilc/lowcode-types" "1.0.9"
+    "@alilc/lowcode-utils" "1.0.9"
     classnames "^2.2.6"
     debug "^4.1.1"
     intl-messageformat "^9.3.1"
@@ -152,6 +189,20 @@
     "@alilc/lowcode-editor-core" "1.0.8"
     "@alilc/lowcode-types" "1.0.8"
     "@alilc/lowcode-utils" "1.0.8"
+    classnames "^2.2.6"
+    react "^16.8.1"
+    react-dom "^16.8.1"
+
+"@alilc/lowcode-editor-skeleton@1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-editor-skeleton/-/lowcode-editor-skeleton-1.0.9.tgz#15d679ba8f014fb8becc1bd28388a6bfb20c0efc"
+  integrity sha512-h/8MhDYiyA0gLMNGIU7JqAMpEQvtpIpVsN6VcJKgxH5B2khF291wCGB+JuOW33aneE56AAdOWekttPI3TGO59w==
+  dependencies:
+    "@alifd/next" "^1.20.12"
+    "@alilc/lowcode-designer" "1.0.9"
+    "@alilc/lowcode-editor-core" "1.0.9"
+    "@alilc/lowcode-types" "1.0.9"
+    "@alilc/lowcode-utils" "1.0.9"
     classnames "^2.2.6"
     react "^16.8.1"
     react-dom "^16.8.1"
@@ -183,6 +234,23 @@
     "@alilc/lowcode-plugin-outline-pane" "1.0.8"
     "@alilc/lowcode-shell" "1.0.8"
     "@alilc/lowcode-utils" "1.0.8"
+    react "^16.8.1"
+    react-dom "^16.8.1"
+
+"@alilc/lowcode-engine@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-engine/-/lowcode-engine-1.0.9.tgz#8e4d8a97d58507808fa9a96babdadc830a30f799"
+  integrity sha512-XP7PTVSh0wo59AUtd6D5LVkhzqPAa5v8XFO/RvGw3z6tKwNQiXw/pzK1TUu01KYbzSdnZBTVlcUBxHhgp+1Euw==
+  dependencies:
+    "@alifd/next" "^1.19.12"
+    "@alilc/lowcode-designer" "1.0.9"
+    "@alilc/lowcode-editor-core" "1.0.9"
+    "@alilc/lowcode-editor-skeleton" "1.0.9"
+    "@alilc/lowcode-engine-ext" "^1.0.0"
+    "@alilc/lowcode-plugin-designer" "1.0.9"
+    "@alilc/lowcode-plugin-outline-pane" "1.0.9"
+    "@alilc/lowcode-shell" "1.0.9"
+    "@alilc/lowcode-utils" "1.0.9"
     react "^16.8.1"
     react-dom "^16.8.1"
 
@@ -289,6 +357,17 @@
     react "^16.8.1"
     react-dom "^16.8.1"
 
+"@alilc/lowcode-plugin-designer@1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-plugin-designer/-/lowcode-plugin-designer-1.0.9.tgz#48723b5b65959cf8b09315bb76c453a29617f4ed"
+  integrity sha512-Pbl2dQJg31cEhtBZhmHMQ7FoyBt9gfsqbr96WD2b7DSbLXEiTbZsGzqMJx1t9sysMNZkqQxZigK66Z3G0CKUqw==
+  dependencies:
+    "@alilc/lowcode-designer" "1.0.9"
+    "@alilc/lowcode-editor-core" "1.0.9"
+    "@alilc/lowcode-utils" "1.0.9"
+    react "^16.8.1"
+    react-dom "^16.8.1"
+
 "@alilc/lowcode-plugin-inject@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@alilc/lowcode-plugin-inject/-/lowcode-plugin-inject-1.0.0.tgz#d349aced366a619811e6cecf699265df63953a79"
@@ -316,6 +395,20 @@
     "@alilc/lowcode-editor-core" "1.0.8"
     "@alilc/lowcode-types" "1.0.8"
     "@alilc/lowcode-utils" "1.0.8"
+    classnames "^2.2.6"
+    react "^16"
+    react-dom "^16.7.0"
+
+"@alilc/lowcode-plugin-outline-pane@1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-plugin-outline-pane/-/lowcode-plugin-outline-pane-1.0.9.tgz#2208d149845ea851879a10e29822ec3964e45f60"
+  integrity sha512-avClKc8HJ+6iNqol3qKEFzQ4jsgqxGAfLKSqMp8X/3t6bXVLC/rVd2SHpBjPdULIgTECZQCvgBvLIM3Wui8BXQ==
+  dependencies:
+    "@alifd/next" "^1.19.16"
+    "@alilc/lowcode-designer" "1.0.9"
+    "@alilc/lowcode-editor-core" "1.0.9"
+    "@alilc/lowcode-types" "1.0.9"
+    "@alilc/lowcode-utils" "1.0.9"
     classnames "^2.2.6"
     react "^16"
     react-dom "^16.7.0"
@@ -424,6 +517,23 @@
     react-dom "^16.7.0"
     zen-logger "^1.1.0"
 
+"@alilc/lowcode-shell@1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-shell/-/lowcode-shell-1.0.9.tgz#f41527f97325f38a4e59aa7ec94e835de92a4ea6"
+  integrity sha512-49sqqzissp4NX3PcfaSHlcLDDH5h88WY4nXTqNtXIXIqFSje8qQZGnzzFR99idbGwbnNREcVwlzjw1pKYwgPVA==
+  dependencies:
+    "@alilc/lowcode-designer" "1.0.9"
+    "@alilc/lowcode-editor-core" "1.0.9"
+    "@alilc/lowcode-editor-skeleton" "1.0.9"
+    "@alilc/lowcode-types" "1.0.9"
+    "@alilc/lowcode-utils" "1.0.9"
+    classnames "^2.2.6"
+    enzyme "^3.11.0"
+    enzyme-adapter-react-16 "^1.15.5"
+    react "^16"
+    react-dom "^16.7.0"
+    zen-logger "^1.1.0"
+
 "@alilc/lowcode-types@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@alilc/lowcode-types/-/lowcode-types-1.0.0.tgz#2b655fb898eea2098703e23d8e80a125d5570d14"
@@ -437,6 +547,15 @@
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@alilc/lowcode-types/-/lowcode-types-1.0.8.tgz#563261a2bc28bb17ba46d1d0eb76af4980739d31"
   integrity sha512-skGx08ZypVIucjyNoZu+WqzuL6EQ71pDovVUuCy+Qf7SDL1kl5YmjR6mHKXGVfUT0LnSIgNfv3ZXqW0jXoOYNw==
+  dependencies:
+    "@alilc/lowcode-datasource-types" "^1.0.0"
+    react "^16.9"
+    strict-event-emitter-types "^2.0.0"
+
+"@alilc/lowcode-types@1.0.9", "@alilc/lowcode-types@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-types/-/lowcode-types-1.0.9.tgz#27ffbf818e8e50cdd7583ad14b6c39284aca472d"
+  integrity sha512-BrsqwrlommFKCS0cIvTkcNmmvreva0CgxnPWO4HXl2YWmJdK02IMAIESp0kTBtG5+qxHAR+5gXvJFC+yo8Rung==
   dependencies:
     "@alilc/lowcode-datasource-types" "^1.0.0"
     react "^16.9"
@@ -460,6 +579,17 @@
   dependencies:
     "@alifd/next" "^1.19.16"
     "@alilc/lowcode-types" "1.0.8"
+    lodash "^4.17.21"
+    react "^16"
+    zen-logger "^1.1.0"
+
+"@alilc/lowcode-utils@1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-utils/-/lowcode-utils-1.0.9.tgz#b836801477c7a861f844fc7c4940cad1196706af"
+  integrity sha512-N/HDfxrHOKoQCPwqLY8VQphedO7HskOR54MWoW8+9YV4WFnhCMme0Z0Hn6vfnaT77WKklqivVrLbz5qSpCbQvQ==
+  dependencies:
+    "@alifd/next" "^1.19.16"
+    "@alilc/lowcode-types" "1.0.9"
     lodash "^4.17.21"
     react "^16"
     zen-logger "^1.1.0"

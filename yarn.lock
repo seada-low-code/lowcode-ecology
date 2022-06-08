@@ -449,7 +449,7 @@
     react "^16.9"
     strict-event-emitter-types "^2.0.0"
 
-"@alilc/lowcode-types@1.0.9":
+"@alilc/lowcode-types@1.0.9", "@alilc/lowcode-types@^1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@alilc/lowcode-types/-/lowcode-types-1.0.9.tgz#27ffbf818e8e50cdd7583ad14b6c39284aca472d"
   integrity sha512-BrsqwrlommFKCS0cIvTkcNmmvreva0CgxnPWO4HXl2YWmJdK02IMAIESp0kTBtG5+qxHAR+5gXvJFC+yo8Rung==
