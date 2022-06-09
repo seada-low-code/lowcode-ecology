@@ -9,9 +9,12 @@
 
 ## how to use
 
-1. 安装注册插件
+1. 安装注册插件以及依赖
 
 ```
+// formily相关依赖
+npm install @formily/core @formily/react antd moment @formily/antd
+// plugin
 npm install @seada/antd-plugins
 ```
 
@@ -19,11 +22,12 @@ npm install @seada/antd-plugins
 import { PluginFormily } from '@seada/antd-plugins';
 import { plugins } from '@alilc/lowcode-engine';
 
-async function registerPlugins() {
+async function registerFormilyPlugins() {
   await plugins.register(PluginFormily);
 }
 
-registerPlugins();
+// 在其他插件注册后后执行
+registerFormilyPlugins();
 ```
 
 2. assets.json 中添加资产包
