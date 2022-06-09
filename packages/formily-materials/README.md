@@ -26,7 +26,6 @@ async function registerFormilyPlugins() {
   await plugins.register(PluginFormily);
 }
 
-// 在其他插件注册后后执行
 registerFormilyPlugins();
 ```
 

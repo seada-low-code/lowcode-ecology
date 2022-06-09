@@ -12,8 +12,14 @@ const LowcodePluginFormily = (ctx: ILowCodePluginContext) => {
       const { setters, project } = ctx
       setters.registerSetter({ FormilySchemaSetter })
 
+      project.onChangeDocument((doc) => {
+        doc.onAddNode((node) => {
+          node.setPropValue('__component_name', node.componentName)
+        })
+      })
+
       // 设置component name属性
-      project.currentDocument.onAddNode((node) => {
+      project.currentDocument?.onAddNode((node) => {
         node.setPropValue('__component_name', node.componentName)
       })
     }
