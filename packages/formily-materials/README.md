@@ -2,6 +2,11 @@
 
 这里是 lowcode engine 的 formily antd 资产包。用于表单搭建, 如果你对 formily 完全陌生，可以[在此](https://v2.formilyjs.org/zh-CN/guide)对 formily 进行快速学习。
 
+## demo
+
+1. 进入 lowcode-ecology 根目录
+2. yarn start
+
 ## how to use
 
 1. 安装注册插件

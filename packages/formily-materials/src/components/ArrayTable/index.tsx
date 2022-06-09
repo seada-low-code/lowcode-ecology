@@ -15,6 +15,7 @@ import {
 } from '../../shared';
 import { ArrayTablePreview } from './preview';
 
+// todo refactor
 const FormilyArrayTable: React.FC<IFormItemProps> = syncUI((props) => {
   const form = useForm();
 
