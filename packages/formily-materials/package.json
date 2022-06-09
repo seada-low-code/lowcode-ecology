@@ -69,7 +69,7 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/@seada/formily-materials@0.0.1-alpha.5/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@seada/formily-materials@0.0.1-alpha.7/build/lowcode/assets-prod.json"
   },
   "publishConfig": {
     "access": "public"
