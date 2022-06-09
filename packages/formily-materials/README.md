@@ -9,7 +9,7 @@ formily materials 是 lowcode engine 的 formily antd 资产包，用于表单�
 
 ## how to use
 
-1. 安装注册插件以及依赖
+1. 安装依赖以及注册插件
 
 ```
 // formily相关依赖
