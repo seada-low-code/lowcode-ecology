@@ -85,4 +85,5 @@ registerFormilyPlugins();
 ## Contributors
 
 因无法保留开源前的提交记录，这里列出开源前的贡献者：
-@icecxh @twinkle77
+
+@icecxh @twinkle77 @LysKing @haloworld007

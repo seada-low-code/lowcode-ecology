@@ -12,6 +12,10 @@ import { Select } from './Select'
 import { TreeSelect } from './TreeSelect'
 import { Switch } from './Switch'
 import { NumberPicker } from './NumberPicker'
+import { Space } from './Space'
+import { Transfer } from './Transfer'
+import { Upload, UploadDragger } from './Upload'
+import { FormLayout } from './FormLayout'
 
 GlobalRegistry.registerDesignerLocales(Component)
 GlobalRegistry.registerDesignerLocales(TextArea)
@@ -26,3 +30,8 @@ GlobalRegistry.registerDesignerLocales(Select)
 GlobalRegistry.registerDesignerLocales(TreeSelect)
 GlobalRegistry.registerDesignerLocales(Switch)
 GlobalRegistry.registerDesignerLocales(NumberPicker)
+GlobalRegistry.registerDesignerLocales(Space)
+GlobalRegistry.registerDesignerLocales(Transfer)
+GlobalRegistry.registerDesignerLocales(Upload)
+GlobalRegistry.registerDesignerLocales(UploadDragger)
+GlobalRegistry.registerDesignerLocales(FormLayout)
