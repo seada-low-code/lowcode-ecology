@@ -1,4 +1,18 @@
+import { isStr } from '@formily/shared';
 export * from './componentToSchema';
+
+// {{expression}}正则表达式
+export const EXP_RE = /^\s*\{\{([\s\S]*)\}\}\s*$/;
+
+/**
+ * 判断是否为 {{expression}} 这样的表达式
+ * @param value
+ * @returns
+ */
+export const isExpression = (exp: unknown) => {
+  if (!isStr(exp)) return false;
+  return EXP_RE.test(exp);
+};
 
 export const matchComponent = (node, name: string | ((name: string) => boolean)) => {
   const { componentName } = node;

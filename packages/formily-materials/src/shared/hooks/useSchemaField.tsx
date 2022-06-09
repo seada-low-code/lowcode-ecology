@@ -1,5 +1,5 @@
 import { createSchemaField } from '@formily/react';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { FormItem } from '@formily/antd';
 
 export default (componentsSet: Set<string>, defaultComponent?: any) => {
@@ -14,16 +14,18 @@ export default (componentsSet: Set<string>, defaultComponent?: any) => {
     importComponents[componentName] = components[item] || components[componentName];
   });
 
-  const SchemaField = createSchemaField({
-    components: {
-      FormItem,
-      ...importComponents,
-      ...defaultComponent,
-    },
-    scope: {
-      $this: pageContext,
-    },
-  });
+  const SchemaField = useMemo(() => {
+    return createSchemaField({
+      components: {
+        FormItem,
+        ...importComponents,
+        ...defaultComponent,
+      },
+      scope: {
+        $this: pageContext,
+      },
+    });
+  }, []);
 
   return SchemaField;
 };

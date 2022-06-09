@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createElement, useContext } from 'react';
+import { createElement } from 'react';
 import { FormItem } from '@formily/antd';
 import { createSchemaField, useForm, Schema } from '@formily/react';
 import { syncUI, IFormItemProps, useSchema, useScope } from '../';

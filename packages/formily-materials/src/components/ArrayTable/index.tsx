@@ -8,15 +8,20 @@ import {
   IFormItemProps,
   useSchema,
   useSchemaField,
-  reactNode2Schema,
+  reactNode2SchemaV2,
+  getComponentNamesSet,
   mergeItems,
   mergeProperties,
-  uuid,
 } from '../../shared';
 import { ArrayTablePreview } from './preview';
 
-// todo refactor
-const FormilyArrayTable: React.FC<IFormItemProps> = syncUI((props) => {
+const FormilyArrayTable: React.FC<IFormItemProps> & {
+  Column?: any;
+  SortHandle?: any;
+  Index?: any;
+  Operation?: any;
+  Addition?: any;
+} = syncUI((props) => {
   const form = useForm();
 
   if (!form) {
@@ -27,81 +32,155 @@ const FormilyArrayTable: React.FC<IFormItemProps> = syncUI((props) => {
     return <ArrayTablePreview {...props} />;
   }
 
-  const { columns } = props;
-
   const { name } = props.fieldProps;
 
-  const {
-    schema: childrenSchema,
-    schemaList: childrenSchemaList,
-    componentsNameMap: componentMap,
-  } = reactNode2Schema(
-    (columns || []).map((item) => {
-      const reactNode = item.render();
-      return reactNode;
-    }),
-  );
+  const children = props.__origin_child || props.children;
+
+  const componentNamesSet = getComponentNamesSet(children, 2);
+
+  const columns = reactNode2SchemaV2(children, ['FormilyArrayTable.Column']);
+  const index = reactNode2SchemaV2(children, ['FormilyArrayTable.Index']);
+  const sortHandle = reactNode2SchemaV2(children, ['FormilyArrayTable.SortHandle']);
+  const operation = reactNode2SchemaV2(children, ['FormilyArrayTable.Operation']);
+  const addition = reactNode2SchemaV2(children, ['FormilyArrayTable.Addition']);
 
   const schema = useSchema(props, {
     'x-component': 'ArrayTable',
   });
 
-  mergeItems(schema.properties[name], {
-    ...childrenSchemaList.reduce((prev, item, index) => {
-      prev[uuid()] = {
+  let xIndex = 0;
+
+  if (sortHandle.outerSchemas.length > 0) {
+    const id = sortHandle.innerSchemaMap.get(sortHandle.innerSchemas[0]);
+
+    mergeItems(schema.properties[name], {
+      [id]: {
         type: 'void',
         'x-component': 'ArrayTable.Column',
         'x-component-props': {
-          title: columns?.[index]?.title,
+          title: 'Sort',
         },
         properties: {
-          ...item,
+          [`${id}_sort`]: {
+            type: 'void',
+            'x-component': 'ArrayTable.SortHandle',
+            'x-index': 0,
+          },
         },
-        'x-index': 1 + index,
-      };
-      return prev;
-    }, {}),
-    [uuid()]: {
-      type: 'void',
-      'x-component': 'ArrayTable.Column',
-      'x-component-props': {
-        title: 'Operation',
+        'x-index': xIndex++,
       },
-      properties: {
-        [uuid()]: {
-          type: 'void',
-          'x-component': 'ArrayTable.Remove',
-          'x-index': 0,
+    });
+  }
+
+  if (index.outerSchemas.length > 0) {
+    const id = index.innerSchemaMap.get(index.innerSchemas[0]);
+
+    mergeItems(schema.properties[name], {
+      [id]: {
+        type: 'void',
+        'x-component': 'ArrayTable.Column',
+        'x-component-props': {
+          title: 'Index',
         },
-        [uuid()]: {
-          type: 'void',
-          'x-component': 'ArrayTable.MoveDown',
-          'x-index': 1,
+        properties: {
+          [`${id}_index`]: {
+            type: 'void',
+            'x-component': 'ArrayTable.Index',
+            'x-index': 0,
+          },
         },
-        [uuid()]: {
-          type: 'void',
-          'x-component': 'ArrayTable.MoveUp',
-          'x-index': 2,
-        },
+        'x-index': xIndex++,
       },
-      'x-index': 1 + Object.keys(childrenSchema).length,
-    },
-  });
+    });
+  }
 
-  mergeProperties(schema.properties[name], {
-    [uuid()]: {
-      type: 'void',
-      title: 'Addition',
-      'x-component': 'ArrayTable.Addition',
-      'x-index': 0,
-    },
-  });
+  if (columns.outerSchemas.length > 0) {
+    mergeItems(schema.properties[name], {
+      ...columns.outerSchemas.reduce((prev, item) => {
+        const itemName = Object.keys(item)[0];
+        const itemSchema = item[itemName];
 
-  componentMap.add('ArrayTable');
+        prev[itemName] = {
+          type: 'void',
+          'x-component': 'ArrayTable.Column',
+          'x-component-props': {
+            title: itemSchema?.['x-component-props']?.title || 'title',
+          },
+          properties: {
+            ...reactNode2SchemaV2(itemSchema?.['x-component-props']?.children).outerSchema,
+          },
+          'x-index': xIndex++,
+        };
 
-  const SchemaField = useSchemaField(componentMap, { ArrayTable });
+        return prev;
+      }, {}),
+    });
+  }
+
+  if (operation.outerSchemas.length > 0) {
+    const id = operation.innerSchemaMap.get(operation.innerSchemas[0]);
+
+    mergeItems(schema.properties[name], {
+      [id]: {
+        type: 'void',
+        'x-component': 'ArrayTable.Column',
+        'x-component-props': {
+          title: 'Operation',
+        },
+        properties: {
+          [`${id}_remove`]: {
+            type: 'void',
+            'x-component': 'ArrayTable.Remove',
+            'x-index': 0,
+          },
+          [`${id}_down`]: {
+            type: 'void',
+            'x-component': 'ArrayTable.MoveDown',
+            'x-index': 1,
+          },
+          [`${id}_up`]: {
+            type: 'void',
+            'x-component': 'ArrayTable.MoveUp',
+            'x-index': 2,
+          },
+        },
+        'x-index': xIndex++,
+      },
+    });
+  }
+
+  if (addition.outerSchemas.length > 0) {
+    const id = addition.innerSchemaMap.get(addition.innerSchemas[0]);
+
+    mergeProperties(schema.properties[name], {
+      [id]: {
+        type: 'void',
+        title: 'Addition',
+        'x-component': 'ArrayTable.Addition',
+        'x-index': 0,
+      },
+    });
+  }
+
+  componentNamesSet.add('ArrayTable');
+
+  const SchemaField = useSchemaField(componentNamesSet, { ArrayTable });
 
   return <SchemaField schema={schema} />;
 });
+
+const Temp: React.FC = ({ children }) => {
+  return <React.Fragment>{children}</React.Fragment>;
+};
+
+FormilyArrayTable.Column = Temp;
+
+FormilyArrayTable.SortHandle = Temp;
+
+FormilyArrayTable.Index = Temp;
+
+FormilyArrayTable.Operation = Temp;
+
+FormilyArrayTable.Addition = Temp;
 
 export default FormilyArrayTable;
