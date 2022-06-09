@@ -36,4 +36,4 @@ yarn build:materials
 
 ## formily materials
 
-[formily materials 文档](packages/formily-materials/README.md)
+[formily materials 文档](packages/formily-materials)
