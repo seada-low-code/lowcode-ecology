@@ -1,6 +1,6 @@
 # formily materials
 
-这里是 lowcode engine 的 formily antd 资产包。用于表单搭建, 如果你对 formily 完全陌生，可以[在此](https://v2.formilyjs.org/zh-CN/guide)对 formily 进行快速学习。
+formily materials 是 lowcode engine 的 formily antd 资产包，用于表单搭建, 配置项与 formily 表单设计器基本相同。如果你对 formily 完全陌生，可以[在此](https://v2.formilyjs.org/zh-CN/guide)对 formily 进行快速学习。
 
 ## demo
 
