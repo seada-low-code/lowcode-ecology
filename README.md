@@ -33,3 +33,7 @@ yarn start:materials
 // 构建物料
 yarn build:materials
 ```
+
+## formily materials
+
+[formily materials 文档](packages/formily-materials/README.md)
