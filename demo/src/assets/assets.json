@@ -87,9 +87,9 @@
         "package": "@alilc/lowcode-materials",
         "version": "1.0.3"
       },
-      "url": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/build/antd-lowcode/meta.js",
+      "url": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@latest/build/antd-lowcode/meta.js",
       "urls": {
-        "default": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/build/antd-lowcode/meta.js"
+        "default": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@latest/build/antd-lowcode/meta.js"
       }
     }
   ],
