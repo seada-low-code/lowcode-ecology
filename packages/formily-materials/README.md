@@ -82,6 +82,16 @@ registerFormilyPlugins();
 
 为了使普通的 lowcode engine 组件获取一些 formily 组件运行时才会产生的数据，例如 ArrayCards 组件中子项的`$record`，我们新增了`VarInjectContainer`组件。`VarInjectContainer`组件的子元素都可以通过 `this.vars.$record`，`this.vars.$index`等获取 formily 运行时数据。
 
+## F&Q
+
+A: setter 样式问题？
+
+Q: 入口文件`import 'antd/dist/antd.css'`试试
+
+A: formily 相关组件没有接入 lowcode engine 事件？
+
+Q: 直接使用 formily 响应器配置解决
+
 ## Contributors
 
 因无法保留开源前的提交记录，这里列出开源前的贡献者：
