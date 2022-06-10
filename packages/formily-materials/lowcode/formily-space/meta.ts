@@ -7,7 +7,7 @@ const FormilyInputMeta = {
   group: 'Formily',
   category: '布局组件',
   npm: {
-    package: '@seada/react-components',
+    package: '@seada/formily-materials',
     version: 'latest',
     exportName: 'FormilySpace',
     main: 'src/index.tsx',
