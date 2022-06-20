@@ -21,11 +21,7 @@ const FormilyArrayTabs: React.FC<IFormItemProps> = syncUI((props) => {
     return <Alert message="formily component can only be used in formily form" type="error" />;
   }
 
-  if (props.__designMode === 'design') {
-    return <ArrayTabsPreview {...props} />;
-  }
-
-  const children = props.__origin_child || props.children;
+  const children = props.__origin_child || props.children || [];
 
   const { name } = props.fieldProps;
 
@@ -43,7 +39,9 @@ const FormilyArrayTabs: React.FC<IFormItemProps> = syncUI((props) => {
 
   componentNamesSet.add('ArrayTabs');
 
-  const SchemaField = useSchemaField(componentNamesSet, { ArrayTabs });
+  const SchemaField = useSchemaField(componentNamesSet, {
+    ArrayTabs: props.__designMode === 'design' ? ArrayTabsPreview : ArrayTabs,
+  });
 
   return <SchemaField schema={schema} />;
 });

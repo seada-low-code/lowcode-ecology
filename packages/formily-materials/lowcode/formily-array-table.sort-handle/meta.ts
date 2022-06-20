@@ -1,10 +1,10 @@
-const FormilyInputMeta = {
+const FormilyComponentMeta = {
   componentName: 'FormilyArrayTable.SortHandle',
   title: 'ArrayTable.SortHandle',
   group: 'Formily',
   category: '自增组件',
   npm: {
-    package: '@seada/formily-materials',
+    package: '@seada/react-components',
     version: 'latest',
     exportName: 'FormilyArrayTable',
     main: 'src/index.tsx',
@@ -15,11 +15,11 @@ const FormilyInputMeta = {
     supports: {
       style: true,
     },
-    nestingRule: {
-      parentWhitelist: ['FormilyArrayTable', 'ArrayTable'],
-    },
     component: {
       isContainer: true,
+      nestingRule: {
+        parentWhitelist: ['FormilyArrayTable'],
+      },
     },
   },
   advanced: {},
@@ -27,5 +27,5 @@ const FormilyInputMeta = {
 };
 
 export default {
-  ...FormilyInputMeta,
+  ...FormilyComponentMeta,
 };

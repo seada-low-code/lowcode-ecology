@@ -11,7 +11,7 @@ const syncUI = (Component: React.FC<any>) => {
 
     const { updateForm } = useContext(FormControlContext);
 
-    const { fieldProps, componentProps, decoratorProps, __designMode } = props;
+    const { fieldProps, componentProps, decoratorProps, __designMode, children } = props as any;
 
     useEffect(() => {
       if (!hasInit) {
@@ -25,7 +25,7 @@ const syncUI = (Component: React.FC<any>) => {
       }
 
       updateForm();
-    }, [fieldProps, componentProps, decoratorProps, __designMode]);
+    }, [fieldProps, componentProps, decoratorProps, __designMode, children]);
 
     return <Component {...props} />;
   };

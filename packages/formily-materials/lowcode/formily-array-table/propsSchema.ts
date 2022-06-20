@@ -35,6 +35,12 @@ export const propsSchema = {
         defaultChecked: true,
       },
     },
+    'scroll.x': {
+      type: 'string',
+      title: 'x轴滚动宽度',
+      'x-decorator': 'FormItem',
+      'x-component': 'SizeInput',
+    },
   },
 };
 
@@ -45,36 +51,7 @@ export default createFormItemSchema(propsSchema, {
     items: {
       // array 操作如果想可配置，需要讲下面的东西都设置成children1
       type: 'object',
-      properties: {
-        // [uuid()]: {
-        //   type: 'void',
-        //   'x-component': 'ArrayCards.Remove',
-        //   'x-index': 0,
-        // },
-        // [uuid()]: {
-        //   type: 'void',
-        //   'x-component': 'ArrayCards.MoveDown',
-        //   'x-index': 1,
-        // },
-        // [uuid()]: {
-        //   type: 'void',
-        //   'x-component': 'ArrayCards.MoveUp',
-        //   'x-index': 2,
-        // },
-        // [uuid()]: {
-        //   type: 'void',
-        //   'x-component': 'ArrayCards.Index',
-        //   'x-index': 3,
-        // },
-      },
+      properties: {},
     },
-    // properties: {
-    //   [uuid()]: {
-    //     type: 'void',
-    //     title: 'Addition',
-    //     'x-component': 'ArrayCards.Addition',
-    //     'x-index': 0,
-    //   },
-    // },
   }),
 });

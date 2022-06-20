@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Fragment, createElement } from 'react';
+import { Fragment, createElement, useState } from 'react';
 import { Card } from 'antd';
 import { ArrayBase } from '@formily/antd';
 import { observer, VoidField } from '@formily/react';
-import { IFormItemProps } from '../../shared';
+import { IFormItemProps, uuid } from '../../shared';
 import cls from 'classnames';
 
 const DroppableWidget = () => <div className="lc-container-placeholder">拖拽组件或模板到这里</div>;
@@ -53,8 +53,9 @@ export const ArrayCardsPreview: React.FC<IFormItemProps> = observer((props) => {
 ArrayBase.mixin(ArrayCardsPreview);
 
 export default (props) => {
+  const [defaultName] = useState(uuid());
   return (
-    <VoidField name={props.fieldProps.name} pattern="editable">
+    <VoidField name={props.fieldProps.name || defaultName} pattern="editable">
       <ArrayCardsPreview {...props}>{props.children}</ArrayCardsPreview>
     </VoidField>
   );

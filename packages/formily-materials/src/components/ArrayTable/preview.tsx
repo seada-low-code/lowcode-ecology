@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createElement } from 'react';
+import { createElement, useState } from 'react';
 import { Table } from 'antd';
 import { ArrayBase } from '@formily/antd';
 import { observer, VoidField } from '@formily/react';
@@ -9,6 +9,7 @@ import {
   queryNodesByComponentPath,
   hasNodeByComponentPath,
 } from './hooks';
+import { uuid } from 'src/shared';
 
 const HeaderCell: React.FC = (props: any) => {
   return (
@@ -28,6 +29,7 @@ const BodyCell: React.FC = (props: any) => {
 
 export const ArrayTablePreview: React.FC<any> = observer((props) => {
   const { columns, children, ...extra } = props;
+  const [defaultName] = useState(uuid());
 
   const { componentId } = extra;
 
@@ -66,7 +68,7 @@ export const ArrayTablePreview: React.FC<any> = observer((props) => {
     }
 
     return (
-      <VoidField name={props.fieldProps.name}>
+      <VoidField name={props.fieldProps.name || defaultName}>
         <ArrayBase disabled>
           <Table
             size="small"
@@ -264,11 +266,3 @@ export const ArrayTablePreview: React.FC<any> = observer((props) => {
 });
 
 ArrayBase.mixin(ArrayTablePreview);
-
-// export default (props) => {
-//   return (
-//     <VoidField name={props.fieldProps.name} pattern="editable">
-//       <ArrayCardsPreview {...props}>{props.children}</ArrayCardsPreview>
-//     </VoidField>
-//   );
-// };
