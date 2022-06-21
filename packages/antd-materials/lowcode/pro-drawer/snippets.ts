@@ -1,4 +1,4 @@
-import { uuid } from '../../src/shared'
+import { uuid } from '../utils'
 import { children } from './form-children'
 
 export const snippets = [

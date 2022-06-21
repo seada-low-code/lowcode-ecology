@@ -1,5 +1,5 @@
 import { snippets } from './snippets'
-import { uuid } from '../../src/shared'
+import { uuid } from '../utils'
 
 export default {
   snippets,

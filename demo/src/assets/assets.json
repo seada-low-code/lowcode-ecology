@@ -95,7 +95,7 @@
       }
     },
     {
-      "exportName": "SeadaAntdMaterials",
+      "exportName": "SeadaAntdMaterialsMeta",
       "npm": {
         "package": "@seada/antd-materials",
         "version": "0.1.1"
