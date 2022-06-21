@@ -1,63 +1,23 @@
 import { createSchemaComponent } from '../../shared';
-import React, { createElement, Component, createRef } from 'react';
-import Editor from '@monaco-editor/react';
+import React, { createElement } from 'react';
+import { connect, mapProps, mapReadPretty } from '@formily/react';
+import MonacoInput from './MonacoInput';
 
-export interface IMonacoInputProps {
-  height?: string;
-  defaultLanguage?: string;
-  defaultValue?: string;
-  value?: string;
-  readOnly?: boolean;
-  theme: 'vs-dark' | 'light';
-  onChange: (value: any) => void;
-}
-
-class MonacoInput extends Component<IMonacoInputProps, any> {
-  editorRef: any;
-
-  constructor(props) {
-    super(props);
-    this.editorRef = createRef();
-  }
-
-  getValue() {
-    return this.editorRef.current.getValue();
-  }
-
-  getEditorInstance() {
-    return this.editorRef.current;
-  }
-
-  onEditorMount(editor) {
-    this.editorRef.current = editor;
-  }
-
-  onEditorChange(value) {
-    this.props?.onChange?.(value);
-  }
-
-  render() {
-    const { defaultLanguage, height, theme = 'light', readOnly = false } = this.props;
-
-    const value = this.props.value || this.props.defaultValue;
-
-    return (
-      <Editor
-        options={{
-          readOnly,
-        }}
-        theme={theme}
-        defaultLanguage={defaultLanguage || 'javascript'}
-        height={height}
-        value={value}
-        onChange={this.onEditorChange.bind(this)}
-        onMount={this.onEditorMount.bind(this)}
-      />
-    );
-  }
-}
+export const FormilyMonacoInput = connect(
+  // @ts-ignore
+  MonacoInput,
+  mapProps((props, field) => {
+    return {
+      ...props,
+      loading: field?.['loading'] || field?.['validating'],
+    };
+  }),
+  mapReadPretty((props) => {
+    return <MonacoInput {...props} readOnly />;
+  }),
+);
 
 export default createSchemaComponent({
   componentName: 'MonacoInput',
-  component: MonacoInput as any,
+  component: FormilyMonacoInput,
 });

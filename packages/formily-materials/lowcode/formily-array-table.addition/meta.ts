@@ -1,4 +1,4 @@
-const FormilyInputMeta = {
+const FormilyComponentMeta = {
   componentName: 'FormilyArrayTable.Addition',
   title: 'ArrayTable.Addition',
   group: 'Formily',
@@ -15,11 +15,11 @@ const FormilyInputMeta = {
     supports: {
       style: true,
     },
-    nestingRule: {
-      parentWhitelist: ['FormilyArrayTable', 'ArrayTable'],
-    },
     component: {
       isContainer: true,
+      nestingRule: {
+        parentWhitelist: ['FormilyArrayTable'],
+      },
     },
   },
   advanced: {},
@@ -27,5 +27,5 @@ const FormilyInputMeta = {
 };
 
 export default {
-  ...FormilyInputMeta,
+  ...FormilyComponentMeta,
 };

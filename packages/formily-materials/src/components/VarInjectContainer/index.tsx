@@ -40,6 +40,9 @@ export default createVoidSchemaComponent({
       schema['x-component-props'] = {};
     }
 
+    // FormItem 会占用高度
+    delete schema['x-decorator'];
+
     // if (schema['x-component-props'].__designMode !== 'design') {
     // 注入变量
     schema['x-component-props'].$record = '{{ $record }}';

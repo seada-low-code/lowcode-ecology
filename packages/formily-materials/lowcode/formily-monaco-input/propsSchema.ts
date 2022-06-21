@@ -23,8 +23,8 @@ export const propsSchema = {
       type: 'string',
       title: '高度',
       'x-decorator': 'FormItem',
-      'x-component': 'Input',
-      default: '160px',
+      'x-component': 'NumberPicker',
+      default: 160,
     },
     readOnly: {
       title: '只读',
@@ -40,6 +40,14 @@ export const propsSchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Select',
       default: 'light',
+    },
+    'options.lineNumbers': {
+      title: '行号',
+      type: 'string',
+      enum: ['on', 'off'],
+      'x-decorator': 'FormItem',
+      'x-component': 'Select',
+      default: 'on',
     },
   },
 };

@@ -511,7 +511,7 @@
   resolved "https://registry.yarnpkg.com/@ant-design/icons-svg/-/icons-svg-4.2.1.tgz#8630da8eb4471a4aabdaed7d1ff6a97dcb2cf05a"
   integrity sha512-EB0iwlKDGpG93hW8f85CTJTs4SvMX7tt5ceupvhALp1IF44SeUFOMhKUOYqpsoYWQKAOuTRDMqn75rEaKDp0Xw==
 
-"@ant-design/icons@^4.1.0", "@ant-design/icons@^4.2.1", "@ant-design/icons@^4.3.0", "@ant-design/icons@^4.7.0":
+"@ant-design/icons@^4.0.0", "@ant-design/icons@^4.1.0", "@ant-design/icons@^4.2.1", "@ant-design/icons@^4.3.0", "@ant-design/icons@^4.7.0":
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/@ant-design/icons/-/icons-4.7.0.tgz#8c3cbe0a556ba92af5dc7d1e70c0b25b5179af0f"
   integrity sha512-aoB4Z7JA431rt6d4u+8xcNPPCrdufSRMUOpxa1ab6mz1JCQZOEVolj2WVs/tDFmN62zzK30mNelEsprLYsSF3g==
@@ -570,12 +570,45 @@
     use-json-comparison "^1.0.5"
     use-media-antd-query "^1.1.0"
 
+"@ant-design/pro-layout@^6.38.9":
+  version "6.38.9"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-layout/-/pro-layout-6.38.9.tgz#151788f64ad88448a6d54acc178adbd68d4fd722"
+  integrity sha512-iBRcyGpM6YBMX3pJs4qXc1UURrCwdFmM+dqRc0zEqVPM1gQcYGue3S3FkEXc70uCr8Uc++twi5/6mRC5D6q2xA==
+  dependencies:
+    "@ant-design/icons" "^4.0.0"
+    "@ant-design/pro-provider" "1.8.0"
+    "@ant-design/pro-utils" "1.42.2"
+    "@babel/runtime" "^7.18.0"
+    "@umijs/route-utils" "^2.1.0"
+    "@umijs/ssr-darkreader" "^4.9.44"
+    "@umijs/use-params" "^1.0.9"
+    classnames "^2.2.6"
+    lodash.merge "^4.6.2"
+    omit.js "^2.0.2"
+    path-to-regexp "2.4.0"
+    rc-resize-observer "^1.1.0"
+    rc-util "^5.0.6"
+    swr "^1.2.0"
+    unstated-next "^1.1.0"
+    use-json-comparison "^1.0.3"
+    use-media-antd-query "^1.1.0"
+    warning "^4.0.3"
+
 "@ant-design/pro-provider@1.7.1":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@ant-design/pro-provider/-/pro-provider-1.7.1.tgz#cfab05d5ba965fd8b15b09216d764d938940c952"
   integrity sha512-saZdp86zqG5DmJVTYcEmlgpBjOCugeCIBYXVzGRr5U6FIsg9RKgQagV/eY9oCfPb5xjnP9mKW+6AWeojS90HaA==
   dependencies:
     "@babel/runtime" "^7.16.3"
+    rc-util "^5.0.1"
+    swr "^1.2.0"
+
+"@ant-design/pro-provider@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-provider/-/pro-provider-1.8.0.tgz#ad107b90b988eca7cb546ae2c6aa13edf1f68979"
+  integrity sha512-RoORxFqmslVo7Hwgy62UgEvXz01n97/HFh9CRcwteqlDrlEFQcviEwufr0Vj8wjkDiQfSmIpMDNWMbCW2UqX1Q==
+  dependencies:
+    "@babel/runtime" "^7.18.0"
     rc-util "^5.0.1"
     swr "^1.2.0"
 
@@ -608,6 +641,20 @@
     "@ant-design/icons" "^4.3.0"
     "@ant-design/pro-provider" "1.7.1"
     "@babel/runtime" "^7.16.3"
+    classnames "^2.2.6"
+    moment "^2.27.0"
+    rc-util "^5.0.6"
+    react-sortable-hoc "^2.0.0"
+    swr "^1.2.0"
+
+"@ant-design/pro-utils@1.42.2":
+  version "1.42.2"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-1.42.2.tgz#1cf82453388e580643a6382160dab08469a20831"
+  integrity sha512-xpZ2JDlhWtJL8jt81ezHoXi1rteTYnPaf08sjcB9T1QcEBv20qPbmjxpsDc54lRYcUMXDZqwVACXSfLe+R4yaA==
+  dependencies:
+    "@ant-design/icons" "^4.3.0"
+    "@ant-design/pro-provider" "1.8.0"
+    "@babel/runtime" "^7.18.0"
     classnames "^2.2.6"
     moment "^2.27.0"
     rc-util "^5.0.6"
@@ -3992,6 +4039,11 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
+"@qixian.cs/path-to-regexp@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@qixian.cs/path-to-regexp/-/path-to-regexp-6.1.0.tgz#6b84ad01596332aba95fa29d2e70104698cd5c45"
+  integrity sha512-2jIiLiVZB1jnY7IIRQKtoV8Gnr7XIhk4mC88ONGunZE3hYt5IHUG4BE/6+JiTBjjEWQLBeWnZB8hGpppkufiVw==
+
 "@rollup/pluginutils@^4.1.1", "@rollup/pluginutils@^4.1.2":
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-4.2.1.tgz#e6c6c3aba0744edce3fb2074922d3776c0af2a6d"
@@ -5522,6 +5574,21 @@
   dependencies:
     "@typescript-eslint/types" "5.27.0"
     eslint-visitor-keys "^3.3.0"
+
+"@umijs/route-utils@^2.1.0":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@umijs/route-utils/-/route-utils-2.1.1.tgz#85d19351f888f105ce348aecfdc1234e13a93220"
+  integrity sha512-N2ftgkqDEPBau1WyAxJfTQOs78OAVJY/Grl90fDo6ui75Eww563FhWcTrribS8sJS33mv9gtSlBLJ3F9WPLVog==
+  dependencies:
+    "@qixian.cs/path-to-regexp" "^6.1.0"
+    fast-deep-equal "^3.1.3"
+    lodash.isequal "^4.5.0"
+    memoize-one "^5.1.1"
+
+"@umijs/ssr-darkreader@^4.9.44":
+  version "4.9.45"
+  resolved "https://registry.yarnpkg.com/@umijs/ssr-darkreader/-/ssr-darkreader-4.9.45.tgz#7f13cfc89616f3203290775eb61b53047ece1733"
+  integrity sha512-XlcwzSYQ/SRZpHdwIyMDS4FOGX5kP4U/2g2mykyn/iPQTK4xTiQAyBu6UnnDnn7d5P8s7Atzh1C7H0ETNOypJg==
 
 "@umijs/use-params@^1.0.9":
   version "1.0.9"
@@ -16497,6 +16564,11 @@ memfs@^3.1.2:
   dependencies:
     fs-monkey "1.0.3"
 
+memoize-one@^5.1.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
+  integrity sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==
+
 memoize-one@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-6.0.0.tgz#b2591b871ed82948aee4727dc6abceeeac8c1045"
@@ -18606,6 +18678,11 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
+
+path-to-regexp@2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.4.0.tgz#35ce7f333d5616f1c1e1bfe266c3aba2e5b2e704"
+  integrity sha512-G6zHoVqC6GGTQkZwF4lkuEyMbVOjoBKAEybQUypI1WTkqinCOrq2x6U2+phkJ1XsEMTy4LjtwPI7HW+NVrRR2w==
 
 path-to-regexp@^1.7.0:
   version "1.8.0"
@@ -25234,7 +25311,7 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-use-json-comparison@^1.0.5:
+use-json-comparison@^1.0.3, use-json-comparison@^1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/use-json-comparison/-/use-json-comparison-1.0.6.tgz#a012bbc258ce745db1f56745dc653f575226cb21"
   integrity sha512-xPadt5yMRbEmVfOSGFSMqjjICrq7nLbfSH3rYIXsrtcuFX7PmbYDN/ku8ObBn3v8o/yZelO1OxUS5+5TI3+fUw==
@@ -25550,6 +25627,13 @@ walker@^1.0.7, walker@~1.0.5:
   integrity sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==
   dependencies:
     makeerror "1.0.12"
+
+warning@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
+  integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
+  dependencies:
+    loose-envify "^1.0.0"
 
 watch@^1.0.2:
   version "1.0.2"

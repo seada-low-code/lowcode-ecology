@@ -1,5 +1,6 @@
 import { isStr } from '@formily/shared';
 export * from './componentToSchema';
+export * from './canvas';
 
 // {{expression}}正则表达式
 export const EXP_RE = /^\s*\{\{([\s\S]*)\}\}\s*$/;

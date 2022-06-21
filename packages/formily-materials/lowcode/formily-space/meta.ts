@@ -1,7 +1,7 @@
 import { snippets } from './snippets';
 import props from './propsSchema';
 
-const FormilyInputMeta = {
+const FormilyComponentMeta = {
   componentName: 'FormilySpace',
   title: 'Space',
   group: 'Formily',
@@ -28,6 +28,6 @@ const FormilyInputMeta = {
 };
 
 export default {
-  ...FormilyInputMeta,
+  ...FormilyComponentMeta,
   snippets,
 };
