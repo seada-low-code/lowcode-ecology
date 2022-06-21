@@ -34,12 +34,12 @@ yarn start
       "version": "0.1.1",
       "library": "SeadaAntdMaterials",
       "urls": [
-        "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/view.js",
-        "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/view.css"
+        "https://unpkg.com/@seada/antd-materials@latest/build/lowcode/view.js",
+        "https://unpkg.com/@seada/antd-materials@latest/build/lowcode/view.css"
       ],
       "editUrls": [
-        "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/view.js",
-        "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/view.css"
+        "https://unpkg.com/@seada/antd-materials@latest/build/lowcode/view.js",
+        "https://unpkg.com/@seada/antd-materials@latest/build/lowcode/view.css"
       ]
     }
   ],
@@ -50,9 +50,9 @@ yarn start
         "package": "@seada/antd-materials",
         "version": "0.1.1"
       },
-      "url": "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/meta.js",
+      "url": "https://unpkg.com/@seada/antd-materials@latest/build/lowcode/meta.js",
       "urls": {
-        "default": "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/meta.js"
+        "default": "https://unpkg.com/@seada/antd-materials@latest/build/lowcode/meta.js"
       }
     }
   ]
