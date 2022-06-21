@@ -11,7 +11,7 @@
 yarn
 ```
 
-### setters 和 plugins 开发
+## setters 和 plugins 开发
 
 直接到 `packages/antd-setters` 和 `packages/antd-plugins` 中开发即可。具体效果可以通过启动 demo 项目进行调试。
 
@@ -22,18 +22,80 @@ demo 项目基于 umi4 实现，配置 alias 指向 packages 里面的包，修�
 yarn start
 ```
 
-### materials 开发
+## Antd materials 开发
 
-项目根目录下执行以下命令：
+使用方式：
 
-```bash
-// 开发调试
-yarn start:materials
-
-// 构建物料
-yarn build:materials
+```json
+{
+  "packages": [
+    {
+      "package": "@seada/antd-materials",
+      "version": "0.1.1",
+      "library": "SeadaAntdMaterials",
+      "urls": [
+        "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/view.js",
+        "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/view.css"
+      ],
+      "editUrls": [
+        "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/view.js",
+        "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/view.css"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "exportName": "SeadaAntdMaterialsMeta",
+      "npm": {
+        "package": "@seada/antd-materials",
+        "version": "0.1.1"
+      },
+      "url": "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/meta.js",
+      "urls": {
+        "default": "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.11/build/lowcode/meta.js"
+      }
+    }
+  ]
+}
 ```
 
-## formily materials
+[Antd Pro 系列组件详细文档](packages/antd-materials)
 
-[formily materials 文档](packages/formily-materials)
+## Formily materials
+
+使用方式：
+
+```json
+{
+  "packages": [
+    {
+      "package": "@seada/formily-materials",
+      "version": "0.1.1",
+      "library": "SeadaFormilyMaterials",
+      "urls": [
+        "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/view.js",
+        "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/view.css"
+      ],
+      "editUrls": [
+        "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/view.js",
+        "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/view.css"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "exportName": "SeadaFormilyMaterialsMeta",
+      "npm": {
+        "package": "@seada/formily-materials",
+        "version": "0.1.1"
+      },
+      "url": "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/meta.js",
+      "urls": {
+        "default": "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/meta.js"
+      }
+    }
+  ]
+}
+```
+
+[Formily 物料详细文档](packages/formily-materials)
