@@ -178,7 +178,9 @@ export const getComponentNamesSet = (
 
     const componentName = child.props.__component_name;
 
-    set.add(componentName);
+    if (componentName) {
+      set.add(componentName);
+    }
 
     getComponentNamesSet(child?.props.children ?? [], depth - 1, set);
   }
