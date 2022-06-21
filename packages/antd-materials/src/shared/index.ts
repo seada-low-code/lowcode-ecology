@@ -13,7 +13,7 @@ export const defineGetterProperties = (ref, targetRef: any) => {
     targetRef = [targetRef]
   }
 
-  (targetRef as any[]).filter(Boolean).forEach((r) => {
+  targetRef.filter(Boolean).forEach((r) => {
     Object.defineProperties(
       ref,
       Object.keys(r?.current ?? {}).reduce((out, key) => {
