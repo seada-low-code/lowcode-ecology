@@ -9,7 +9,7 @@ import {
   queryNodesByComponentPath,
   hasNodeByComponentPath,
 } from './hooks';
-import { uuid } from 'src/shared';
+import { uuid } from '../../shared';
 
 const HeaderCell: React.FC = (props: any) => {
   return (

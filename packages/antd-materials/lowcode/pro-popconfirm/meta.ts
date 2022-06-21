@@ -33,7 +33,7 @@ export default {
     }
   ],
   npm: {
-    package: '@seada/react-components',
+    package: '@seada/antd-materials',
     version: 'latest',
     exportName: 'ProPopconfirm',
     main: 'src/index.tsx',

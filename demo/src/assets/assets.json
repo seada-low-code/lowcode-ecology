@@ -56,6 +56,19 @@
       ]
     },
     {
+      "package": "@seada/antd-materials",
+      "version": "0.1.1",
+      "library": "SeadaAntdMaterials",
+      "urls": [
+        "https://cdn.jsdelivr.net/npm/@seada/antd-materials@latest/build/lowcode/view.js",
+        "https://cdn.jsdelivr.net/npm/@seada/antd-materials@latest/build/lowcode/view.css"
+      ],
+      "editUrls": [
+        "https://cdn.jsdelivr.net/npm/@seada/antd-materials@latest/build/lowcode/view.js",
+        "https://cdn.jsdelivr.net/npm/@seada/antd-materials@latest/build/lowcode/view.css"
+      ]
+    },
+    {
       "package": "@seada/formily-materials",
       "version": "0.1.1",
       "library": "SeadaFormilyMaterials",
@@ -79,6 +92,17 @@
       "url": "https://cdn.jsdelivr.net/npm/@seada/formily-materials@latest/build/lowcode/meta.js",
       "urls": {
         "default": "https://cdn.jsdelivr.net/npm/@seada/formily-materials@latest/build/lowcode/meta.js"
+      }
+    },
+    {
+      "exportName": "SeadaAntdMaterials",
+      "npm": {
+        "package": "@seada/antd-materials",
+        "version": "0.1.1"
+      },
+      "url": "https://cdn.jsdelivr.net/npm/@seada/antd-materials@latest/build/lowcode/meta.js",
+      "urls": {
+        "default": "https://cdn.jsdelivr.net/npm/@seada/antd-materials@latest/build/lowcode/meta.js"
       }
     },
     {

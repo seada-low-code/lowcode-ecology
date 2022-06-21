@@ -11,7 +11,7 @@ export default {
   group: '高级组件',
   category: '弹窗类',
   npm: {
-    package: '@seada/react-components',
+    package: '@seada/antd-materials',
     version: 'latest',
     exportName: 'ProDrawer',
     main: 'src/index.tsx',

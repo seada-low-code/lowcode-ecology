@@ -9,7 +9,7 @@ const ProContainerMeta: ComponentMetadata = {
   group: '高级组件',
   category: '布局类',
   npm: {
-    package: '@seada/react-components',
+    package: '@seada/antd-materials',
     version: 'latest',
     exportName: 'ProContainer',
     main: 'src/index.tsx',
