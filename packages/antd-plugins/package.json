@@ -1,6 +1,6 @@
 {
   "name": "@seada/antd-plugins",
-  "version": "0.0.1-alpha.10",
+  "version": "0.0.1-alpha.11",
   "description": "",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -16,7 +16,7 @@
     "@alilc/lowcode-engine": "^1.0.9"
   },
   "dependencies": {
-    "@seada/antd-setters": "0.0.1-alpha.10"
+    "@seada/antd-setters": "0.0.1-alpha.11"
   },
   "publishConfig": {
     "access": "public"
