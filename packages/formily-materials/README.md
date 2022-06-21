@@ -6,8 +6,26 @@ formily materials 是 lowcode engine 的 formily antd 资产包，用于表单�
 
 ## demo
 
-1. 进入 lowcode-ecology 根目录
-2. yarn start
+1. yarn start
+2. 进入 lowcode-ecology 根目录
+3. yarn lowcode:dev
+
+配置 XSwitch 代理
+
+```json
+{
+  "proxy": [
+    [
+      "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/view.js",
+      "http://localhost:5551/view.js"
+    ],
+    [
+      "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/meta.js",
+      "http://localhost:5551/meta.js"
+    ]
+  ]
+}
+```
 
 ## how to use
 
