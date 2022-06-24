@@ -17,7 +17,14 @@
     "prepare": "husky install",
     "commit": "git-cz",
     "preversion": "yarn install && git add -A && npm run build",
-    "release:alpha": "lerna publish prerelease --preid alpha"
+    "version:alpha": "lerna version prerelease --preid alpha",
+    "version:beta": "lerna version prerelease --preid beta",
+    "version:rc": "lerna version prerelease --preid rc",
+    "version:patch": "lerna version patch",
+    "version:minor": "lerna version minor",
+    "version:preminor": "lerna version preminor --preid beta",
+    "version:major": "lerna version major",
+    "release:force": "lerna publish from-package --yes"
   },
   "repository": {
     "type": "git",
