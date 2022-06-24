@@ -31,7 +31,7 @@
     "@alilc/lowcode-types": "^1.0.9",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@umijs/lint": "^4.0.0-canary.20220421.1",
+    "@umijs/lint": "^4.0.1",
     "jest": "^28.1.0",
     "prettier": "^2",
     "prettier-plugin-organize-imports": "^2",
@@ -39,6 +39,6 @@
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "typescript": "^4.1.2",
-    "umi": "^4.0.0-rc.20"
+    "umi": "^4.0.1"
   }
 }
