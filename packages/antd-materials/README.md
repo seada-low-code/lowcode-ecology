@@ -1,11 +1,31 @@
 # antd-materials
 
-项目根目录下执行以下命令：
+- ProContainer
+- ProDrawer
+- ProModal
+- ProPopconfirm
+- ProTable
 
-```bash
-// 开发调试
-yarn start:materials
+## 开发
 
-// 构建物料
-yarn build:materials
+1. 在根目录执行 yarn start
+2. 进入 antd-materials 目录，yarn lowcode:dev
+3. 配置 XSwitch 代理
+4. 访问 http://localhost:8000
+
+XSwitch 代理如下
+
+```json
+{
+  "proxy": [
+    [
+      "https://unpkg.com/@seada/antd-materials@latest/build/lowcode/view.js",
+      "http://localhost:5551/view.js"
+    ],
+    [
+      "https://unpkg.com/@seada/antd-materials@latest/build/lowcode/meta.js",
+      "http://localhost:5551/meta.js"
+    ]
+  ]
+}
 ```
