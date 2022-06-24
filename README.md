@@ -22,9 +22,9 @@ demo 项目基于 umi4 实现，配置 alias 指向 packages 里面的包，修�
 yarn start
 ```
 
-## Antd materials 开发
+## Antd Materials
 
-使用方式：
+在 [assets.json](/demo/src/assets/assets.json) 文件注册物料：
 
 ```json
 {
@@ -61,9 +61,31 @@ yarn start
 
 [Antd Pro 系列组件详细文档](packages/antd-materials)
 
-## Formily materials
+## Formily Materials
 
-使用方式：
+1. 安装 Formily Plugin
+
+```bash
+// formily相关依赖
+npm install @formily/core @formily/react antd moment @formily/antd
+// plugin
+npm install @seada/antd-plugins
+```
+
+使用插件
+
+```javascript
+import { PluginFormily } from '@seada/antd-plugins'
+import { plugins } from '@alilc/lowcode-engine'
+
+async function registerFormilyPlugins() {
+  await plugins.register(PluginFormily)
+}
+
+registerFormilyPlugins()
+```
+
+2. 在 [assets.json](/demo/src/assets/assets.json) 文件注册物料：
 
 ```json
 {
