@@ -1,7 +1,6 @@
 export const snippets = [
   {
     title: 'FormilyForm',
-    screenshot: 'https://img.alicdn.com/tfs/TB160cKkP39YK4jSZPcXXXrUFXa-112-64.png',
     schema: {
       title: 'FormilyForm',
       componentName: 'FormilyForm',
@@ -136,31 +135,6 @@ export const snippets = [
             },
             componentProps: {
               'x-component-props': {},
-            },
-            decoratorProps: {
-              'x-decorator-props': {},
-            },
-          },
-        },
-        {
-          componentName: 'FormilyMonacoInput',
-          props: {
-            __component_name: 'FormilyMonacoInput',
-            fieldProps: {
-              name: 'code',
-              title: 'MonacoInput',
-              'x-validator': [],
-            },
-            componentProps: {
-              'x-component-props': {
-                defaultLanguage: 'text',
-                height: 160,
-                readOnly: false,
-                theme: 'vs-dark',
-                options: {
-                  lineNumbers: 'on',
-                },
-              },
             },
             decoratorProps: {
               'x-decorator-props': {},

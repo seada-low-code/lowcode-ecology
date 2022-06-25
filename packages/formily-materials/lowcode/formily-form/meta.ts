@@ -1,6 +1,7 @@
 import { snippets } from './snippets';
 import props from './propsSchema';
 import { uuid } from '../utils';
+import { DataFormSource, takeIcon } from '../icons';
 
 const FormilyFormMeta = {
   componentName: 'FormilyForm',
@@ -43,7 +44,7 @@ const FormilyFormMeta = {
     },
   },
   advanced: {},
-  icon: 'https://img.alicdn.com/imgextra/i3/O1CN01G7Lc8e1pZL7p4cdKc_!!6000000005374-2-tps-112-112.png',
+  icon: takeIcon(DataFormSource),
 };
 
 export default {

@@ -1,5 +1,6 @@
 import { snippets } from './snippets';
 import props from './propsSchema';
+import { SpaceSource, takeIcon } from '../icons';
 
 const FormilyComponentMeta = {
   componentName: 'FormilySpace',
@@ -24,7 +25,7 @@ const FormilyComponentMeta = {
     },
   },
   advanced: {},
-  icon: 'https://img.alicdn.com/imgextra/i3/O1CN01G7Lc8e1pZL7p4cdKc_!!6000000005374-2-tps-112-112.png',
+  icon: takeIcon(SpaceSource),
 };
 
 export default {
