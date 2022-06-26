@@ -1,6 +1,6 @@
 {
   "name": "@seada/antd-materials",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.1-rc.0",
   "description": "",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -27,7 +27,7 @@
     "@types/react": "^18.0.14"
   },
   "componentConfig": {
-    "materialSchema": "https://unpkg.com/@seada/antd-materials@0.0.1-alpha.12/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@seada/antd-materials@0.0.1-beta.0/build/lowcode/assets-daily.json"
   },
   "publishConfig": {
     "access": "public"
