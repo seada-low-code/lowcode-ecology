@@ -18,7 +18,7 @@
     "build": "lerna run build",
     "prepare": "husky install",
     "commit": "git-cz",
-    "preversion": "yarn install && git add -A && npm run build",
+    "preversion": "yarn install && git add -A && yarn run build && yarn run build:materials && yarn run build:formily",
     "version:alpha": "lerna version prerelease --preid alpha",
     "version:beta": "lerna version prerelease --preid beta",
     "version:rc": "lerna version prerelease --preid rc",
