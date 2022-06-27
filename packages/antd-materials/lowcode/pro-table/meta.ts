@@ -315,31 +315,31 @@ const ProTableMeta = {
                       propType: 'bool',
                       setter: 'BoolSetter'
                     },
-                    {
-                      name: 'valueEnum',
-                      title: {
-                        label: '枚举定义',
-                        tip: 'valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容'
-                      },
-                      propType: 'object',
-                      setter: 'JsonSetter'
-                    },
-                    {
-                      title: {
-                        label: {
-                          type: 'i18n',
-                          'en-US': 'request',
-                          'zh-CN': '远程获取枚举'
-                        },
-                        tip: 'request | 远程获取枚举'
-                      },
-                      name: 'request',
-                      description: '远程获取枚举',
-                      setter: {
-                        componentName: 'FunctionSetter',
-                        isRequired: false
-                      }
-                    },
+                    // {
+                    //   name: 'valueEnum',
+                    //   title: {
+                    //     label: '枚举定义',
+                    //     tip: 'valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容'
+                    //   },
+                    //   propType: 'object',
+                    //   setter: 'JsonSetter'
+                    // },
+                    // {
+                    //   title: {
+                    //     label: {
+                    //       type: 'i18n',
+                    //       'en-US': 'request',
+                    //       'zh-CN': '远程获取枚举'
+                    //     },
+                    //     tip: 'request | 远程获取枚举'
+                    //   },
+                    //   name: 'request',
+                    //   description: '远程获取枚举',
+                    //   setter: {
+                    //     componentName: 'FunctionSetter',
+                    //     isRequired: false
+                    //   }
+                    // },
                     {
                       name: 'align',
                       title: { label: '对齐方式', tip: 'align | 对齐方式' },
