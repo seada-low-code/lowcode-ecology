@@ -1,12 +1,156 @@
-export const snippets = [
+import { Snippet } from '@alilc/lowcode-types'
+
+export const snippets: Snippet[] = [
   {
-    title: '高级页容器',
-    screenshot:
-      'https://img.alicdn.com/tfs/TB160cKkP39YK4jSZPcXXXrUFXa-112-64.png',
+    title: 'ProContainer',
+    screenshot: require('./__screenshots__/container.jpg'),
     schema: {
       componentName: 'ProContainer',
-      title: '高级页容器',
-      props: {}
+      props: {
+        fixedHeader: true,
+        header: {
+          title: '页面标题',
+          subTitle: '子标题',
+          extra: [
+            {
+              type: 'JSSlot',
+              value: [
+                {
+                  componentName: 'Button',
+                  props: {
+                    type: 'default',
+                    children: '次要按钮',
+                    __component_name: 'Button',
+                    htmlType: 'button',
+                    size: 'middle',
+                    shape: 'default',
+                    block: false,
+                    danger: false,
+                    ghost: false,
+                    disabled: false
+                  }
+                }
+              ]
+            },
+            {
+              type: 'JSSlot',
+              value: [
+                {
+                  componentName: 'Button',
+                  props: {
+                    type: 'default',
+                    children: '次要按钮',
+                    __component_name: 'Button',
+                    htmlType: 'button',
+                    size: 'middle',
+                    shape: 'default',
+                    block: false,
+                    danger: false,
+                    ghost: false,
+                    disabled: false
+                  }
+                }
+              ]
+            },
+            {
+              type: 'JSSlot',
+              value: [
+                {
+                  componentName: 'Button',
+                  props: {
+                    type: 'primary',
+                    children: '主要按钮',
+                    __component_name: 'Button',
+                    htmlType: 'button',
+                    size: 'middle',
+                    shape: 'default',
+                    block: false,
+                    danger: false,
+                    ghost: false,
+                    disabled: false
+                  }
+                }
+              ]
+            }
+          ],
+          breadcrumb: {
+            routes: [
+              {
+                path: '',
+                breadcrumbName: '一级页面'
+              },
+              {
+                path: '',
+                breadcrumbName: '二级页面'
+              },
+              {
+                path: '',
+                breadcrumbName: '当前页面'
+              }
+            ]
+          }
+        },
+        tabProps: {
+          type: 'editable-card',
+          hideAdd: true
+        },
+        tabList: [
+          {
+            tab: '基本信息',
+            key: 'base',
+            closable: false
+          },
+          {
+            tab: '详细信息',
+            key: 'info'
+          },
+          {
+            tab: '禁用',
+            key: '3',
+            disabled: true
+          }
+        ],
+        tabBarExtraContent: 'tabBarExtraContent',
+        footer: [
+          {
+            type: 'JSSlot',
+            value: [
+              {
+                componentName: 'Button',
+                props: {
+                  type: 'default',
+                  children: '重置',
+                  __component_name: 'Button',
+                  htmlType: 'button',
+                  size: 'middle',
+                  shape: 'default',
+                  icon: '',
+                  block: false,
+                  danger: false,
+                  ghost: false,
+                  disabled: false
+                }
+              },
+              {
+                componentName: 'Button',
+                props: {
+                  type: 'primary',
+                  children: '提交',
+                  __component_name: 'Button',
+                  htmlType: 'button',
+                  size: 'middle',
+                  shape: 'default',
+                  icon: '',
+                  block: false,
+                  danger: false,
+                  ghost: false,
+                  disabled: false
+                }
+              }
+            ]
+          }
+        ]
+      }
     }
   }
 ]
