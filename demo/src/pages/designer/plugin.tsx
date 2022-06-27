@@ -6,6 +6,7 @@ import {
   RegisteredSetter
 } from '@alilc/lowcode-engine'
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext'
+import PluginCodeGen from '@alilc/lowcode-plugin-code-generator'
 import ComponentsPane from '@alilc/lowcode-plugin-components-pane'
 import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject'
 import ManualPlugin from '@alilc/lowcode-plugin-manual'
@@ -35,7 +36,7 @@ import { getPageSchema, saveSchema } from './helper'
 export default async function registerPlugins() {
   await plugins.register(ManualPlugin)
 
-  await plugins.register(Inject)
+  await plugins.register(Inject as any)
 
   SchemaPlugin.pluginName = 'SchemaPlugin'
   await plugins.register(SchemaPlugin)
@@ -66,6 +67,8 @@ export default async function registerPlugins() {
   await plugins.register(editorInit)
 
   await plugins.register(PluginUndoRedo)
+
+  await plugins.register(PluginCodeGen)
 
   await plugins.register(PluginSimulatorResizer)
 

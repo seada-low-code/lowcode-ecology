@@ -4,5 +4,6 @@
   "sourceMap": false,
   "alias": {
     "@": "./src/components"
-  }
+  },
+  "plugins": [["build-plugin-component-multiple"]]
 }

@@ -3,10 +3,10 @@
   "version": "0.0.1-rc.0",
   "description": "",
   "main": "lib/index.js",
-  "module": "esm/index.js",
+  "module": "es/index.js",
   "scripts": {
     "start": "build-scripts start",
-    "build": "npm run lowcode:build",
+    "build": "build-scripts build",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js --port 5551",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js"
   },
