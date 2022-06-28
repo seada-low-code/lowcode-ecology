@@ -6,6 +6,7 @@ import {
   RegisteredSetter
 } from '@alilc/lowcode-engine'
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext'
+// import PluginCodeGen from '@alilc/lowcode-plugin-code-generator'
 import ComponentsPane from '@alilc/lowcode-plugin-components-pane'
 import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject'
 import ManualPlugin from '@alilc/lowcode-plugin-manual'
@@ -166,6 +167,7 @@ export default async function registerPlugins() {
   // 注册中英文切换
   await plugins.register(ZhEnPlugin)
 
+  // await plugins.register(PluginCodeGen)
   await plugins.register(PluginCodeGenerator)
 
   await plugins.register(PluginSave)

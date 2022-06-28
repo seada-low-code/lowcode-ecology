@@ -47,7 +47,7 @@ const CodeGenBtn: React.FC = () => {
         onClose={closeDrawer}
         width="80vw"
       >
-        <div>
+        <div style={{ textAlign: 'center' }}>
           <Spin spinning={drawerState.loading} />
         </div>
       </Drawer>
