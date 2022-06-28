@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import { Button, Drawer, Spin } from 'antd'
 import { project } from '@alilc/lowcode-engine'
 import { TransformStage } from '@alilc/lowcode-types'
-import * as CodeGenerator from '@alilc/lowcode-code-generator/standalone-loader'
+import CodeGenerator from '@alilc/lowcode-code-generator/standalone-loader'
+import CodeGenResult, { ICodeGenResultProps } from '../CodeGenResult'
 
 export interface IDrawerState {
   visible: boolean
   loading: boolean
 }
+
+type CodeGenResultState = ICodeGenResultProps
 
 const INIT_DRAWER_STATE: IDrawerState = {
   visible: false,
@@ -17,6 +20,7 @@ const INIT_DRAWER_STATE: IDrawerState = {
 const CodeGenBtn: React.FC = () => {
   const [drawerState, setDrawerState] =
     useState<IDrawerState>(INIT_DRAWER_STATE)
+  const [resultState, setResultState] = useState<CodeGenResultState>()
 
   const showDrawer = async () => {
     // 显示抽屉并且进行出码
@@ -26,12 +30,16 @@ const CodeGenBtn: React.FC = () => {
     })
     const schema = project.exportSchema(TransformStage.Save)
     console.log('schema:', schema)
-    const code = await CodeGenerator.generateCode({
+    const result = await CodeGenerator.generateCode({
       solution: 'icejs',
       schema,
       flattenResult: true
     })
-    console.log('code:', code)
+    console.log('result:', result)
+    setResultState({
+      result,
+      schema
+    })
   }
 
   const closeDrawer = () => {
@@ -47,9 +55,16 @@ const CodeGenBtn: React.FC = () => {
         onClose={closeDrawer}
         width="80vw"
       >
-        <div style={{ textAlign: 'center' }}>
-          <Spin spinning={drawerState.loading} />
-        </div>
+        {drawerState.loading ? (
+          <div style={{ textAlign: 'center' }}>
+            <Spin spinning={drawerState.loading} />
+          </div>
+        ) : (
+          <CodeGenResult
+            schema={resultState.schema}
+            result={resultState.result}
+          />
+        )}
       </Drawer>
     </>
   )
