@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import CodeGenerator from '@alilc/lowcode-code-generator/standalone-loader'
 import { ProjectSchema } from '@alilc/lowcode-types'
+import SourceView from '../SourceView'
+import CodeGenPreview from '../CodeGenPreview'
 
 export interface ICodeGenResultProps {
   result?: CodeGenerator.Result
@@ -78,7 +80,14 @@ const CodeGenResult: React.FC<ICodeGenResultProps> = ({ result, schema }) => {
 
   if (!result) return null
 
-  return <div>hello world</div>
+  return (
+    <div className="code-gen-result">
+      {/* 源码视图 */}
+      <SourceView />
+      {/* codesandbox预览 */}
+      <CodeGenPreview />
+    </div>
+  )
 }
 
 export default CodeGenResult
