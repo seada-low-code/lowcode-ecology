@@ -4,7 +4,7 @@ import Editor from '@alilc/lowcode-plugin-base-monaco-editor'
 import '@alilc/lowcode-plugin-base-monaco-editor/lib/style'
 import { Tree } from 'antd'
 import { DataNode, TreeProps } from 'antd/lib/tree'
-import { Code } from '../CodeGenResult'
+import { Code, IFile } from '../CodeGenResult'
 import './index.less'
 
 interface ISourceViewProps {
@@ -39,7 +39,7 @@ const SourceView: React.FC<ISourceViewProps> = ({ code, height }) => {
     currentNodes: DataNode[],
     basePath: string,
     path: string,
-    file: any
+    file: IFile
   ) => {
     const pathArr = path.split('/').filter(Boolean)
     const head = pathArr[0]
@@ -152,7 +152,7 @@ const SourceView: React.FC<ISourceViewProps> = ({ code, height }) => {
     }
   }
 
-  const handleSelect: TreeProps['onSelect'] = (selectedKeys) => {
+  const handleSelect: TreeProps['onSelect'] = (selectedKeys: string[]) => {
     setState((prev) => {
       return {
         selectedKeys,
@@ -170,7 +170,11 @@ const SourceView: React.FC<ISourceViewProps> = ({ code, height }) => {
         <Editor
           height={calcHeightInPx(height) - 2}
           language={getFileLanguage(state.currentFile.fpath)}
-          defaultValue={state.currentFile?.code || undefined}
+          defaultValue={
+            typeof state.currentFile?.code === 'string'
+              ? state.currentFile.code
+              : undefined
+          }
           path={state.currentFile?.fpath || undefined}
         />
       </div>

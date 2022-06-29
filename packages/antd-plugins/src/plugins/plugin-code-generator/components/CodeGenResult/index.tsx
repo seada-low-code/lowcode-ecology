@@ -12,9 +12,16 @@ export interface ICodeGenResultProps {
   schema?: ProjectSchema
 }
 
+export interface IFile {
+  fpath: string
+  code: string | Buffer
+  entry?: 0 | 1
+  packagejson?: 0 | 1
+}
+
 export type Code = {
   type: string
-  modules: Record<string, any>
+  modules: Record<string, IFile>
 }
 
 const CodeGenResult: React.FC<ICodeGenResultProps> = ({ result, schema }) => {
@@ -98,7 +105,7 @@ const CodeGenResult: React.FC<ICodeGenResultProps> = ({ result, schema }) => {
         </Panel>
         <Panel key="preview" header="在线预览">
           {/* codesandbox预览 */}
-          <CodeGenPreview height={'40vh'} />
+          <CodeGenPreview code={code} height={'40vh'} />
         </Panel>
       </Collapse>
     </div>
