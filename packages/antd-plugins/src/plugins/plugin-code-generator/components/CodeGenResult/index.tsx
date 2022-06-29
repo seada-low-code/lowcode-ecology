@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import * as CodeGenerator from '@alilc/lowcode-code-generator/standalone-loader'
 import { ProjectSchema } from '@alilc/lowcode-types'
 import { Collapse } from 'antd'
-import SourceView from '../SourceView'
+import SourcesView from '../SourcesView'
 import CodeGenPreview from '../CodeGenPreview'
 
 const { Panel } = Collapse
@@ -12,8 +12,13 @@ export interface ICodeGenResultProps {
   schema?: ProjectSchema
 }
 
+export type Code = {
+  type: string
+  modules: Record<string, any>
+}
+
 const CodeGenResult: React.FC<ICodeGenResultProps> = ({ result, schema }) => {
-  const [code, setCode] = useState<any>()
+  const [code, setCode] = useState<Code>()
 
   useEffect(() => {
     setCode(getCodeFromResult(result, schema))
@@ -37,7 +42,7 @@ const CodeGenResult: React.FC<ICodeGenResultProps> = ({ result, schema }) => {
     }
     const code = {
       type: 'demo',
-      modules: result.reduce<any>((prev, cur) => {
+      modules: result.reduce<Code['modules']>((prev, cur) => {
         return {
           ...prev,
           [`/${cur.pathName}`]: {
@@ -78,19 +83,20 @@ const CodeGenResult: React.FC<ICodeGenResultProps> = ({ result, schema }) => {
         console.warn('Failed to find entry file for demo.')
       }
     }
-    return { ...code, ...schemaFiles }
+    Object.assign(code.modules, schemaFiles)
+    return code
   }
 
-  if (!result) return null
+  if (!result || !code) return null
 
   return (
     <div className="code-gen-result">
-      <Collapse defaultActiveKey={['1', '2']}>
-        <Panel key="1" header="源代码">
+      <Collapse defaultActiveKey={['source', 'preview']}>
+        <Panel key="source" header="源代码">
           {/* 源码视图 */}
-          <SourceView />
+          <SourcesView code={code} />
         </Panel>
-        <Panel key="2" header="在线预览">
+        <Panel key="preview" header="在线预览">
           {/* codesandbox预览 */}
           <CodeGenPreview />
         </Panel>

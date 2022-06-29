@@ -18,7 +18,8 @@
     "@alilc/lowcode-types": "^1.0.10"
   },
   "dependencies": {
-    "@seada/antd-setters": "0.0.1-rc.0"
+    "@seada/antd-setters": "0.0.1-rc.0",
+    "string-natural-compare": "^3.0.1"
   },
   "publishConfig": {
     "access": "public"
