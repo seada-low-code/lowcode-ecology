@@ -116,6 +116,29 @@ const SourceView: React.FC<ISourceViewProps> = ({ code }) => {
     )
   }, [fileTreeNodes, state.selectedKeys])
 
+  function getFileLanguage(path: string) {
+    switch ((path || '').split('.').pop()) {
+      case 'ts':
+      case 'tsx':
+        return 'typescript'
+      case 'js':
+      case 'jsx':
+        return 'javascript'
+      case 'css':
+        return 'css'
+      case 'scss':
+        return 'scss'
+      case 'less':
+        return 'less'
+      case 'json':
+        return 'json'
+      case 'md':
+        return 'markdown'
+      default:
+        return 'text'
+    }
+  }
+
   const handleSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
     console.log('selected:', selectedKeys, info)
   }
@@ -126,7 +149,11 @@ const SourceView: React.FC<ISourceViewProps> = ({ code }) => {
         <Tree treeData={fileTreeNodes} onSelect={handleSelect} />
       </div>
       <div className="source-code-pane">
-        <Editor />
+        <Editor
+          language={getFileLanguage(state.currentFile.fpath)}
+          defaultValue={state.currentFile?.code || undefined}
+          path={state.currentFile?.fpath || undefined}
+        />
       </div>
     </div>
   )
