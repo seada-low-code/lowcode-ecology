@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { CSSProperties, useMemo, useState } from 'react'
 import naturalCompare from 'string-natural-compare'
 import Editor from '@alilc/lowcode-plugin-base-monaco-editor'
 import '@alilc/lowcode-plugin-base-monaco-editor/lib/style'
@@ -9,9 +9,10 @@ import './index.less'
 
 interface ISourceViewProps {
   code?: Code
+  height?: CSSProperties['height']
 }
 
-const SourceView: React.FC<ISourceViewProps> = ({ code }) => {
+const SourceView: React.FC<ISourceViewProps> = ({ code, height }) => {
   const [state, setState] = useState(() => {
     const allFiles = Object.values(code?.modules)
     const currentFile = [
@@ -23,6 +24,16 @@ const SourceView: React.FC<ISourceViewProps> = ({ code }) => {
       selectedKeys: currentFile?.fpath ? [currentFile.fpath] : undefined
     }
   })
+
+  function calcHeightInPx(height) {
+    const div = document.createElement('div')
+    div.setAttribute(
+      'style',
+      'position:fixed;top:0;left:0;width:0;height:' + height + ';'
+    )
+    document.body.appendChild(div)
+    return Number(div.getBoundingClientRect().height.toFixed(0))
+  }
 
   const addFileToNodes = (
     currentNodes: DataNode[],
@@ -134,22 +145,30 @@ const SourceView: React.FC<ISourceViewProps> = ({ code }) => {
         return 'json'
       case 'md':
         return 'markdown'
+      case 'html':
+        return 'html'
       default:
         return 'text'
     }
   }
 
-  const handleSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
-    console.log('selected:', selectedKeys, info)
+  const handleSelect: TreeProps['onSelect'] = (selectedKeys) => {
+    setState((prev) => {
+      return {
+        selectedKeys,
+        currentFile: code.modules[selectedKeys[0]] || prev.currentFile
+      }
+    })
   }
 
   return (
-    <div className="code-gen-sources-view">
+    <div className="code-gen-sources-view" style={{ height }}>
       <div className="tree-pane">
         <Tree treeData={fileTreeNodes} onSelect={handleSelect} />
       </div>
       <div className="source-code-pane">
         <Editor
+          height={calcHeightInPx(height) - 2}
           language={getFileLanguage(state.currentFile.fpath)}
           defaultValue={state.currentFile?.code || undefined}
           path={state.currentFile?.fpath || undefined}

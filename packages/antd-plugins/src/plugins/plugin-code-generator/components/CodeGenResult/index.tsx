@@ -94,11 +94,11 @@ const CodeGenResult: React.FC<ICodeGenResultProps> = ({ result, schema }) => {
       <Collapse defaultActiveKey={['source', 'preview']}>
         <Panel key="source" header="源代码">
           {/* 源码视图 */}
-          <SourcesView code={code} />
+          <SourcesView code={code} height={'40vh'} />
         </Panel>
         <Panel key="preview" header="在线预览">
           {/* codesandbox预览 */}
-          <CodeGenPreview />
+          <CodeGenPreview height={'40vh'} />
         </Panel>
       </Collapse>
     </div>
