@@ -31,10 +31,10 @@ const CodeGenPreview: React.FC<ICodeGenPreviewProps> = ({ code, height }) => {
           content: file.code as string
         }
       })
-      // TODO: 入口文件需要引入样式，先hard code好了
+      // 入口文件需要引入样式，先hard code好了
       files['src/index.js'] = {
         isBinary: false,
-        content: ''
+        content: `\n// 目前需要单独引入样式文件\nimport "antd/dist/antd.css";\n// 引入入口文件\nimport \'./app\';\n`
       }
     }
     return {
