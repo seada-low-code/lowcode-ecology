@@ -89,7 +89,9 @@
     "@formily/core": "^2.1.4",
     "@formily/react": "^2.1.4",
     "@formily/shared": "^2.1.4",
+    "ahooks": "^3.5.1",
     "antd": "^4.20.2",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "semver": "^7.3.7"
   }
 }
