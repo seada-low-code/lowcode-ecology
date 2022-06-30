@@ -4,8 +4,8 @@ import Editor from '@alilc/lowcode-plugin-base-monaco-editor'
 import '@alilc/lowcode-plugin-base-monaco-editor/lib/style'
 import { Tree } from 'antd'
 import { DataNode, TreeProps } from 'antd/lib/tree'
-import { Code, IFile } from '../CodeGenResult'
 import './index.less'
+import { Code, IFile } from '../../types'
 
 interface ISourceViewProps {
   code?: Code

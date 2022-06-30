@@ -4,24 +4,13 @@ import { ProjectSchema } from '@alilc/lowcode-types'
 import { Collapse } from 'antd'
 import SourcesView from '../SourcesView'
 import CodeGenPreview from '../CodeGenPreview'
+import { Code } from '../../types'
 
 const { Panel } = Collapse
 
 export interface ICodeGenResultProps {
   result?: CodeGenerator.Result
   schema?: ProjectSchema
-}
-
-export interface IFile {
-  fpath: string
-  code: string | Buffer
-  entry?: 0 | 1
-  packagejson?: 0 | 1
-}
-
-export type Code = {
-  type: string
-  modules: Record<string, IFile>
 }
 
 const CodeGenResult: React.FC<ICodeGenResultProps> = ({ result, schema }) => {
