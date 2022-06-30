@@ -188,7 +188,7 @@ export function fixResult(originResult: FlattenFile[]) {
       const path = pathName.slice(14)
       result.push({
         pathName: `src/pages/${path}`,
-        content
+        content: content || '\n' // 如果为空在codesandbox会显示为文件夹，所以写个换行符进去
       })
     }
   })
