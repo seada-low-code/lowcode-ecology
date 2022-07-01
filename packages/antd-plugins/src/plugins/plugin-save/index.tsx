@@ -22,6 +22,7 @@ const plugin = (ctx: ILowCodePluginContext) => {
         },
         content: (
           <Button
+            type="primary"
             onClick={(e) => {
               e.preventDefault()
               // 抛出一个 save 事件，让业务自己去实现

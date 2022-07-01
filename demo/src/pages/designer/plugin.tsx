@@ -15,6 +15,7 @@ import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
 import {
   PluginCodeGenerator,
   PluginFormily,
+  PluginPreview,
   PluginSave,
   PluginSimulatorResizer,
   PluginUndoRedo
@@ -29,8 +30,6 @@ import {
   StringSetter,
   TextAreaSetter
 } from '@seada/antd-setters'
-import { Button } from 'antd'
-import React from 'react'
 import assets from '../../assets/assets.json'
 import { getPageSchema, saveSchema } from './helper'
 
@@ -170,37 +169,12 @@ export default async function registerPlugins() {
   // await plugins.register(PluginCodeGen)
   await plugins.register(PluginCodeGenerator)
 
+  // 注册预览插件并且实现预览动作
+  await plugins.register(PluginPreview)
+
+  // 注册保存插件并且实现保存动作
   await plugins.register(PluginSave)
   event.on('common:save', () => {
     saveSchema()
   })
-
-  const previewSample = (ctx: ILowCodePluginContext) => {
-    return {
-      name: 'previewSample',
-      async init() {
-        const { skeleton } = ctx
-        skeleton.add({
-          name: 'previewSample',
-          area: 'topArea',
-          type: 'Widget',
-          props: {
-            align: 'right'
-          },
-          content: (
-            <Button
-              type="primary"
-              onClick={() => {
-                console.log('预览')
-              }}
-            >
-              预览
-            </Button>
-          )
-        })
-      }
-    }
-  }
-  previewSample.pluginName = 'previewSample'
-  await plugins.register(previewSample)
 }
