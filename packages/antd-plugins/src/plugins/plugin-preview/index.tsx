@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Drawer } from 'antd'
 import { ILowCodePluginContext } from '@alilc/lowcode-engine'
+import PreviewFrame from './components/PreviewFrame'
 
 const PreviewBtn: React.FC = () => {
   const [visible, setVisible] = useState(false)
@@ -28,7 +29,9 @@ const PreviewBtn: React.FC = () => {
         visible={visible}
         width="90vw"
         onClose={closeDrawer}
-      ></Drawer>
+      >
+        <PreviewFrame />
+      </Drawer>
     </>
   )
 }

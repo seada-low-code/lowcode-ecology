@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@seada/antd-setters": "0.0.1-rc.3",
+    "react-frame-component": "^5.2.3",
     "string-natural-compare": "^3.0.1"
   },
   "publishConfig": {
