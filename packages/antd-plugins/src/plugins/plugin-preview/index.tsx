@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Button, Drawer } from 'antd'
-import { ILowCodePluginContext } from '@alilc/lowcode-engine'
+import { ILowCodePluginContext, project } from '@alilc/lowcode-engine'
 import PreviewFrame from './components/PreviewFrame'
+import { ProjectSchema, TransformStage } from '@alilc/lowcode-types'
 
 const PreviewBtn: React.FC = () => {
   const [visible, setVisible] = useState(false)
+  const projectSchemaRef = useRef<ProjectSchema>()
 
   const handlePreview = () => {
+    projectSchemaRef.current = project.exportSchema(TransformStage.Save)
     setVisible(true)
   }
 
@@ -30,7 +33,7 @@ const PreviewBtn: React.FC = () => {
         width="90vw"
         onClose={closeDrawer}
       >
-        <PreviewFrame />
+        <PreviewFrame projectSchema={projectSchemaRef.current} />
       </Drawer>
     </>
   )

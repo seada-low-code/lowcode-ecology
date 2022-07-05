@@ -175,6 +175,26 @@
     resize-observer-polyfill "^1.5.1"
     shallow-element-equals "^1.0.1"
 
+"@alifd/next@^1.25.13":
+  version "1.25.45"
+  resolved "https://registry.yarnpkg.com/@alifd/next/-/next-1.25.45.tgz#3287843e549200cddea0182c4337e32d9eaf6e60"
+  integrity sha512-8GSsZ5gbM1WI1cgc0gYhRTuIzx39EjWojm8JSsUerRnaThorcJ+4Oc+eEJh9pszZEsZtFGOA2+fR1FYALh2GcQ==
+  dependencies:
+    "@alifd/field" "~1.5.5"
+    "@alifd/overlay" "^0.2.9"
+    "@alifd/validate" "~1.2.0"
+    babel-runtime "^6.26.0"
+    bignumber.js "^9.0.1"
+    classnames "^2.2.3"
+    dayjs "^1.9.6"
+    hoist-non-react-statics "^3.0.0"
+    lodash.clonedeep "^4.5.0"
+    prop-types "^15.6.0"
+    react-lifecycles-compat "^3.0.4"
+    react-transition-group "^2.2.1"
+    resize-observer-polyfill "^1.5.1"
+    shallow-element-equals "^1.0.1"
+
 "@alifd/next@~1.24.x":
   version "1.24.18"
   resolved "https://registry.yarnpkg.com/@alifd/next/-/next-1.24.18.tgz#5189f6439e156ccbd99e1bfa51322894ae5f4578"
@@ -283,6 +303,23 @@
   resolved "https://registry.yarnpkg.com/@alilc/lowcode-datasource-types/-/lowcode-datasource-types-1.0.1.tgz#7ba41b95b209056c1858b73837dd0b940a5b2faa"
   integrity sha512-zlI1oOffdvdGt9AoTVWOAF6m/b2MHIkC5PK/tkpTYLTcDs1MBCGE9W0KNltIsTfmOCThStuzcMdUiQB/KO6zfg==
 
+"@alilc/lowcode-designer@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-designer/-/lowcode-designer-1.0.11.tgz#417b05d56958322fdf48baf1a71ab13bea58c3f0"
+  integrity sha512-htLLIqOIOu4JXhZ+JmtzUyc0gGyQ4iC+Up9ZTdWhR8hXNmtnWBU/sPqqVp2e7aKwsaShCU5ZMCRJMD8QJL8ymQ==
+  dependencies:
+    "@alilc/lowcode-editor-core" "1.0.11"
+    "@alilc/lowcode-shell" "1.0.11"
+    "@alilc/lowcode-types" "1.0.11"
+    "@alilc/lowcode-utils" "1.0.11"
+    classnames "^2.2.6"
+    enzyme "^3.11.0"
+    enzyme-adapter-react-16 "^1.15.5"
+    react "^16"
+    react-dom "^16.7.0"
+    semver "^7.3.5"
+    zen-logger "^1.1.0"
+
 "@alilc/lowcode-designer@1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@alilc/lowcode-designer/-/lowcode-designer-1.0.9.tgz#5854b3fc17b2d1d7719342466ce7b87fe45cd201"
@@ -298,6 +335,26 @@
     react "^16"
     react-dom "^16.7.0"
     semver "^7.3.5"
+    zen-logger "^1.1.0"
+
+"@alilc/lowcode-editor-core@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-editor-core/-/lowcode-editor-core-1.0.11.tgz#f7c9ca13ebe9cb5564cf7f73ad7d64539ff1ec74"
+  integrity sha512-+2OEpUGq1uYa1munmW965Ve57NXFIZ3NU0HFFtHwwKRRlnLpifUFCqR7UkFEpTtdQctXk9EwKzEPleF5UFe53w==
+  dependencies:
+    "@alifd/next" "^1.19.16"
+    "@alilc/lowcode-types" "1.0.11"
+    "@alilc/lowcode-utils" "1.0.11"
+    classnames "^2.2.6"
+    debug "^4.1.1"
+    intl-messageformat "^9.3.1"
+    lodash.get "^4.4.2"
+    mobx "^6.3.0"
+    mobx-react "^7.2.0"
+    power-di "^2.2.4"
+    react "^16"
+    react-dom "^16.7.0"
+    store "^2.0.12"
     zen-logger "^1.1.0"
 
 "@alilc/lowcode-editor-core@1.0.9":
@@ -319,6 +376,20 @@
     react-dom "^16.7.0"
     store "^2.0.12"
     zen-logger "^1.1.0"
+
+"@alilc/lowcode-editor-skeleton@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-editor-skeleton/-/lowcode-editor-skeleton-1.0.11.tgz#753a1bc18d099fa18feff802d25c549c7feb5ced"
+  integrity sha512-jvSIoJl3xBRh2alKJbOffc57jV96xOnqlplmGsZBVDn/aPf++mHhbMOdACQs+tdaCR0EdHC2vshaQLaA0SCodQ==
+  dependencies:
+    "@alifd/next" "^1.20.12"
+    "@alilc/lowcode-designer" "1.0.11"
+    "@alilc/lowcode-editor-core" "1.0.11"
+    "@alilc/lowcode-types" "1.0.11"
+    "@alilc/lowcode-utils" "1.0.11"
+    classnames "^2.2.6"
+    react "^16.8.1"
+    react-dom "^16.8.1"
 
 "@alilc/lowcode-editor-skeleton@1.0.9":
   version "1.0.9"
@@ -346,6 +417,23 @@
     cssjson "^2.1.3"
     js-beautify "^1.13.0"
     react-color "^2.19.3"
+
+"@alilc/lowcode-engine@^1.0.0":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-engine/-/lowcode-engine-1.0.11.tgz#f02a37085933258d9ec18add31c4d72ca13c3abe"
+  integrity sha512-SGrvUG60POhzTAF0DxgSeKyhW+NC2kFxCFGm/6JA9nu9+sSCwViB6BSFEZOkQz8FjVpVkrA0Roym6BynnU5bkg==
+  dependencies:
+    "@alifd/next" "^1.19.12"
+    "@alilc/lowcode-designer" "1.0.11"
+    "@alilc/lowcode-editor-core" "1.0.11"
+    "@alilc/lowcode-editor-skeleton" "1.0.11"
+    "@alilc/lowcode-engine-ext" "^1.0.0"
+    "@alilc/lowcode-plugin-designer" "1.0.11"
+    "@alilc/lowcode-plugin-outline-pane" "1.0.11"
+    "@alilc/lowcode-shell" "1.0.11"
+    "@alilc/lowcode-utils" "1.0.11"
+    react "^16.8.1"
+    react-dom "^16.8.1"
 
 "@alilc/lowcode-engine@^1.0.9":
   version "1.0.9"
@@ -393,6 +481,17 @@
   dependencies:
     "@monaco-editor/loader" "^1.2.0"
 
+"@alilc/lowcode-plugin-designer@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-plugin-designer/-/lowcode-plugin-designer-1.0.11.tgz#1d1d4517aa94725ac25f0c0827c10f74a4bb8ce8"
+  integrity sha512-fuSFrcYszx607EnzRlbSldSqDYdSsYU8zOqTs9IhpPYyXVgxrLpo2GPIVE9oMIV17ncd84nFIBWictpYMJ6DmA==
+  dependencies:
+    "@alilc/lowcode-designer" "1.0.11"
+    "@alilc/lowcode-editor-core" "1.0.11"
+    "@alilc/lowcode-utils" "1.0.11"
+    react "^16.8.1"
+    react-dom "^16.8.1"
+
 "@alilc/lowcode-plugin-designer@1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@alilc/lowcode-plugin-designer/-/lowcode-plugin-designer-1.0.9.tgz#48723b5b65959cf8b09315bb76c453a29617f4ed"
@@ -403,6 +502,32 @@
     "@alilc/lowcode-utils" "1.0.9"
     react "^16.8.1"
     react-dom "^16.8.1"
+
+"@alilc/lowcode-plugin-inject@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-plugin-inject/-/lowcode-plugin-inject-1.1.1.tgz#60ae89232e8a049d8b851c640aef3959f109f85a"
+  integrity sha512-CAtb4Xuzp8VqykcmExST83tkIOHUacSVtRlax7rTxoN/t2dXyoUeSeptE3TuANIZWhdMfZNa6scmP8A4m4elHQ==
+  dependencies:
+    "@alifd/next" "^1.25.13"
+    "@alilc/lowcode-engine" "^1.0.0"
+    "@alilc/lowcode-utils" "^1.0.0"
+    case "^1.6.3"
+    fetch-jsonp "^1.2.1"
+    query-string "^7.1.0"
+
+"@alilc/lowcode-plugin-outline-pane@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-plugin-outline-pane/-/lowcode-plugin-outline-pane-1.0.11.tgz#483e321de5b77f48c8bc92f680000335061586f5"
+  integrity sha512-EjRY1BYf2iZorIWBx5rmMXLW/8nx8XLHn5rexmY8SrHLhKHoK+xdtxGDVDGJhrFvwstDm62BTOZD0zHgErm33Q==
+  dependencies:
+    "@alifd/next" "^1.19.16"
+    "@alilc/lowcode-designer" "1.0.11"
+    "@alilc/lowcode-editor-core" "1.0.11"
+    "@alilc/lowcode-types" "1.0.11"
+    "@alilc/lowcode-utils" "1.0.11"
+    classnames "^2.2.6"
+    react "^16"
+    react-dom "^16.7.0"
 
 "@alilc/lowcode-plugin-outline-pane@1.0.9":
   version "1.0.9"
@@ -435,6 +560,36 @@
     "@alifd/next" "^1.21.16"
     "@alilc/lowcode-renderer-core" "1.0.8"
 
+"@alilc/lowcode-react-renderer@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-react-renderer/-/lowcode-react-renderer-1.0.11.tgz#4b5654c59831125d489c2218d0d3b63c7b9efe01"
+  integrity sha512-TQ+qeVY/2z2TSmie6+vfUhLP9UVfmR/s66jGg0Fi1vMJvrh78840JdwUBA/FRXBWpJap47QZYNDDWjW+hoLm5w==
+  dependencies:
+    "@alifd/next" "^1.21.16"
+    "@alilc/lowcode-renderer-core" "1.0.11"
+
+"@alilc/lowcode-renderer-core@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-renderer-core/-/lowcode-renderer-core-1.0.11.tgz#dc5a82a8ba16568e62c169a264ab7ded927510b2"
+  integrity sha512-CmPyOmM1q76WlnWJ/rbvdjtbzpkAGBeC9dJzUALh2wnOsrTayO18WZn0w4mHfBbS7JkLqhmJWjp4SYAoSxYRJQ==
+  dependencies:
+    "@alilc/lowcode-datasource-engine" "^1.0.0"
+    "@alilc/lowcode-types" "1.0.11"
+    "@alilc/lowcode-utils" "1.0.11"
+    classnames "^2.2.6"
+    debug "^4.1.1"
+    fetch-jsonp "^1.1.3"
+    intl-messageformat "^9.3.1"
+    jsonuri "^2.1.2"
+    lodash "^4.17.11"
+    moment "^2.24.0"
+    prop-types "^15.7.2"
+    react-is "^16.10.1"
+    serialize-javascript "^1.7.0"
+    socket.io-client "^2.2.0"
+    whatwg-fetch "^3.0.0"
+    zen-logger "^1.1.4"
+
 "@alilc/lowcode-renderer-core@1.0.8":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@alilc/lowcode-renderer-core/-/lowcode-renderer-core-1.0.8.tgz#ec3a3fe5825bfae7ebfac8ed21ff0b3ffed5501a"
@@ -456,6 +611,23 @@
     socket.io-client "^2.2.0"
     whatwg-fetch "^3.0.0"
     zen-logger "^1.1.4"
+
+"@alilc/lowcode-shell@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-shell/-/lowcode-shell-1.0.11.tgz#089b0bec03da8aacf0923694f3d257a02daa4c4a"
+  integrity sha512-bBJfHpsm4MJD7pwmHZpZsEtsJR68b23d0gYqh/24Xo0KwabL6/T8Bf6UJ1/YoXYq5tbBP+S0GhXxeHwqKwXcuw==
+  dependencies:
+    "@alilc/lowcode-designer" "1.0.11"
+    "@alilc/lowcode-editor-core" "1.0.11"
+    "@alilc/lowcode-editor-skeleton" "1.0.11"
+    "@alilc/lowcode-types" "1.0.11"
+    "@alilc/lowcode-utils" "1.0.11"
+    classnames "^2.2.6"
+    enzyme "^3.11.0"
+    enzyme-adapter-react-16 "^1.15.5"
+    react "^16"
+    react-dom "^16.7.0"
+    zen-logger "^1.1.0"
 
 "@alilc/lowcode-shell@1.0.9":
   version "1.0.9"
@@ -481,6 +653,15 @@
   dependencies:
     "@alilc/lowcode-datasource-types" "^1.0.0"
     react "^16.9 || ^17"
+    strict-event-emitter-types "^2.0.0"
+
+"@alilc/lowcode-types@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-types/-/lowcode-types-1.0.11.tgz#c596cc9710ca6212d3a3baea9b052dfea237d059"
+  integrity sha512-HFyEZ5B+ao+fzC/xMjzWTwdQktuh2IT+lf4TDJ21IX/05n3642JMsxo03d9JqRIo0/sAH1BErzmuCHkR+rtfuw==
+  dependencies:
+    "@alilc/lowcode-datasource-types" "^1.0.0"
+    react "^16.9"
     strict-event-emitter-types "^2.0.0"
 
 "@alilc/lowcode-types@1.0.8", "@alilc/lowcode-types@^1.0.0-beta.3", "@alilc/lowcode-types@^1.0.1":
@@ -517,6 +698,17 @@
   dependencies:
     "@alifd/next" "^1.19.16"
     "@alilc/lowcode-types" "1.0.0"
+    lodash "^4.17.21"
+    react "^16"
+    zen-logger "^1.1.0"
+
+"@alilc/lowcode-utils@1.0.11", "@alilc/lowcode-utils@^1.0.0":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@alilc/lowcode-utils/-/lowcode-utils-1.0.11.tgz#3da1e3711e5b8081d1d827722b91d2faeed6d74f"
+  integrity sha512-16a4ouI6oZCLHyX/UsZ1UJ19VRFOzuyGhqI7L/69y/PdPnMGbdqcRcy5uj8PAhiuakmDVWG/qbieV3eHZsSy6A==
+  dependencies:
+    "@alifd/next" "^1.19.16"
+    "@alilc/lowcode-types" "1.0.11"
     lodash "^4.17.21"
     react "^16"
     zen-logger "^1.1.0"
@@ -8200,6 +8392,11 @@ case-sensitive-paths-webpack-plugin@^2.2.0, case-sensitive-paths-webpack-plugin@
   resolved "https://registry.yarnpkg.com/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.4.0.tgz#db64066c6422eed2e08cc14b986ca43796dbc6d4"
   integrity sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==
 
+case@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
+  integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
+
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
@@ -11948,7 +12145,7 @@ fd-slicer@~1.1.0:
   dependencies:
     pend "~1.2.0"
 
-fetch-jsonp@^1.1.3:
+fetch-jsonp@^1.1.3, fetch-jsonp@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/fetch-jsonp/-/fetch-jsonp-1.2.1.tgz#a3ea630a992ae594cfbf5676e7f5fe4d2f8f03aa"
   integrity sha512-5UwejksxssYwlwl/9OhEQU+OrVaxdChOQntpJO/GUw6NpfPS6fd08fPvbNOq0Ym6hxfLWD6cGN0Ln/V/hWcluw==
@@ -20595,6 +20792,16 @@ query-string@^6.13.5, query-string@^6.13.8:
   version "6.14.1"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.14.1.tgz#7ac2dca46da7f309449ba0f86b1fd28255b0c86a"
   integrity sha512-XDxAeVmpfu1/6IjyT/gXHOl+S0vQ9owggJ30hhWKdHAsNPOcasn5o9BW0eejZqL2e4vMjhAxoW3jVHcD6mbcYw==
+  dependencies:
+    decode-uri-component "^0.2.0"
+    filter-obj "^1.1.0"
+    split-on-first "^1.0.0"
+    strict-uri-encode "^2.0.0"
+
+query-string@^7.1.0:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-7.1.1.tgz#754620669db978625a90f635f12617c271a088e1"
+  integrity sha512-MplouLRDHBZSG9z7fpuAAcI7aAYjDLhtsiVZsevsfaHWDS2IDdORKbSd1kWUA+V4zyva/HZoSfpwnYMMQDhb0w==
   dependencies:
     decode-uri-component "^0.2.0"
     filter-obj "^1.1.0"

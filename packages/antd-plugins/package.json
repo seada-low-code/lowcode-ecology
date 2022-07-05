@@ -18,6 +18,8 @@
     "@alilc/lowcode-types": "^1.0.10"
   },
   "dependencies": {
+    "@alilc/lowcode-plugin-inject": "^1.1.1",
+    "@alilc/lowcode-react-renderer": "^1.0.11",
     "@seada/antd-setters": "0.0.1-rc.3",
     "react-frame-component": "^5.2.3",
     "string-natural-compare": "^3.0.1"
