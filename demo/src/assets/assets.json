@@ -80,6 +80,19 @@
         "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/view.js",
         "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/view.css"
       ]
+    },
+    {
+      "package": "@seada/formily-markup-materials",
+      "version": "0.1.1",
+      "library": "SeadaFormilyMarkupMaterials",
+      "urls": [
+        "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/view.js",
+        "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/view.css"
+      ],
+      "editUrls": [
+        "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/view.js",
+        "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/view.css"
+      ]
     }
   ],
   "components": [
@@ -92,6 +105,17 @@
       "url": "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/meta.js",
       "urls": {
         "default": "https://unpkg.com/@seada/formily-materials@latest/build/lowcode/meta.js"
+      }
+    },
+    {
+      "exportName": "SeadaFormilyMarkupMaterialsMeta",
+      "npm": {
+        "package": "@seada/formily-markup-materials",
+        "version": "0.1.1"
+      },
+      "url": "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/meta.js",
+      "urls": {
+        "default": "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/meta.js"
       }
     },
     {
