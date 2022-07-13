@@ -21,10 +21,13 @@ module.exports = {
         lowcodeDir: 'lowcode',
         entryPath: 'src/index.tsx',
         staticResources: {
-          engineCoreCssUrl: 'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@latest/dist/css/engine-core.css',
+          engineCoreCssUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@latest/dist/css/engine-core.css',
           // engineExtCssUrl: 'https://unpkg.com/@alilc/lowcode-engine-ext@1.0.0-beta.1/dist/css/engine-ext.css',
-          engineCoreJsUrl: 'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@latest/dist/js/engine-core.js',
-          engineExtJsUrl: 'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@latest/dist/js/engine-ext.js',
+          engineCoreJsUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@latest/dist/js/engine-core.js',
+          engineExtJsUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@latest/dist/js/engine-ext.js',
         },
         builtinAssets: [
           {
@@ -89,16 +92,7 @@ module.exports = {
             ],
             sort: {
               groupList: ['精选组件', '原子组件'],
-              categoryList: [
-                '通用',
-                '导航',
-                '反馈',
-                '其他',
-                '表单',
-                '数据展示',
-                '基础',
-                '布局'
-              ],
+              categoryList: ['通用', '导航', '反馈', '其他', '表单', '数据展示', '基础', '布局'],
             },
             groupList: ['精选组件', '原子组件'],
             ignoreComponents: {},
@@ -106,6 +100,6 @@ module.exports = {
         ],
       },
     ],
-    "./build.plugin.js"
+    './build.plugin.js',
   ],
 };

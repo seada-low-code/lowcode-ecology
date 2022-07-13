@@ -6,6 +6,9 @@ import { Schema } from '@formily/react';
  * @param properties
  * @returns
  */
+/**
+ * @deprecated
+ */
 export const mergeItems = (schema: Schema, properties) => {
   schema.items = new Schema({
     // todo: 这里写死了 object，不够灵活，应该要引入对象容器

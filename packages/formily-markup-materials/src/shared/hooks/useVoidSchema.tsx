@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { uuid } from '../';
 
 // 获得formItemSchema
+/**
+ * @deprecated
+ */
 export default (
   { componentProps = {}, fieldProps, decoratorProps = {}, style, ...extra }: IFormItemProps,
   defaultProps?: any,

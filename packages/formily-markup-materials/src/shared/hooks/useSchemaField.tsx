@@ -2,6 +2,9 @@ import { createSchemaField } from '@formily/react';
 import { useContext, useMemo } from 'react';
 import { FormItem } from '@formily/antd';
 
+/**
+ * @deprecated
+ */
 export default (componentsSet: Set<string>, defaultComponent?: any) => {
   // components 并不是全量组件，只是画布上需要的组件
   const { components, pageContext } = useContext<any>((window as any).__appContext);

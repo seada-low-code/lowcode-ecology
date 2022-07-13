@@ -18,6 +18,9 @@ const NeedIgnoreFormilyProps = {
   'x-validator': true,
 };
 
+/**
+ * @deprecated
+ */
 const traverse = (obj, cb: any) => {
   if (isPlainObj(obj)) {
     Object.keys(obj).forEach((key) => {
@@ -28,6 +31,9 @@ const traverse = (obj, cb: any) => {
 };
 
 // 包裹 'x-decorator': 'FormItem'
+/**
+ * @deprecated
+ */
 const useSchema = (
   { componentProps = {}, fieldProps, decoratorProps = {}, style, ...extra }: IFormItemProps,
   defaultProps?: any,

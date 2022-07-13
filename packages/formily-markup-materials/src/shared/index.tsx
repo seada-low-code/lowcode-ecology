@@ -22,7 +22,6 @@ export interface IFormItemProps {
   style?: any;
 }
 export * from './utils';
-export { default as FormControlContext } from './context/FormControlContext';
 export { default as syncUI } from './hoc/syncUI';
 export { default as useSchema } from './hooks/useSchema';
 export { default as useSchemaField } from './hooks/useSchemaField';

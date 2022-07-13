@@ -7,6 +7,9 @@ import { Alert } from 'antd';
 import type { JSXComponent } from '@formily/react';
 
 // 兼容 Input.TextArea 类组件
+/**
+ * @deprecated
+ */
 const getComponentName = (componentName) => {
   return componentName.split('.')[0];
 };
@@ -19,6 +22,9 @@ interface ICreateSchemaComponent {
 
 /**
  * 将普通组件转换成使用 formily SchemaField 渲染的组件
+ */
+/**
+ * @deprecated
  */
 export const createSchemaComponent = (options: ICreateSchemaComponent) => {
   const { componentName, component } = options;
@@ -54,6 +60,9 @@ export const createSchemaComponent = (options: ICreateSchemaComponent) => {
   return syncUI(SchemaComponent);
 };
 
+/**
+ * @deprecated
+ */
 export const createVoidSchemaComponent = (options: ICreateSchemaComponent) => {
   return createSchemaComponent({
     ...options,

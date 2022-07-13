@@ -8,15 +8,33 @@ import {
   createRef,
 } from 'react';
 import { createForm, Form } from '@formily/core';
-import { FormProvider } from '@formily/react';
+import { FormProvider, createSchemaField } from '@formily/react';
 import { FormLayout } from '@formily/antd';
-import { FormControlContext } from '../../shared';
+import { FormContext } from '../../shared/context';
+import { FormItem, Input, ArrayCards } from '@formily/antd';
 
 export interface IFormilyFormProps {
   __designMode?: string;
   componentProps?: any;
-  style?: any;
+  style?: React.CSSProperties;
 }
+
+const SchemaField = createSchemaField({
+  components: {
+    FormItem,
+    Input,
+    ArrayCards,
+    Slot: (props) => {
+      return <React.Fragment>{props.children}</React.Fragment>;
+    },
+    Container: (props) => {
+      return <div {...props}>{ props.children }</div>
+    },
+    Container1: (props) => {
+      return <div {...props}>{ 111 }</div>
+    },
+  },
+});
 
 // @ts-ignore
 const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((props, ref) => {
@@ -58,18 +76,29 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
     }
   }, [componentProps]);
 
+  // 是否存在占位元素
+  const hasPlaceholder = isDesign && children?.[0]?.props?.className === 'lc-container-placeholder';
+
+  console.log('children', children, hasPlaceholder);
+
   return (
-    <FormControlContext.Provider
+    <FormContext.Provider
       value={{
         updateForm,
+        SchemaField,
       }}
     >
       <FormProvider form={form}>
-        <FormLayout style={style} {...componentProps}>
-          {children}
-        </FormLayout>
+        <SchemaField>
+          {hasPlaceholder ? (
+            <SchemaField.Void x-component="Slot" x-component-props={{ children }} />
+          ) : (
+            <React.Fragment>{children}</React.Fragment>
+          )}
+        </SchemaField>
+        {/* { children } */}
       </FormProvider>
-    </FormControlContext.Provider>
+    </FormContext.Provider>
   );
 });
 

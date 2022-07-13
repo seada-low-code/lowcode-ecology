@@ -1,6 +1,9 @@
 import { useContext } from 'react';
 import { SchemaExpressionScopeContext } from '@formily/react';
 
+/**
+ * @deprecated
+ */
 export const useScope = () => {
   const appContext = useContext<any>((window as any).__appContext);
 
