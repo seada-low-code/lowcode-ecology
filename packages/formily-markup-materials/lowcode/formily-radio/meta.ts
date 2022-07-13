@@ -1,0 +1,31 @@
+import { snippets } from './snippets';
+import props from './propsSchema';
+import { RadioGroupSource, takeIcon } from '../icons';
+
+const FormilyComponentMeta = {
+  componentName: 'FormilyRadio',
+  title: 'Radio',
+  group: 'Formily',
+  category: '输入组件',
+  npm: {
+    package: '@seada/formily-markup-materials',
+    version: 'latest',
+    exportName: 'FormilyRadio',
+    main: 'src/index.tsx',
+    destructuring: true,
+    subName: '',
+  },
+  configure: {
+    props,
+    supports: {
+      style: true,
+    },
+  },
+  advanced: {},
+  icon: takeIcon(RadioGroupSource),
+};
+
+export default {
+  ...FormilyComponentMeta,
+  snippets,
+};
