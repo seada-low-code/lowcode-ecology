@@ -11,7 +11,7 @@ module.exports = {
       // 插件文档：https://fusion.design/help.html/iuu6cm#xJBge
       '@alifd/build-plugin-lowcode',
       {
-        noParse: true,
+        noParse: false,
         engineScope: '@alilc',
         library,
         npmInfo: {
