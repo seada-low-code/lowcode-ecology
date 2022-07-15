@@ -32,6 +32,6 @@ export const getProjectSchema = () => {
  */
 export const getPageSchema = () => {
   const localSchema = getProjectSchema()
-  const pageSchema = localSchema?.schema?.componentsTree?.[0] || schemaJSON
+  const pageSchema = localSchema?.componentsTree?.[0] || schemaJSON
   return pageSchema
 }
