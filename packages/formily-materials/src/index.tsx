@@ -27,3 +27,4 @@ export { default as FormilySpace } from './components/Space';
 export { default as FormilyTransfer } from './components/Transfer';
 export { default as FormilyUpload } from './components/Upload';
 export { default as FormilyUploadDragger } from './components/UploadDragger';
+export { default as FormilyObjectContainer } from './components/Object';
