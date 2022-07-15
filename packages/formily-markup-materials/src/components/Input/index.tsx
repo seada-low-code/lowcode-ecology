@@ -1,33 +1,29 @@
 import * as React from 'react';
 import { createElement } from 'react';
 import { useSchemaField } from '../../shared/hooks';
+import { FormItem } from '@formily/antd';
 
-const FormilyInput: React.FC<{ style: React.CSSProperties }> = (props) => {
-  console.log('props', props)
+const FormilyInput: React.ForwardRefRenderFunction<any, any> = React.forwardRef((props, ref) => {
   const SchemaField = useSchemaField();
 
   return (
-    // <div>
-    // 123
     <SchemaField.String
       name={Math.random()}
       title="输入框"
-      x-decorator="Container"
-      x-component="Container1"
-      required
-      x-decorator-props={{
-        ...props
+      x-decorator={(props) => {
+        return (
+          <div ref={ref}>
+            <FormItem {...props} />
+          </div>
+        );
       }}
+      x-component="Input"
+      required
       x-component-props={{
         ...props,
-        style: {
-          width: 240,
-          ...props.style,
-        },
       }}
     />
-    // </div>
   );
-};
+});
 
 export default FormilyInput;

@@ -27,12 +27,6 @@ const SchemaField = createSchemaField({
     Slot: (props) => {
       return <React.Fragment>{props.children}</React.Fragment>;
     },
-    Container: (props) => {
-      return <div {...props}>{ props.children }</div>
-    },
-    Container1: (props) => {
-      return <div {...props}>{ 111 }</div>
-    },
   },
 });
 
@@ -96,7 +90,6 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
             <React.Fragment>{children}</React.Fragment>
           )}
         </SchemaField>
-        {/* { children } */}
       </FormProvider>
     </FormContext.Provider>
   );
