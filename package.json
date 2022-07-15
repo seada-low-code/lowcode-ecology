@@ -90,6 +90,7 @@
     "@formily/react": "^2.1.10",
     "@formily/shared": "^2.1.10",
     "antd": "^4.20.2",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "semver": "^7.3.7"
   }
 }

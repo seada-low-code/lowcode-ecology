@@ -6,13 +6,14 @@ import {
   RegisteredSetter
 } from '@alilc/lowcode-engine'
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext'
-import PluginCodeGen from '@alilc/lowcode-plugin-code-generator'
+// import PluginCodeGen from '@alilc/lowcode-plugin-code-generator'
 import ComponentsPane from '@alilc/lowcode-plugin-components-pane'
 import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject'
 import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
 import {
+  PluginCodeGenerator,
   PluginFormily,
   PluginSave,
   PluginSimulatorResizer,
@@ -67,8 +68,6 @@ export default async function registerPlugins() {
   await plugins.register(editorInit)
 
   await plugins.register(PluginUndoRedo)
-
-  await plugins.register(PluginCodeGen)
 
   await plugins.register(PluginSimulatorResizer)
 
@@ -167,6 +166,9 @@ export default async function registerPlugins() {
 
   // 注册中英文切换
   await plugins.register(ZhEnPlugin)
+
+  // await plugins.register(PluginCodeGen)
+  await plugins.register(PluginCodeGenerator)
 
   await plugins.register(PluginSave)
   event.on('common:save', () => {

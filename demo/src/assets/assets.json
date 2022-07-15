@@ -43,17 +43,24 @@
       "library": "Next"
     },
     {
-      "package": "@alilc/lowcode-materials",
-      "version": "1.0.3",
+      "package": "@alilc/antd-lowcode-materials",
+      "version": "1.0.9",
       "library": "AntdLowcode",
       "urls": [
-        "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/build/antd-lowcode/view.js",
-        "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/build/antd-lowcode/view.css"
+        "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.9/build/lowcode/render/default/view.js",
+        "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.9/build/lowcode/render/default/view.css"
       ],
       "editUrls": [
-        "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/build/antd-lowcode/view.js",
-        "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/build/antd-lowcode/view.css"
-      ]
+        "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.9/build/lowcode/view.js",
+        "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.9/build/lowcode/view.css"
+      ],
+      "advancedUrls": {
+        "default": [
+          "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.9/build/lowcode/render/default/view.js",
+          "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.9/build/lowcode/render/default/view.css"
+        ]
+      },
+      "advancedEditUrls": {}
     },
     {
       "package": "@seada/antd-materials",
@@ -130,14 +137,19 @@
       }
     },
     {
-      "exportName": "AlilcLowcodeMaterialsMeta",
+      "exportName": "AlilcAntdLowcodeMaterialsMeta",
       "npm": {
-        "package": "@alilc/lowcode-materials",
-        "version": "1.0.3"
+        "package": "@alilc/antd-lowcode-materials",
+        "version": "1.0.9"
       },
-      "url": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@latest/build/antd-lowcode/meta.js",
+      "url": "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.9/build/lowcode/meta.js",
       "urls": {
-        "default": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@latest/build/antd-lowcode/meta.js"
+        "default": "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.9/build/lowcode/meta.js"
+      },
+      "advancedUrls": {
+        "default": [
+          "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.9/build/lowcode/meta.js"
+        ]
       }
     }
   ],
