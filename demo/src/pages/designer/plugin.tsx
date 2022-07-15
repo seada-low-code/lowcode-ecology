@@ -13,7 +13,7 @@ import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
 import {
-  PluginCodeGenerator,
+  // PluginCodeGenerator,
   PluginFormily,
   PluginSave,
   PluginSimulatorResizer,
@@ -33,6 +33,8 @@ import { Button } from 'antd'
 import React from 'react'
 import assets from '../../assets/assets.json'
 import { getPageSchema, saveSchema } from './helper'
+import CodeEditor from "@alilc/lowcode-plugin-code-editor";
+import LowcodePluginPreview from './plugins/plugin-preview/index'
 
 export default async function registerPlugins() {
   await plugins.register(ManualPlugin)
@@ -168,39 +170,15 @@ export default async function registerPlugins() {
   await plugins.register(ZhEnPlugin)
 
   // await plugins.register(PluginCodeGen)
-  await plugins.register(PluginCodeGenerator)
+  // await plugins.register(PluginCodeGenerator)
+
+  CodeEditor.pluginName = 'CodeEditor';
+  await plugins.register(CodeEditor);
 
   await plugins.register(PluginSave)
   event.on('common:save', () => {
     saveSchema()
   })
 
-  const previewSample = (ctx: ILowCodePluginContext) => {
-    return {
-      name: 'previewSample',
-      async init() {
-        const { skeleton } = ctx
-        skeleton.add({
-          name: 'previewSample',
-          area: 'topArea',
-          type: 'Widget',
-          props: {
-            align: 'right'
-          },
-          content: (
-            <Button
-              type="primary"
-              onClick={() => {
-                console.log('预览')
-              }}
-            >
-              预览
-            </Button>
-          )
-        })
-      }
-    }
-  }
-  previewSample.pluginName = 'previewSample'
-  await plugins.register(previewSample)
+  await plugins.register(LowcodePluginPreview)
 }
