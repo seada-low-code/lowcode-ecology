@@ -1,4 +1,4 @@
-const { name, version } = require("./package.json");
+const { name, version } = require('./package.json');
 
 const library = 'SeadaFormilyMarkupMaterials';
 
@@ -13,6 +13,9 @@ module.exports = {
       {
         noParse: true,
         engineScope: '@alilc',
+        setterMap: {
+          FormilyCompSetter: '../src/setters/FormilyCompSetter',
+        },
         library,
         npmInfo: {
           package: name,

@@ -27,7 +27,7 @@ const FormilyFormMeta = {
         defaultValue: () => {
           return `formily_${uuid()}`;
         },
-        setter: ['StringSetter', 'VariableSetter'],
+        setter: ['StringSetter', 'VariableSetter', 'FormilyCompSetter'],
       },
       ...props,
     ],
