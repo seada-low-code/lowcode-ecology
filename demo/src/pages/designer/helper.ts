@@ -2,6 +2,8 @@ import { material, project } from '@alilc/lowcode-engine'
 import { filterPackages } from '@alilc/lowcode-plugin-inject'
 import { TransformStage } from '@alilc/lowcode-types'
 import { message } from 'antd'
+import schemaJSON from './schema.json'
+
 /**
  * 将schema和package保存到本地localStorage
  */
@@ -17,11 +19,19 @@ export const saveSchema = async () => {
   message.success('保存成功')
 }
 
+export const getPagePackages = () => {
+  return JSON.parse(window.localStorage.getItem('packages') || '{}')
+}
+
+export const getProjectSchema = () => {
+  return JSON.parse(window.localStorage.getItem('schema') || '{}')
+}
+
 /**
  * 获取页面schema，用于初始化
  */
 export const getPageSchema = () => {
-  const schema = JSON.parse(window.localStorage.getItem('schema') || '{}')
-  const pageSchema = schema.componentsTree?.[0]
+  const localSchema = getProjectSchema()
+  const pageSchema = localSchema?.schema?.componentsTree?.[0] || schemaJSON
   return pageSchema
 }
