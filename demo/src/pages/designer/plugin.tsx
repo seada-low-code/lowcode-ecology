@@ -13,7 +13,7 @@ import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
 import {
-  PluginCodeGenerator,
+  // PluginCodeGenerator,
   PluginFormily,
   PluginSave,
   PluginSimulatorResizer,
@@ -168,7 +168,7 @@ export default async function registerPlugins() {
   await plugins.register(ZhEnPlugin)
 
   // await plugins.register(PluginCodeGen)
-  await plugins.register(PluginCodeGenerator)
+  // await plugins.register(PluginCodeGenerator)
 
   await plugins.register(PluginSave)
   event.on('common:save', () => {
