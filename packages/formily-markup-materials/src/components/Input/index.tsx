@@ -8,7 +8,7 @@ const FormilyInput: React.ForwardRefRenderFunction<any, any> = React.forwardRef(
 
   return (
     <SchemaField.String
-      name={Math.random()}
+      name="usernmae"
       title="输入框"
       x-decorator={(props) => {
         return (

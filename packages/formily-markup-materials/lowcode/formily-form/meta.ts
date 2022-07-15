@@ -6,7 +6,7 @@ import { DataFormSource, takeIcon } from '../icons';
 const FormilyFormMeta = {
   componentName: 'FormilyForm',
   title: 'FormilyForm',
-  group: 'Formily',
+  group: 'Formily Markup',
   category: '布局组件',
   npm: {
     package: '@seada/formily-markup-materials',

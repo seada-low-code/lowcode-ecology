@@ -9,9 +9,8 @@ import {
 } from 'react';
 import { createForm, Form } from '@formily/core';
 import { FormProvider, createSchemaField } from '@formily/react';
-import { FormLayout } from '@formily/antd';
 import { FormContext } from '../../shared/context';
-import { FormItem, Input, ArrayCards } from '@formily/antd';
+import { FormItem, Input, ArrayCards, FormButtonGroup, Submit } from '@formily/antd';
 
 /**
  * @deprecated
@@ -69,9 +68,10 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
 
   useEffect(() => {
     if (__designMode === 'design') {
+      // todo: 需要监听当前 node 的 onAddNode 事件去 updateForm
       updateForm();
     }
-  }, [componentProps]);
+  }, [componentProps, children]);
 
   // 是否存在占位元素
   const hasPlaceholder = isDesign && children?.[0]?.props?.className === 'lc-container-placeholder';
@@ -91,6 +91,9 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
             <React.Fragment>{children}</React.Fragment>
           )}
         </SchemaField>
+        <FormButtonGroup>
+          <Submit onSubmit={console.log}>Submit</Submit>
+        </FormButtonGroup>
       </FormProvider>
     </FormContext.Provider>
   );

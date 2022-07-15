@@ -93,12 +93,10 @@
       "version": "0.1.1",
       "library": "SeadaFormilyMarkupMaterials",
       "urls": [
-        "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/view.js",
-        "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/view.css"
+        "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/view.js"
       ],
       "editUrls": [
-        "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/view.js",
-        "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/view.css"
+        "https://unpkg.com/@seada/formily-markup-materials@latest/build/lowcode/view.js"
       ]
     }
   ],
