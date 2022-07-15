@@ -13,6 +13,9 @@ import { FormLayout } from '@formily/antd';
 import { FormContext } from '../../shared/context';
 import { FormItem, Input, ArrayCards } from '@formily/antd';
 
+/**
+ * @deprecated
+ */
 export interface IFormilyFormProps {
   __designMode?: string;
   componentProps?: any;
@@ -72,8 +75,6 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
 
   // 是否存在占位元素
   const hasPlaceholder = isDesign && children?.[0]?.props?.className === 'lc-container-placeholder';
-
-  console.log('children', children, hasPlaceholder);
 
   return (
     <FormContext.Provider
