@@ -1,25 +1,29 @@
 import * as React from 'react';
 import { createElement } from 'react';
+import { FormLayout } from '@formily/antd';
 import { useSchemaField, useHasPlaceholder, useInDesignMode } from '../../shared/hooks';
-import { FormItem } from '@formily/antd';
-
 
 const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef((props, ref) => {
   const SchemaField = useSchemaField();
 
-  const hasPlaceholder = useHasPlaceholder(props)
+  const hasPlaceholder = useHasPlaceholder(props);
 
-  const inDesign = useInDesignMode(props)
+  const inDesign = useInDesignMode(props);
 
-  console.log('hasPlaceholder', hasPlaceholder)
+  console.log('hasPlaceholder', hasPlaceholder);
 
   if (hasPlaceholder) {
-    return <SchemaField.Void x-component="Slot" x-component-props={{
-      children: <div ref={ref}>{ props.children }</div>
-    }} />
+    return (
+      <SchemaField.Void
+        x-component="Slot"
+        x-component-props={{
+          children: <div ref={ref}>{props.children}</div>,
+        }}
+      />
+    );
   }
 
-  console.log(inDesign, 'inDesign')
+  console.log(inDesign, 'inDesign');
 
   // if (inDesign) {
   //   return <SchemaField.Void
@@ -31,19 +35,19 @@ const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef
   // }
 
   return (
-    <SchemaField.Object
-      name="person"
-      // x-decorator={(props) => {
-      //   return (
-      //     <div ref={ref}>
-      //       { props.chidlren }
-      //     </div>
-      //   );
-      // }}
+    <SchemaField.Void
+      x-component={(props) => {
+        // @ts-ignore
+        return (
+          <div ref={ref}>
+            <FormLayout {...props} layout="inline" />
+          </div>
+        );
+      }}
     >
-      { props.children }
-    </SchemaField.Object>
-  )
+      <SchemaField.Object name="person">{props.children}</SchemaField.Object>
+    </SchemaField.Void>
+  );
 });
 
 export default FormilyObject;
