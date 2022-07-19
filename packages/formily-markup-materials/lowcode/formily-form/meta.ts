@@ -42,8 +42,14 @@ const FormilyFormMeta = {
     supports: {
       style: true,
     },
+    advanced: {
+      callbacks: {
+        onSubtreeModified: (currentNode, options) => {
+          currentNode.replaceWith(currentNode.exportSchema());
+        },
+      },
+    },
   },
-  advanced: {},
   icon: takeIcon(DataFormSource),
 };
 

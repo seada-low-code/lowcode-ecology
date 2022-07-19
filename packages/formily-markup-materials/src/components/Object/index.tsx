@@ -10,7 +10,7 @@ const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef
 
   const inDesign = useInDesignMode(props);
 
-  console.log('hasPlaceholder', hasPlaceholder);
+  console.log('FormilyObject', props);
 
   if (hasPlaceholder) {
     return (
@@ -24,7 +24,6 @@ const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef
   }
 
   console.log(inDesign, 'inDesign');
-
   // if (inDesign) {
   //   return <SchemaField.Void
   //     x-component="Slot"
@@ -34,6 +33,7 @@ const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef
   //   />
   // }
 
+  console.log('FormilyObject FormLayout props', props);
   return (
     <SchemaField.Void
       x-component={(props) => {
