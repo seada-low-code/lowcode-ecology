@@ -19,14 +19,6 @@ const FormilyInput: React.ForwardRefRenderFunction<any, any> = React.forwardRef(
       }}
       x-component="Input"
       x-component-props={{}}
-      x-reactions={{
-        dependencies: ['dateType'],
-        fulfill: {
-          state: {
-            value: '{{$deps[0]}}',
-          },
-        },
-      }}
     />
   );
 });
