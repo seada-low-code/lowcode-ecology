@@ -5,10 +5,10 @@ import { useSchemaField, useHasPlaceholder, useInDesignMode } from '../../shared
 
 const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef((props, ref) => {
   const SchemaField = useSchemaField();
-
   const hasPlaceholder = useHasPlaceholder(props);
-
   const inDesign = useInDesignMode(props);
+
+  const { fieldProps } = props;
 
   console.log('FormilyObject', props);
 
@@ -36,6 +36,7 @@ const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef
   console.log('FormilyObject FormLayout props', props);
   return (
     <SchemaField.Void
+      {...fieldProps}
       x-component={(props) => {
         // @ts-ignore
         return (

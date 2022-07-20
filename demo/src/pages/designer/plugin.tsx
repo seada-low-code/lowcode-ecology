@@ -33,7 +33,7 @@ import { Button } from 'antd'
 import React from 'react'
 import assets from '../../assets/assets.json'
 import { getPageSchema, saveSchema } from './helper'
-import CodeEditor from "@alilc/lowcode-plugin-code-editor";
+import CodeEditor from '@alilc/lowcode-plugin-code-editor'
 import LowcodePluginPreview from './plugins/plugin-preview/index'
 
 export default async function registerPlugins() {
@@ -172,8 +172,8 @@ export default async function registerPlugins() {
   // await plugins.register(PluginCodeGen)
   // await plugins.register(PluginCodeGenerator)
 
-  CodeEditor.pluginName = 'CodeEditor';
-  await plugins.register(CodeEditor);
+  CodeEditor.pluginName = 'CodeEditor'
+  await plugins.register(CodeEditor)
 
   await plugins.register(PluginSave)
   event.on('common:save', () => {

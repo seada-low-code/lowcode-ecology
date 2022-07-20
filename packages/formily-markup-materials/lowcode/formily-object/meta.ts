@@ -21,7 +21,7 @@ const FormilyInputMeta = {
       style: true,
     },
     component: {
-      isContainer: true
+      isContainer: true,
     },
   },
   advanced: {},
