@@ -1,3 +1,3 @@
 export * from './useFormCtx';
-export * from './useHasPlaceholder'
-export * from './useInDesignMode'
+export * from './useHasPlaceholder';
+export * from './useInDesignMode';
