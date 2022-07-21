@@ -72,7 +72,8 @@
     "materialSchema": "https://unpkg.com/@seada/formily-materials@0.0.1-rc.5/build/lowcode/assets-prod.json"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.com/"
   },
   "gitHead": "eea735f466b0184f3a4be074574e5668f0908b06"
 }
