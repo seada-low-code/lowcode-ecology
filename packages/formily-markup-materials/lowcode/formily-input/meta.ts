@@ -20,6 +20,11 @@ const FormilyInputMeta = {
     supports: {
       style: true,
     },
+    component: {
+      nestingRule: {
+        parentWhitelist: ['FormilyForm', 'FormilyObject'],
+      },
+    },
   },
   advanced: {},
   icon: takeIcon(InputSource),

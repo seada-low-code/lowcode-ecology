@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createElement,
   useEffect,
   useState,
@@ -11,6 +12,7 @@ import { FormLayout } from '@formily/antd';
 import { createForm, Form, onFormInit, onFormMount, onFormValuesChange } from '@formily/core';
 import { FormProvider, createSchemaField } from '@formily/react';
 import { FormContext } from '../../shared/context';
+import { useComponentProps } from '../../shared/hooks';
 import { FormItem, Input, Radio, ArrayCards, FormButtonGroup, Submit } from '@formily/antd';
 
 /**
@@ -118,6 +120,7 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
                   </div>
                 );
               }}
+              x-component-props={useComponentProps(props)}
             >
               <React.Fragment>{children}</React.Fragment>
             </SchemaField.Void>

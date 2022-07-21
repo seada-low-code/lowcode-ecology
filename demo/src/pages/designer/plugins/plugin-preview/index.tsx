@@ -13,7 +13,7 @@ const LowcodePluginPreview = (ctx: ILowCodePluginContext) => {
         data: '你可以把插件的数据这样对外暴露',
         func: () => {
           console.log('方法也是一样')
-        },
+        }
       }
     },
     // 插件的初始化函数，在引擎初始化之后会立刻调用
@@ -25,11 +25,11 @@ const LowcodePluginPreview = (ctx: ILowCodePluginContext) => {
         area: 'topArea',
         type: 'Widget',
         props: {
-          align: 'right',
+          align: 'right'
         },
-        content: <PreviewModal />,
+        content: <PreviewModal />
       })
-    },
+    }
   }
 }
 
