@@ -7,7 +7,12 @@ const FormilyRadioGroup: React.ForwardRefRenderFunction<any, any> = React.forwar
   (props, ref) => {
     console.log('FormilyRadioGroup props', props);
     const SchemaField = useSchemaField();
-    const { fieldProps } = props;
+    const { fieldProps, componentProps, style, decoratorProps } = props;
+
+    const finalComponentProps = {
+      style,
+      ...componentProps['x-component-props'],
+    };
 
     return (
       <SchemaField.String
@@ -19,15 +24,9 @@ const FormilyRadioGroup: React.ForwardRefRenderFunction<any, any> = React.forwar
             </div>
           );
         }}
+        x-decorator-props={decoratorProps['x-decorator-props']}
         x-component="Radio.Group"
-        required
-        x-component-props={{
-          options: [
-            { label: '日', value: 'day' },
-            { label: '周', value: 'week' },
-            { label: '月', value: 'month' },
-          ],
-        }}
+        x-component-props={finalComponentProps}
       />
     );
   },
