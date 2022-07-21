@@ -22,8 +22,7 @@
     "string-natural-compare": "^3.0.1"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.com/"
+    "access": "public"
   },
   "gitHead": "eea735f466b0184f3a4be074574e5668f0908b06"
 }

@@ -19,8 +19,7 @@
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
     "watch": "watch 'npm run lowcode:build' ./src ./lowcode",
     "f2elint-scan": "f2elint scan",
-    "f2elint-fix": "f2elint fix",
-    "prepublishOnly": "npm run build && npm run lowcode:build"
+    "f2elint-fix": "f2elint fix"
   },
   "directories": {
     "test": "test"
@@ -72,8 +71,7 @@
     "materialSchema": "https://unpkg.com/@seada/formily-materials@0.0.1-rc.5/build/lowcode/assets-prod.json"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.com/"
+    "access": "public"
   },
   "gitHead": "eea735f466b0184f3a4be074574e5668f0908b06"
 }
