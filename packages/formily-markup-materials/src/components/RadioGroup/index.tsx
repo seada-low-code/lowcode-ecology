@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { createElement } from 'react';
-import { useSchemaField, useComponentProps, useDecoratorProps } from '../../shared/hooks';
+import {
+  useSchemaField,
+  useComponentProps,
+  useDecoratorProps,
+  useUpdateForm,
+} from '../../shared/hooks';
 import { FormItem } from '@formily/antd';
 
 const FormilyRadioGroup: React.ForwardRefRenderFunction<any, any> = React.forwardRef(
@@ -8,6 +13,8 @@ const FormilyRadioGroup: React.ForwardRefRenderFunction<any, any> = React.forwar
     console.log('FormilyRadioGroup props', props);
     const SchemaField = useSchemaField();
     const { fieldProps } = props;
+
+    useUpdateForm([props]);
 
     return (
       <SchemaField.String

@@ -1,12 +1,19 @@
-import * as React from 'react';
+import React from 'react';
 import { createElement } from 'react';
-import { useSchemaField, useComponentProps, useDecoratorProps } from '../../shared/hooks';
+import {
+  useSchemaField,
+  useComponentProps,
+  useDecoratorProps,
+  useUpdateForm,
+} from '../../shared/hooks';
 import { FormItem } from '@formily/antd';
 
 const FormilyInput: React.ForwardRefRenderFunction<any, any> = React.forwardRef((props, ref) => {
   const SchemaField = useSchemaField();
   console.log('FormilyInput props', props);
   const { fieldProps } = props;
+
+  useUpdateForm([props]);
 
   return (
     <SchemaField.String

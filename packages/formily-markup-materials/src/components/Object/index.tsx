@@ -7,14 +7,16 @@ import {
   useHasPlaceholder,
   useInDesignMode,
   useComponentProps,
+  useUpdateForm,
 } from '../../shared/hooks';
 
 const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef((props, ref) => {
   const SchemaField = useSchemaField();
   const hasPlaceholder = useHasPlaceholder(props);
-  const inDesign = useInDesignMode(props);
 
   const { fieldProps, children } = props;
+
+  useUpdateForm([props]);
 
   console.log('FormilyObject', props);
 
