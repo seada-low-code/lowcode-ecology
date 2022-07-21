@@ -5,7 +5,12 @@ import { FormItem } from '@formily/antd';
 
 const FormilyInput: React.ForwardRefRenderFunction<any, any> = React.forwardRef((props, ref) => {
   const SchemaField = useSchemaField();
-  const { fieldProps } = props;
+  const { fieldProps, componentProps, style, decoratorProps } = props;
+
+  const finalComponentProps = {
+    ...componentProps['x-component-props'],
+    style,
+  };
 
   return (
     <SchemaField.String
@@ -17,8 +22,9 @@ const FormilyInput: React.ForwardRefRenderFunction<any, any> = React.forwardRef(
           </div>
         );
       }}
+      x-decorator-props={decoratorProps['x-decorator-props']}
       x-component="Input"
-      x-component-props={{}}
+      x-component-props={finalComponentProps}
     />
   );
 });

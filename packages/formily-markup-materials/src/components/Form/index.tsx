@@ -98,6 +98,11 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
   console.log('FormilyForm render hasPlaceholder', hasPlaceholder);
   console.log('FormilyForm render props', props);
 
+  const finalComponentProps = {
+    ...componentProps['x-component-props'],
+    style,
+  };
+
   return (
     <FormContext.Provider
       value={{
@@ -119,6 +124,7 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
                   </div>
                 );
               }}
+              x-component-props={finalComponentProps}
             >
               <React.Fragment>{children}</React.Fragment>
             </SchemaField.Void>

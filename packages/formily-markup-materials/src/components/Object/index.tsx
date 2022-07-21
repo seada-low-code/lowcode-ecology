@@ -46,6 +46,7 @@ const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef
           </div>
         );
       }}
+      x-component-props={}
     >
       <SchemaField.Object name="person">{props.children}</SchemaField.Object>
     </SchemaField.Void>
