@@ -33,9 +33,9 @@
     }
   },
   "peerDependencies": {
-    "@formily/antd": "^2.1.4",
-    "@formily/core": "^2.1.4",
-    "@formily/react": "^2.1.4",
+    "@formily/antd": "^2.1.11",
+    "@formily/core": "^2.1.11",
+    "@formily/react": "^2.1.11",
     "moment": "latest",
     "react": "^16.x",
     "react-dom": "^16.x"
