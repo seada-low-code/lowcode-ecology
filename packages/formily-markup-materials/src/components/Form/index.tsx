@@ -12,6 +12,7 @@ import { FormLayout } from '@formily/antd';
 import { createForm, Form, onFormInit, onFormMount, onFormValuesChange } from '@formily/core';
 import { FormProvider, createSchemaField } from '@formily/react';
 import { FormContext } from '../../shared/context';
+import { useComponentProps } from '../../shared/hooks';
 import { FormItem, Input, Radio, ArrayCards, FormButtonGroup, Submit } from '@formily/antd';
 
 /**
@@ -98,11 +99,6 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
   console.log('FormilyForm render hasPlaceholder', hasPlaceholder);
   console.log('FormilyForm render props', props);
 
-  const finalComponentProps = {
-    ...componentProps['x-component-props'],
-    style,
-  };
-
   return (
     <FormContext.Provider
       value={{
@@ -124,7 +120,7 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
                   </div>
                 );
               }}
-              x-component-props={finalComponentProps}
+              x-component-props={useComponentProps(props)}
             >
               <React.Fragment>{children}</React.Fragment>
             </SchemaField.Void>

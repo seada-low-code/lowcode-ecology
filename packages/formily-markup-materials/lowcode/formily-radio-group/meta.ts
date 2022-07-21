@@ -20,6 +20,9 @@ const FormilyRadioGroupMeta = {
     supports: {
       style: true,
     },
+    nestingRule: {
+      parentWhitelist: ['FormilyForm', 'FormilyObject'],
+    },
   },
   advanced: {},
   icon: takeIcon(InputSource),

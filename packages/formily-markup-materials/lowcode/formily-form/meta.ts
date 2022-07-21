@@ -33,6 +33,9 @@ const FormilyFormMeta = {
     ],
     component: {
       isContainer: true,
+      nestingRule: {
+        childWhitelist: ['FormilyInput', 'FormilyObject', 'FormilyRadioGroup'],
+      },
       // todo: descendantBlacklist 配置无效
       // nestingRule: {
       //   descendantBlacklist: (item) => {
