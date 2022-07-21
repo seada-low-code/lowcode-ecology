@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createElement,
   useEffect,
   useState,
@@ -24,6 +25,7 @@ export interface IFormilyFormProps {
 
 const SchemaField = createSchemaField({
   components: {
+    FormLayout,
     FormItem,
     Input,
     Radio,
@@ -114,18 +116,16 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
                 // @ts-ignore
                 return (
                   <div>
-                    <FormLayout {...props} layout="inline" />
+                    <FormLayout {...props} />
                   </div>
                 );
               }}
+              x-component-props={componentProps}
             >
               <React.Fragment>{children}</React.Fragment>
             </SchemaField.Void>
           )}
         </SchemaField>
-        <FormButtonGroup>
-          <Submit onSubmit={console.log}>Submit</Submit>
-        </FormButtonGroup>
       </FormProvider>
     </FormContext.Provider>
   );

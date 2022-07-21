@@ -3,64 +3,67 @@ import { Drawer, Button, Spin } from 'antd'
 import { event } from '@alilc/lowcode-engine'
 import './index.less'
 import ReactRenderer from '@alilc/lowcode-react-renderer'
-import { buildComponents, assetBundle, AssetLevel, AssetLoader } from '@alilc/lowcode-utils';
-import { injectComponents } from '@alilc/lowcode-plugin-inject';
+import {
+  buildComponents,
+  assetBundle,
+  AssetLevel,
+  AssetLoader
+} from '@alilc/lowcode-utils'
+import { injectComponents } from '@alilc/lowcode-plugin-inject'
 import { getProjectSchema, getPagePackages } from '../../../../helper'
 
 const Renderer: FC = () => {
-  const [data, setData] = useState<any>({});
+  const [data, setData] = useState<any>({})
 
   async function init() {
-    const packages = getPagePackages();
-    const projectSchema = getProjectSchema();
+    const packages = getPagePackages()
+    const projectSchema = getProjectSchema()
 
-    const { componentsMap: componentsMapArray, componentsTree } = projectSchema;
+    const { componentsMap: componentsMapArray, componentsTree } = projectSchema
 
-    const componentsMap: any = {};
+    const componentsMap: any = {}
 
     componentsMapArray.forEach((component: any) => {
-      componentsMap[component.componentName] = component;
-    });
+      componentsMap[component.componentName] = component
+    })
 
-    const schema = componentsTree[0];
+    const schema = componentsTree[0]
 
-    const libraryMap = {};
-    const libraryAsset = [];
+    const libraryMap = {}
+    const libraryAsset = []
     packages.forEach(({ package: _package, library, urls, renderUrls }) => {
-      libraryMap[_package] = library;
+      libraryMap[_package] = library
       if (renderUrls) {
-        libraryAsset.push(renderUrls);
+        libraryAsset.push(renderUrls)
       } else if (urls) {
-        libraryAsset.push(urls);
+        libraryAsset.push(urls)
       }
-    });
+    })
 
-    const vendors = [assetBundle(libraryAsset, AssetLevel.Library)];
+    const vendors = [assetBundle(libraryAsset, AssetLevel.Library)]
 
     // TODO asset may cause pollution
-    const assetLoader = new AssetLoader();
-    await assetLoader.load(libraryAsset);
-    const components = await injectComponents(buildComponents(libraryMap, componentsMap));
+    const assetLoader = new AssetLoader()
+    await assetLoader.load(libraryAsset)
+    const components = await injectComponents(
+      buildComponents(libraryMap, componentsMap)
+    )
 
     setData({
       schema,
-      components,
-    });
+      components
+    })
   }
 
-  const { schema, components } = data;
+  const { schema, components } = data
 
   if (!schema || !components) {
-    init();
-    return <Spin />;
+    init()
+    return <Spin />
   }
-  
+
   return (
-    <ReactRenderer
-      schema={schema}
-      components={components}
-      appHelper={{}}
-    />
+    <ReactRenderer schema={schema} components={components} appHelper={{}} />
   )
 }
 

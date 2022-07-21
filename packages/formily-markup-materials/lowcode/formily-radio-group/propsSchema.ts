@@ -1,76 +1,56 @@
 import { uuid, createFormItemSchema } from '../utils';
+import { ISchema } from '@formily/react';
 
-// 直接从designable copy过来，如果有setter不支持那就自己加
-export const propsSchema = {
+const Radio: ISchema & { Group?: ISchema } = {
   type: 'object',
   properties: {
-    addonBefore: {
-      title: '前缀标签',
-      type: 'string',
-      'x-decorator': 'FormItem',
-      'x-component': 'Input',
-    },
-    addonAfter: {
-      title: '后缀标签',
-      type: 'string',
-      'x-decorator': 'FormItem',
-      'x-component': 'Input',
-    },
-    prefix: {
-      title: '后缀标签',
-      type: 'string',
-      'x-decorator': 'FormItem',
-      'x-component': 'Input',
-    },
-    suffix: {
-      title: '后缀',
-      type: 'string',
-      'x-decorator': 'FormItem',
-      'x-component': 'Input',
-    },
-    allowClear: {
-      title: '允许清除内容',
+    autoFocus: {
       type: 'boolean',
       'x-decorator': 'FormItem',
       'x-component': 'Switch',
     },
-    bordered: {
-      title: '是否有边框',
-      type: 'boolean',
+  },
+};
+
+Radio.Group = {
+  type: 'object',
+  properties: {
+    optionType: {
+      type: 'string',
+      enum: ['default', 'button'],
       'x-decorator': 'FormItem',
-      'x-component': 'Switch',
+      'x-component': 'Radio.Group',
       'x-component-props': {
-        defaultChecked: true,
+        defaultValue: 'default',
+        optionType: 'button',
       },
     },
-    maxLength: {
-      title: '最大长度',
-      type: 'number',
-      'x-decorator': 'FormItem',
-      'x-component': 'NumberPicker',
-    },
-    placeholder: {
+    buttonStyle: {
       type: 'string',
-      title: '占位提示',
+      enum: ['outline', 'solid'],
       'x-decorator': 'FormItem',
-      'x-component': 'Input',
-    },
-    size: {
-      title: '尺寸',
-      type: 'string',
-      enum: ['large', 'small', 'middle'],
-      'x-decorator': 'FormItem',
-      'x-component': 'Select',
+      'x-component': 'Radio.Group',
       'x-component-props': {
-        defaultValue: 'middle',
+        defaultValue: 'outline',
+        optionType: 'button',
       },
     },
   },
 };
 
-export default createFormItemSchema(propsSchema, {
+export default createFormItemSchema(Radio.Group, {
   field: () => ({
     name: uuid(),
-    title: 'Input',
+    title: 'Radio Group',
+    enum: [
+      {
+        label: '选项1',
+        value: 1,
+      },
+      {
+        label: '选项2',
+        value: 2,
+      },
+    ],
   }),
 });

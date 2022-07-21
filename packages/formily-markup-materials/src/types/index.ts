@@ -9,7 +9,7 @@ export interface IFormilyFormProps {
   style?: React.CSSProperties;
 }
 
-type ISchemaField = ReturnType<typeof createSchemaField>;
+export type ISchemaField = ReturnType<typeof createSchemaField>;
 
 export interface IFormContext {
   updateForm: () => void;
