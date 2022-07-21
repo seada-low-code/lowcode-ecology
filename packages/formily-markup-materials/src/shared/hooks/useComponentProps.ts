@@ -1,8 +1,8 @@
 export const useComponentProps = (props) => {
   let componentProps: any = {};
 
-  if (props['x-component-props']) {
-    componentProps = props['x-component-props'];
+  if (props.componentProps) {
+    componentProps = props.componentProps['x-component-props'];
   }
 
   if (props.style) {

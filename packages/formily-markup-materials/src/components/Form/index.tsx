@@ -12,7 +12,6 @@ import { FormLayout } from '@formily/antd';
 import { createForm, Form, onFormInit, onFormMount, onFormValuesChange } from '@formily/core';
 import { FormProvider, createSchemaField } from '@formily/react';
 import { FormContext } from '../../shared/context';
-import { useComponentProps } from '../../shared/hooks';
 import { FormItem, Input, Radio, ArrayCards, FormButtonGroup, Submit } from '@formily/antd';
 
 /**
@@ -26,6 +25,7 @@ export interface IFormilyFormProps {
 
 const SchemaField = createSchemaField({
   components: {
+    FormLayout,
     FormItem,
     Input,
     Radio,
@@ -120,15 +120,12 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
                   </div>
                 );
               }}
-              x-component-props={useComponentProps(props)}
+              x-component-props={componentProps}
             >
               <React.Fragment>{children}</React.Fragment>
             </SchemaField.Void>
           )}
         </SchemaField>
-        <FormButtonGroup>
-          <Submit onSubmit={console.log}>Submit</Submit>
-        </FormButtonGroup>
       </FormProvider>
     </FormContext.Provider>
   );

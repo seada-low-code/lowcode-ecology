@@ -4,38 +4,25 @@ import { uuid, createFormItemSchema } from '../utils';
 export const propsSchema = {
   type: 'object',
   properties: {
-    addonBefore: {
-      title: '前缀标签',
-      type: 'string',
+    labelCol: {
+      type: 'number',
       'x-decorator': 'FormItem',
-      'x-component': 'Input',
+      'x-component': 'NumberPicker',
     },
-    addonAfter: {
-      title: '后缀标签',
-      type: 'string',
+    wrapperCol: {
+      type: 'number',
       'x-decorator': 'FormItem',
-      'x-component': 'Input',
+      'x-component': 'NumberPicker',
     },
-    prefix: {
-      title: '后缀标签',
-      type: 'string',
+    labelWidth: {
       'x-decorator': 'FormItem',
-      'x-component': 'Input',
+      'x-component': 'SizeInput',
     },
-    suffix: {
-      title: '后缀',
-      type: 'string',
+    wrapperWidth: {
       'x-decorator': 'FormItem',
-      'x-component': 'Input',
+      'x-component': 'SizeInput',
     },
-    allowClear: {
-      title: '允许清除内容',
-      type: 'boolean',
-      'x-decorator': 'FormItem',
-      'x-component': 'Switch',
-    },
-    bordered: {
-      title: '是否有边框',
+    colon: {
       type: 'boolean',
       'x-decorator': 'FormItem',
       'x-component': 'Switch',
@@ -43,26 +30,95 @@ export const propsSchema = {
         defaultChecked: true,
       },
     },
-    maxLength: {
-      title: '最大长度',
-      type: 'number',
-      'x-decorator': 'FormItem',
-      'x-component': 'NumberPicker',
-    },
-    placeholder: {
+    feedbackLayout: {
       type: 'string',
-      title: '占位提示',
-      'x-decorator': 'FormItem',
-      'x-component': 'Input',
-    },
-    size: {
-      title: '尺寸',
-      type: 'string',
-      enum: ['large', 'small', 'middle'],
+      enum: ['loose', 'terse', 'popover', 'none', null],
       'x-decorator': 'FormItem',
       'x-component': 'Select',
       'x-component-props': {
-        defaultValue: 'middle',
+        defaultValue: 'loose',
+      },
+    },
+    size: {
+      type: 'string',
+      enum: ['large', 'small', 'default', null],
+      'x-decorator': 'FormItem',
+      'x-component': 'Select',
+      'x-component-props': {
+        defaultValue: 'default',
+      },
+    },
+    layout: {
+      type: 'string',
+      enum: ['vertical', 'horizontal', 'inline', null],
+      'x-decorator': 'FormItem',
+      'x-component': 'Select',
+      'x-component-props': {
+        defaultValue: 'horizontal',
+      },
+    },
+    tooltipLayout: {
+      type: 'string',
+      enum: ['icon', 'text', null],
+      'x-decorator': 'FormItem',
+      'x-component': 'Select',
+      'x-component-props': {
+        defaultValue: 'icon',
+      },
+    },
+    labelAlign: {
+      type: 'string',
+      enum: ['left', 'right', null],
+      'x-decorator': 'FormItem',
+      'x-component': 'Select',
+      'x-component-props': {
+        defaultValue: 'right',
+      },
+    },
+    wrapperAlign: {
+      type: 'string',
+      enum: ['left', 'right', null],
+      'x-decorator': 'FormItem',
+      'x-component': 'Select',
+      'x-component-props': {
+        defaultValue: 'left',
+      },
+    },
+    labelWrap: {
+      type: 'boolean',
+      'x-decorator': 'FormItem',
+      'x-component': 'Switch',
+    },
+    wrapperWrap: {
+      type: 'boolean',
+      'x-decorator': 'FormItem',
+      'x-component': 'Switch',
+    },
+
+    fullness: {
+      type: 'boolean',
+      'x-decorator': 'FormItem',
+      'x-component': 'Switch',
+    },
+    inset: {
+      type: 'boolean',
+      'x-decorator': 'FormItem',
+      'x-component': 'Switch',
+    },
+    shallow: {
+      type: 'boolean',
+      'x-decorator': 'FormItem',
+      'x-component': 'Switch',
+      'x-component-props': {
+        defaultChecked: true,
+      },
+    },
+    bordered: {
+      type: 'boolean',
+      'x-decorator': 'FormItem',
+      'x-component': 'Switch',
+      'x-component-props': {
+        defaultChecked: true,
       },
     },
   },

@@ -1,0 +1,312 @@
+{
+  "componentName": "Page",
+  "id": "node_dockcviv8fo1",
+  "props": {
+    "ref": "outerView",
+    "style": {
+      "height": "100%"
+    }
+  },
+  "fileName": "/",
+  "dataSource": {
+    "list": [
+      {
+        "type": "fetch",
+        "isInit": true,
+        "options": {
+          "params": {},
+          "method": "GET",
+          "isCors": true,
+          "timeout": 5000,
+          "headers": {},
+          "uri": "mock/info.json"
+        },
+        "id": "info",
+        "shouldFetch": {
+          "type": "JSFunction",
+          "value": "function() { \n  console.log('should fetch.....');\n  return true; \n}"
+        }
+      }
+    ]
+  },
+  "css": "body {\n  font-size: 12px;\n}\n\n.button {\n  width: 100px;\n  color: #ff00ff\n}",
+  "originCode": "class LowcodeComponent extends Component {\n  state = {\n    \"text\": \"outer\",\n    \"isShowDialog\": false\n  }\n  componentDidMount() {\n    console.log('did mount');\n  }\n  componentWillUnmount() {\n    console.log('will unmount');\n  }\n  testFunc() {\n    console.log('test func');\n  }\n  onClick() {\n    this.setState({\n      isShowDialog: true\n    })\n  }\n  closeDialog() {\n    this.setState({\n      isShowDialog: false\n    })\n  }\n}",
+  "hidden": false,
+  "title": "",
+  "isLocked": false,
+  "condition": true,
+  "conditionGroup": "",
+  "state": {
+    "text": {
+      "type": "JSExpression",
+      "value": "\"outer\""
+    },
+    "isShowDialog": {
+      "type": "JSExpression",
+      "value": "false"
+    }
+  },
+  "methods": {
+    "testFunc": {
+      "type": "JSFunction",
+      "value": "function testFunc() {\n  console.log('test func');\n}"
+    },
+    "onClick": {
+      "type": "JSFunction",
+      "value": "function onClick() {\n  this.setState({\n    isShowDialog: true\n  });\n}"
+    },
+    "closeDialog": {
+      "type": "JSFunction",
+      "value": "function closeDialog() {\n  this.setState({\n    isShowDialog: false\n  });\n}"
+    }
+  },
+  "lifeCycles": {
+    "componentDidMount": {
+      "type": "JSFunction",
+      "value": "function componentDidMount() {\n  console.log('did mount');\n}"
+    },
+    "componentWillUnmount": {
+      "type": "JSFunction",
+      "value": "function componentWillUnmount() {\n  console.log('will unmount');\n}"
+    }
+  },
+  "children": [
+    {
+      "componentName": "FormilyForm",
+      "id": "node_ocl5uou62i1",
+      "props": {
+        "componentProps": {
+          "layout": "vertical",
+          "wrapperCol": "",
+          "feedbackLayout": "terse",
+          "size": "small",
+          "wrapperAlign": "left",
+          "tooltipLayout": "text",
+          "labelCol": 10
+        },
+        "__component_name": "FormilyForm",
+        "ref": "formily_pepo8fvffcm",
+        "key": "1111111111111",
+        "style": {
+          "fontSize": "14px"
+        }
+      },
+      "docId": "docl5rtw2ui",
+      "title": "FormilyForm",
+      "hidden": false,
+      "isLocked": false,
+      "condition": true,
+      "conditionGroup": "",
+      "children": [
+        {
+          "componentName": "FormilyObject",
+          "id": "node_ocl5uou62i2",
+          "props": {
+            "__component_name": "FormilyObject",
+            "fieldProps": {
+              "name": "topGlobal",
+              "title": "Input",
+              "x-validator": []
+            },
+            "componentProps": {
+              "x-component-props": {
+                "layout": "inline"
+              }
+            },
+            "decoratorProps": {
+              "x-decorator-props": {
+                "feedbackLayout": "terse",
+                "inset": false,
+                "layout": "inline"
+              }
+            }
+          },
+          "docId": "docl5ulbmgu",
+          "title": "Object",
+          "hidden": false,
+          "isLocked": false,
+          "condition": true,
+          "conditionGroup": "",
+          "children": [
+            {
+              "componentName": "FormilyInput",
+              "id": "node_ocl5uou62i3",
+              "props": {
+                "__component_name": "FormilyInput",
+                "fieldProps": {
+                  "name": "city",
+                  "title": "城市",
+                  "x-validator": [],
+                  "description": ""
+                },
+                "componentProps": {
+                  "x-component-props": {}
+                },
+                "decoratorProps": {
+                  "x-decorator-props": {}
+                }
+              },
+              "docId": "docl5ulbmgu",
+              "title": "Input",
+              "hidden": false,
+              "isLocked": false,
+              "condition": true,
+              "conditionGroup": ""
+            },
+            {
+              "componentName": "FormilyRadioGroup",
+              "id": "node_ocl5uou62i4",
+              "props": {
+                "__component_name": "FormilyRadioGroup",
+                "fieldProps": {
+                  "name": "gender",
+                  "title": "性别",
+                  "enum": [
+                    {
+                      "label": "选项1",
+                      "value": 1
+                    },
+                    {
+                      "label": "选项2",
+                      "value": 2
+                    }
+                  ],
+                  "x-validator": []
+                },
+                "componentProps": {
+                  "x-component-props": {}
+                },
+                "decoratorProps": {
+                  "x-decorator-props": {}
+                }
+              },
+              "docId": "docl5ulbmgu",
+              "title": "RadioGroup",
+              "hidden": false,
+              "isLocked": false,
+              "condition": true,
+              "conditionGroup": ""
+            }
+          ]
+        },
+        {
+          "componentName": "FormilyObject",
+          "id": "node_ocl5uou62i5",
+          "props": {
+            "__component_name": "FormilyObject",
+            "fieldProps": {
+              "name": "person",
+              "title": "Input",
+              "x-validator": []
+            },
+            "componentProps": {
+              "x-component-props": {}
+            },
+            "decoratorProps": {
+              "x-decorator-props": {
+                "feedbackLayout": "popover",
+                "size": "large"
+              }
+            }
+          },
+          "docId": "docl5t7w17e",
+          "title": "Object",
+          "hidden": false,
+          "isLocked": false,
+          "condition": true,
+          "conditionGroup": "",
+          "children": [
+            {
+              "componentName": "FormilyRadioGroup",
+              "id": "node_ocl5uou62i6",
+              "props": {
+                "__component_name": "FormilyRadioGroup",
+                "fieldProps": {
+                  "name": "dateType",
+                  "title": "日期类型",
+                  "x-validator": [],
+                  "enum": [
+                    {
+                      "children": [],
+                      "label": "日",
+                      "value": "day"
+                    },
+                    {
+                      "children": [],
+                      "label": "周",
+                      "value": "week"
+                    },
+                    {
+                      "children": [],
+                      "label": "月",
+                      "value": "month"
+                    }
+                  ]
+                },
+                "componentProps": {
+                  "x-component-props": {
+                    "optionType": "default",
+                    "buttonStyle": "outline"
+                  }
+                },
+                "decoratorProps": {
+                  "x-decorator-props": {}
+                }
+              },
+              "docId": "docl5rv9kg1",
+              "title": "RadioGroup",
+              "hidden": false,
+              "isLocked": false,
+              "condition": true,
+              "conditionGroup": ""
+            },
+            {
+              "componentName": "FormilyInput",
+              "id": "node_ocl5uou62i7",
+              "props": {
+                "__component_name": "FormilyInput",
+                "fieldProps": {
+                  "name": "username",
+                  "title": "姓名",
+                  "x-validator": [],
+                  "x-reactions": {
+                    "dependencies": [
+                      {
+                        "property": "value",
+                        "type": "any",
+                        "source": "person.dateType",
+                        "name": "dateType"
+                      }
+                    ],
+                    "fulfill": {
+                      "state": {
+                        "value": "{{$deps.dateType}}"
+                      }
+                    }
+                  }
+                },
+                "componentProps": {
+                  "x-component-props": {
+                    "size": "large",
+                    "placeholder": "请输入姓名"
+                  }
+                },
+                "decoratorProps": {
+                  "x-decorator-props": {
+                    "size": "large"
+                  }
+                }
+              },
+              "docId": "docl5rv9kg1",
+              "title": "Input",
+              "hidden": false,
+              "isLocked": false,
+              "condition": true,
+              "conditionGroup": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
