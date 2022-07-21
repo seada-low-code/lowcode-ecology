@@ -22,6 +22,9 @@ const FormilyInputMeta = {
     },
     component: {
       isContainer: true,
+      nestingRule: {
+        parentWhitelist: ['FormilyForm'],
+      },
     },
   },
   advanced: {},
