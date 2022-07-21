@@ -116,7 +116,7 @@ const FormilyForm: React.ForwardRefRenderFunction<any, any> = React.forwardRef((
                 // @ts-ignore
                 return (
                   <div>
-                    <FormLayout {...props} layout="inline" />
+                    <FormLayout {...props} />
                   </div>
                 );
               }}

@@ -34,7 +34,6 @@ const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef
   console.log('FormilyObject FormLayout props', props);
   return (
     <SchemaField.Void
-      {...fieldProps}
       x-component={(props) => {
         // @ts-ignore
         return (
@@ -45,7 +44,7 @@ const FormilyObject: React.ForwardRefRenderFunction<any, any> = React.forwardRef
       }}
       x-component-props={useComponentProps(props)}
     >
-      <SchemaField.Object name="person">{props.children}</SchemaField.Object>
+      <SchemaField.Object {...fieldProps}>{props.children}</SchemaField.Object>
     </SchemaField.Void>
   );
 });
