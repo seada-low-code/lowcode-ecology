@@ -109,46 +109,6 @@ export const snippets: Snippet[] = [
             key: '3',
             disabled: true
           }
-        ],
-        tabBarExtraContent: 'tabBarExtraContent',
-        footer: [
-          {
-            type: 'JSSlot',
-            value: [
-              {
-                componentName: 'Button',
-                props: {
-                  type: 'default',
-                  children: '重置',
-                  __component_name: 'Button',
-                  htmlType: 'button',
-                  size: 'middle',
-                  shape: 'default',
-                  icon: '',
-                  block: false,
-                  danger: false,
-                  ghost: false,
-                  disabled: false
-                }
-              },
-              {
-                componentName: 'Button',
-                props: {
-                  type: 'primary',
-                  children: '提交',
-                  __component_name: 'Button',
-                  htmlType: 'button',
-                  size: 'middle',
-                  shape: 'default',
-                  icon: '',
-                  block: false,
-                  danger: false,
-                  ghost: false,
-                  disabled: false
-                }
-              }
-            ]
-          }
         ]
       }
     }

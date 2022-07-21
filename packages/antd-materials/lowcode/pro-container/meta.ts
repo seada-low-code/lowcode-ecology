@@ -512,22 +512,8 @@ const ProContainerMeta: ComponentMetadata = {
                   },
                   name: 'type',
                   setter: {
-                    componentName: 'RadioGroupSetter',
+                    componentName: 'SelectSetter',
                     props: {
-                      dataSource: [
-                        {
-                          label: 'line',
-                          value: 'line'
-                        },
-                        {
-                          label: 'card',
-                          value: 'card'
-                        },
-                        {
-                          label: 'editable-card',
-                          value: 'editable-card'
-                        }
-                      ],
                       options: [
                         {
                           label: 'line',
@@ -558,6 +544,7 @@ const ProContainerMeta: ComponentMetadata = {
                   setter: {
                     componentName: 'RadioGroupSetter',
                     props: {
+                      size: 'small',
                       dataSource: [
                         {
                           label: 'small',
