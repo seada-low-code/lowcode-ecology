@@ -121,3 +121,7 @@ registerFormilyPlugins()
 ```
 
 [Formily 物料详细文档](packages/formily-materials)
+
+## LICENSE
+
+lowcode-ecology is open source software licensed as [MIT](https://github.com/seada-low-code/lowcode-ecology/blob/main/LICENSE.md).
