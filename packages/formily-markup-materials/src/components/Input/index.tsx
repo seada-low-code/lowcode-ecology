@@ -1,15 +1,23 @@
-import * as React from 'react';
+import React from 'react';
 import { createElement } from 'react';
-import { useSchemaField } from '../../shared/hooks';
+import {
+  useSchemaField,
+  useComponentProps,
+  useDecoratorProps,
+  useUpdateForm,
+} from '../../shared/hooks';
 import { FormItem } from '@formily/antd';
 
 const FormilyInput: React.ForwardRefRenderFunction<any, any> = React.forwardRef((props, ref) => {
   const SchemaField = useSchemaField();
+  console.log('FormilyInput props', props);
+  const { fieldProps } = props;
+
+  useUpdateForm([props]);
 
   return (
     <SchemaField.String
-      name="usernmae"
-      title="输入框"
+      {...fieldProps}
       x-decorator={(props) => {
         return (
           <div ref={ref}>
@@ -17,11 +25,9 @@ const FormilyInput: React.ForwardRefRenderFunction<any, any> = React.forwardRef(
           </div>
         );
       }}
+      x-decorator-props={useDecoratorProps(props)}
       x-component="Input"
-      required
-      x-component-props={{
-        ...props,
-      }}
+      x-component-props={useComponentProps(props)}
     />
   );
 });
