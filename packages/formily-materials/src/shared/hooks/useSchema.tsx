@@ -29,11 +29,20 @@ const traverse = (obj, cb: any) => {
 
 // 包裹 'x-decorator': 'FormItem'
 const useSchema = (
-  { componentProps = {}, fieldProps, decoratorProps = {}, style, ...extra }: IFormItemProps,
+  {
+    componentProps = {},
+    fieldProps,
+    decoratorProps = {},
+    style,
+    __designMode,
+    ...extra
+  }: IFormItemProps,
   defaultProps?: any,
 ): Schema => {
   const { name, ...rest } = fieldProps;
   const [initialName] = useState(uuid());
+  const isDesignMode = __designMode === 'design';
+  const isReadOnly = isDesignMode ? true : defaultProps.readOnly || rest.readOnly;
 
   const schema = {
     type: 'object',
@@ -42,6 +51,7 @@ const useSchema = (
         'x-decorator': 'FormItem',
         ...defaultProps,
         ...rest,
+        readOnly: isReadOnly,
         'x-component-props': {
           style,
           ...componentProps['x-component-props'],
@@ -52,7 +62,7 @@ const useSchema = (
     },
   };
 
-  if (extra?.__designMode === 'design') {
+  if (isDesignMode) {
     traverse(schema, (key, value) => {
       if (NeedIgnoreFormilyProps[key]) {
         return null;
