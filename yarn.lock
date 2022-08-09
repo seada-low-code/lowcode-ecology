@@ -6218,6 +6218,20 @@ ahooks@^3.5.1:
     resize-observer-polyfill "^1.5.1"
     screenfull "^5.0.0"
 
+ahooks@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.npmmirror.com/ahooks/-/ahooks-3.7.0.tgz#e143ad3f1f1a05387c30031bf5634c9e9fa05d87"
+  integrity sha512-IOZ6IpVeAd7aWtV2O+dBmCQc0aHt+WPG3B5tPHnVVcPnEq9FDJxx8IIA5hLxN4lRa1m1ZMx6pOE2rrYW7bjU6A==
+  dependencies:
+    "@types/js-cookie" "^2.x.x"
+    ahooks-v3-count "^1.0.0"
+    dayjs "^1.9.1"
+    intersection-observer "^0.12.0"
+    js-cookie "^2.x.x"
+    lodash "^4.17.21"
+    resize-observer-polyfill "^1.5.1"
+    screenfull "^5.0.0"
+
 airbnb-js-shims@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/airbnb-js-shims/-/airbnb-js-shims-2.2.1.tgz#db481102d682b98ed1daa4c5baa697a05ce5c040"
