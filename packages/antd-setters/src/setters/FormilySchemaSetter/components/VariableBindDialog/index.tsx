@@ -4,6 +4,7 @@ import { project } from '@alilc/lowcode-engine'
 import MonacoEditor from '@alilc/lowcode-plugin-base-monaco-editor'
 import { useField } from '@formily/react'
 import { FormItem } from '@formily/antd'
+import { Field } from '@formily/core'
 import { PaperClipOutlined } from '@ant-design/icons'
 import './style'
 
@@ -65,11 +66,26 @@ const VariableBind = () => {
   const [code, setCode] = useState('')
 
   // formily field
-  const field = useField<any>()
+  const field = useField<Field>()
 
   const monocoEditor = useRef(null)
 
+  const cacheValueRef = useRef(null)
+
+  const setCacheValue = (value) => {
+    if (!isExpression(value)) {
+      console.log('设置了缓存值', value)
+      cacheValueRef.current = value
+    }
+  }
+
+  const clearCacheValue = () => {
+    cacheValueRef.current = null
+    console.log('清空缓存值')
+  }
+
   const open = () => {
+    setCacheValue(field.value)
     setVisible(true)
   }
 
@@ -209,9 +225,21 @@ const VariableBind = () => {
 
   // 移除绑定
   const removeBinding = () => {
-    field.value = ''
-
     setCode('')
+
+    // 存在缓存
+    if (cacheValueRef.current !== null) {
+      if (cacheValueRef.current === undefined) {
+        // 直接清掉整个字段
+        field.destroy()
+      } else {
+        field.setValue(cacheValueRef.current)
+      }
+      // clearCacheValue()
+    } else {
+      // 直接清掉整个字段
+      field.destroy()
+    }
 
     close()
   }
