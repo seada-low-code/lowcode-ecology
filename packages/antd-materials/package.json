@@ -10,6 +10,13 @@
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js --port 5551",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js"
   },
+  "files": [
+    "es/",
+    "lib/",
+    "dist/",
+    "build/",
+    "lowcode/"
+  ],
   "keywords": [],
   "author": "",
   "license": "MIT",
