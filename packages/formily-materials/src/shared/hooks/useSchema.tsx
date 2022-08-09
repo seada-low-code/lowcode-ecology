@@ -42,7 +42,7 @@ const useSchema = (
   const { name, ...rest } = fieldProps;
   const [initialName] = useState(uuid());
   const isDesignMode = __designMode === 'design';
-  const isReadOnly = isDesignMode ? true : defaultProps.readOnly || rest.readOnly;
+  const isReadOnly = isDesignMode ? true : defaultProps?.readOnly || rest?.readOnly;
 
   const schema = {
     type: 'object',
