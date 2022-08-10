@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1-rc.7",
+  "version": "0.0.1-rc.8",
   "useWorkspaces": true,
   "npmClient": "yarn",
   "npmClientArgs": ["--ignore-engines", "--no-package-lock"],
