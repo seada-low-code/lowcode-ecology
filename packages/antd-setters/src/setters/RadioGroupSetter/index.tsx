@@ -43,4 +43,6 @@ const RadioGroupSetter: React.FC<IRadioGroupSetterprops> = ({
   )
 }
 
+RadioGroupSetter.displayName = 'RadioGroupSetter'
+
 export default RadioGroupSetter

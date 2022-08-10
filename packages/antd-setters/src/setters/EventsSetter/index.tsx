@@ -302,4 +302,6 @@ const EventsSetter: React.FC<IEventsSetterProps> = ({
   )
 }
 
+EventsSetter.displayName = 'EventsSetter'
+
 export default EventsSetter

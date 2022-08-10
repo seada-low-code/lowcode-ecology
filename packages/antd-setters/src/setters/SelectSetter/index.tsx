@@ -27,4 +27,6 @@ const SelectSetter: React.FC<SelectSetterProps> = ({
   )
 }
 
+SelectSetter.displayName = 'SelectSetter'
+
 export default SelectSetter

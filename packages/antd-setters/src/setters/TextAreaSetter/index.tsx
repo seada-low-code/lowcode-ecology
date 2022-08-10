@@ -26,4 +26,6 @@ const TextAreaSetter: React.FC<ITextAreaSetterProps> = ({
   )
 }
 
+TextAreaSetter.displayName = 'TextAreaSetter'
+
 export default TextAreaSetter

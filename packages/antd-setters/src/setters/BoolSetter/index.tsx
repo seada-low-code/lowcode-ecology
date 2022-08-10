@@ -10,4 +10,6 @@ const BoolSetter: React.FC<IBoolSetterProps> = ({ value, onChange }) => {
   return <Switch className="bool-setter" checked={value} onChange={onChange} />
 }
 
+BoolSetter.displayName = 'BoolSetter'
+
 export default BoolSetter

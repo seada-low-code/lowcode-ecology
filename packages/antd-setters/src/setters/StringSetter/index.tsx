@@ -29,4 +29,6 @@ const StringSetter: React.FC<IStringSetterProps> = ({
   )
 }
 
+StringSetter.displayName = 'StringSetter'
+
 export default StringSetter

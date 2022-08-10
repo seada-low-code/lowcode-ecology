@@ -63,4 +63,6 @@ const FormilySchemaSetter: React.FC<IFormilySchemaSetterProps> = (props) => {
   return render()
 }
 
+FormilySchemaSetter.displayName = 'FormilySchemaSetter'
+
 export default FormilySchemaSetter

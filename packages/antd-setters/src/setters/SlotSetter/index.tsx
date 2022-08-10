@@ -96,6 +96,8 @@ const SlotSetter: React.FC<ISlotSetterProps> = ({
   )
 }
 
+SlotSetter.displayName = 'SlotSetter'
+
 export default {
   component: SlotSetter,
   title: {

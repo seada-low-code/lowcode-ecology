@@ -38,4 +38,6 @@ const NumberSetter: React.FC<INumberSetterProps> = ({
   )
 }
 
+NumberSetter.displayName = 'NumberSetter'
+
 export default NumberSetter
