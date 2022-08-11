@@ -4,16 +4,6 @@ import { Form } from '@formily/antd'
 import { IFormilySchemaSetterProps } from './type'
 import { SchemaField } from './SchemaField'
 import { useLocales } from './locales'
-import { isPlainObj } from '@formily/shared'
-
-const traverse = (obj, cb) => {
-  if (isPlainObj(obj)) {
-    Object.keys(obj).forEach((key) => {
-      traverse(obj[key], cb)
-      obj[key] = cb(key, obj[key], obj) || obj[key]
-    })
-  }
-}
 
 // 仅依赖formily相关，不要引入designable相关的东西
 const FormilySchemaSetter: React.FC<IFormilySchemaSetterProps> = (props) => {
@@ -22,12 +12,6 @@ const FormilySchemaSetter: React.FC<IFormilySchemaSetterProps> = (props) => {
   if (!propsSchema) {
     return null
   }
-
-  traverse(propsSchema, (key, value) => {
-    if (key === 'x-decorator' && value === 'FormItem') {
-      return 'VarFormItem'
-    }
-  })
 
   const form = useMemo(() => {
     return createForm({
