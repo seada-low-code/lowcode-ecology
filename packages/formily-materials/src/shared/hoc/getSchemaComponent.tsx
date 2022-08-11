@@ -43,7 +43,8 @@ export const createSchemaComponent = (options: ICreateSchemaComponent) => {
       console.error(e);
     }
 
-    const schema = useSchema(originProps);
+    // const schema = useSchema(originProps);
+    const schema = useSchema(props);
 
     schema.mapProperties((s, key) => {
       s['x-component'] = componentName;
