@@ -6,7 +6,7 @@ export const snippets = [
       componentName: 'FormilyForm',
       props: {
         componentProps: {
-          layout: 'vertical',
+          layout: 'horizontal',
         },
         __component_name: 'FormilyForm',
       },
