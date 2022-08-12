@@ -12,7 +12,7 @@ export interface IRadioGroupSetterprops {
 
 const formatOptions = (options) => {
   if (!Array.isArray(options)) {
-    console.error('option is illegal')
+    // console.error('option is illegal')
     return []
   }
   return options.map((item) => ({
