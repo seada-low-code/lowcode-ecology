@@ -15,7 +15,6 @@ Schema.registerCompiler(compile);
 export interface IFormItemProps {
   __designMode?: string;
   __component_name: string;
-  __originProps?: string;
   componentProps: any;
   componentId?: string;
   fieldProps: any;

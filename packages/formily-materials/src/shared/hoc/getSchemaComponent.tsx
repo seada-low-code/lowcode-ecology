@@ -36,14 +36,7 @@ export const createSchemaComponent = (options: ICreateSchemaComponent) => {
 
     const form = useForm();
 
-    let originProps = props;
-    try {
-      originProps = props.__originProps ? JSON.parse(props.__originProps) : props;
-    } catch (e) {
-      console.error(e);
-    }
-
-    const schema = useSchema(originProps);
+    const schema = useSchema(props);
 
     schema.mapProperties((s, key) => {
       s['x-component'] = componentName;
