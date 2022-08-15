@@ -24,7 +24,7 @@ export const snippets = [
           }
         ]
       },
-      children: [...children]
+      children: []
     }
   }
 ]
