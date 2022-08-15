@@ -59,23 +59,14 @@ export const reactNode2VoidSchema = (
   // lowcode-engine 自带
   const name = children.props.__id;
 
-  const { children: _, ...rest } = children.props;
-  let originProps = '';
-  try {
-    originProps = JSON.stringify(rest);
-  } catch (e) {
-    originProps = '';
-  }
-
   // 当前字段schema
   const fieldSchema: any = {
     [name]: {
       type: 'void',
       'x-component': componentName,
+      'x-compile-omitted': ['x-component-props'],
       'x-component-props': {
         ...children.props,
-        // 组建渲染时会优先是由使用originProps，x-component-props因为中的部分属性会传递到组件时可能会有丢失
-        __originProps: originProps,
         // fix: children被formily直接渲染，但是如果下一个组件是arrayCards，渲染是无效的，需要原始信息
         __origin_child: children.props.children,
       },

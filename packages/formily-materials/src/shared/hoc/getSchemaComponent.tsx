@@ -43,8 +43,7 @@ export const createSchemaComponent = (options: ICreateSchemaComponent) => {
       console.error(e);
     }
 
-    // const schema = useSchema(originProps);
-    const schema = useSchema(props);
+    const schema = useSchema(originProps);
 
     schema.mapProperties((s, key) => {
       s['x-component'] = componentName;
@@ -68,7 +67,7 @@ export const createVoidSchemaComponent = (options: ICreateSchemaComponent) => {
     transform(schema) {
       // 拦截
       schema.type = 'void';
-
+      schema['x-decorator'] = undefined;
       return options?.transform?.(schema);
     },
   });
