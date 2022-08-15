@@ -35,35 +35,42 @@ const ProModalMeta = {
       propType: 'string',
       setter: ['StringSetter', 'VariableSetter']
     },
+    // {
+    //   name: 'width',
+    //   title: { label: '弹窗尺寸', tip: 'width | 弹窗尺寸' },
+    //   propType: {
+    //     type: 'oneOf',
+    //     value: [1080, 520, 250]
+    //   },
+    //   setter: [
+    //     {
+    //       componentName: 'RadioGroupSetter',
+    //       props: {
+    //         options: [
+    //           {
+    //             title: '大',
+    //             value: 1080
+    //           },
+    //           {
+    //             title: '中',
+    //             value: 520
+    //           },
+    //           {
+    //             title: '小',
+    //             value: 250
+    //           }
+    //         ]
+    //       }
+    //     },
+    //     'VariableSetter'
+    //   ],
+    //   defaultValue: 520
+    // },
     {
       name: 'width',
-      title: { label: '弹窗尺寸', tip: 'width | 弹窗尺寸' },
-      propType: {
-        type: 'oneOf',
-        value: [1080, 520, 250]
-      },
-      setter: [
-        {
-          componentName: 'RadioGroupSetter',
-          props: {
-            options: [
-              {
-                title: '大',
-                value: 1080
-              },
-              {
-                title: '中',
-                value: 520
-              },
-              {
-                title: '小',
-                value: 250
-              }
-            ]
-          }
-        },
-        'VariableSetter'
-      ],
+      title: { label: '宽度', tip: 'width | 宽度' },
+      propType: { type: 'oneOfType', value: ['string', 'number'] },
+      setter: ['NumberSetter', 'StringSetter', 'VariableSetter'],
       defaultValue: 520
     },
     {
@@ -134,69 +141,69 @@ const ProModalMeta = {
       propType: 'number',
       setter: 'NumberSetter'
     },
-    {
-      name: 'okType',
-      title: { label: '确认按钮类型', tip: '确认按钮类型' },
-      propType: { type: 'oneOf', value: ['default', 'small'] },
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: 'primary',
-              value: 'primary'
-            },
-            {
-              title: 'ghost',
-              value: 'ghost'
-            },
-            {
-              title: 'dashed',
-              value: 'dashed'
-            },
-            {
-              title: 'link',
-              value: 'link'
-            },
-            {
-              title: 'text',
-              value: 'text'
-            },
-            {
-              title: 'default',
-              value: 'default'
-            }
-          ]
-        }
-      }
-    },
-    {
-      name: 'okButtonProps',
-      title: { label: '确认按钮props', tip: '确认按钮props' },
-      propType: 'object',
-      setter: {
-        componentName: 'ObjectSetter',
-        props: {
-          config: {
-            items: [
-              {
-                name: 'disabled',
-                title: { label: '是否禁用', tip: 'disabled' },
-                propType: 'bool',
-                setter: [
-                  {
-                    componentName: 'BoolSetter',
-                    initialValue: false
-                  },
-                  'VariableSetter'
-                ],
-                isRequired: true
-              }
-            ]
-          }
-        }
-      }
-    },
+    // {
+    //   name: 'okType',
+    //   title: { label: '确认按钮类型', tip: '确认按钮类型' },
+    //   propType: { type: 'oneOf', value: ['default', 'small'] },
+    //   setter: {
+    //     componentName: 'SelectSetter',
+    //     props: {
+    //       options: [
+    //         {
+    //           title: 'primary',
+    //           value: 'primary'
+    //         },
+    //         {
+    //           title: 'ghost',
+    //           value: 'ghost'
+    //         },
+    //         {
+    //           title: 'dashed',
+    //           value: 'dashed'
+    //         },
+    //         {
+    //           title: 'link',
+    //           value: 'link'
+    //         },
+    //         {
+    //           title: 'text',
+    //           value: 'text'
+    //         },
+    //         {
+    //           title: 'default',
+    //           value: 'default'
+    //         }
+    //       ]
+    //     }
+    //   }
+    // },
+    // {
+    //   name: 'okButtonProps',
+    //   title: { label: '确认按钮props', tip: '确认按钮props' },
+    //   propType: 'object',
+    //   setter: {
+    //     componentName: 'ObjectSetter',
+    //     props: {
+    //       config: {
+    //         items: [
+    //           {
+    //             name: 'disabled',
+    //             title: { label: '是否禁用', tip: 'disabled' },
+    //             propType: 'bool',
+    //             setter: [
+    //               {
+    //                 componentName: 'BoolSetter',
+    //                 initialValue: false
+    //               },
+    //               'VariableSetter'
+    //             ],
+    //             isRequired: true
+    //           }
+    //         ]
+    //       }
+    //     }
+    //   }
+    // },
     {
       name: 'wrapClassName',
       title: { label: '外层容器类名', tip: '对话框外层容器的类名' },
