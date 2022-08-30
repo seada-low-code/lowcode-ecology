@@ -27,7 +27,11 @@ export type IProTableProps = React.ComponentProps<typeof OriginalProTable> & {
 class ProTable extends Component<IProTableProps, any> {
   // pro-table 未对批量操作进行封装，自己封了
   state = {
-    selectedRowKeys: (this.props.rowSelection as any)?.selectedRowKeys ?? []
+    selectedRowKeys: (this.props.rowSelection as any)?.selectedRowKeys ?? [],
+    collapsed:
+      this.props.search === false
+        ? undefined
+        : this.props.search.defaultCollapsed // 之前设置的this.props.search.collapsed会失效，但问题不大
   }
 
   actionRef = createRef<ActionType>()
@@ -60,7 +64,7 @@ class ProTable extends Component<IProTableProps, any> {
   render() {
     const { columns, rowSelection } = this.props
 
-    const { selectedRowKeys } = this.state
+    const { selectedRowKeys, collapsed } = this.state
 
     // 劫持渲染标签类型的列
     columns?.map((item) => {
@@ -82,6 +86,20 @@ class ProTable extends Component<IProTableProps, any> {
     return (
       <OriginalProTable
         {...this.props}
+        search={{
+          ...this.props.search,
+          collapsed,
+          onCollapse: () => {
+            if (this.props.search === false) return
+            this.setState({
+              collapsed: !collapsed
+            })
+            if (this.props.search.onCollapse) {
+              // 如果设置了函数则继续执行
+              this.props.search.onCollapse(!collapsed)
+            }
+          }
+        }}
         rowSelection={
           rowSelection
             ? {

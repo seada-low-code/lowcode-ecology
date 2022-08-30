@@ -1343,42 +1343,42 @@ const ProTableMeta = {
               type: 'JSFunction',
               value: 'target => !!target.getProps().getPropValue("search")'
             }
-          },
-          {
-            name: 'search.collapsed',
-            title: {
-              label: '是否收起',
-              tip: 'collapsed | 是否收起'
-            },
-            propType: 'bool',
-            setter: 'BoolSetter',
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
-          },
-          {
-            name: 'search.onCollapse',
-            title: {
-              label: '收起按钮的事件',
-              tip: 'onCollapse | 收起按钮的事件'
-            },
-            propType: 'func',
-            setter: [
-              {
-                componentName: 'FunctionSetter',
-                props: {
-                  template:
-                    'onCollapse(collapsed,,${extParams}){\n// 设置行属性\nreturn {onClick:event=>{}};\n}'
-                }
-              },
-              'VariableSetter'
-            ],
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
           }
+          // {
+          //   name: 'search.collapsed',
+          //   title: {
+          //     label: '是否收起',
+          //     tip: 'collapsed | 是否收起'
+          //   },
+          //   propType: 'bool',
+          //   setter: 'BoolSetter',
+          //   condition: {
+          //     type: 'JSFunction',
+          //     value: 'target => !!target.getProps().getPropValue("search")'
+          //   }
+          // },
+          // // {
+          // //   name: 'search.onCollapse',
+          // //   title: {
+          // //     label: '收起按钮的事件',
+          // //     tip: 'onCollapse | 收起按钮的事件'
+          // //   },
+          // //   propType: 'func',
+          // //   setter: [
+          // //     {
+          // //       componentName: 'FunctionSetter',
+          // //       props: {
+          // //         template:
+          // //           'onCollapse(collapsed,,${extParams}){\n// 设置行属性\nreturn {onClick:event=>{}};\n}'
+          // //       }
+          // //     },
+          // //     'VariableSetter'
+          // //   ],
+          // //   condition: {
+          // //     type: 'JSFunction',
+          // //     value: 'target => !!target.getProps().getPropValue("search")'
+          // //   }
+          // // }
         ]
       },
       {
