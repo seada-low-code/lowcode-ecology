@@ -468,6 +468,15 @@ const ProTableMeta = {
                       setter: 'JsonSetter'
                     },
                     {
+                      name: 'fieldProps.showSearch',
+                      title: {
+                        label: '下拉框支持搜索',
+                        tip: 'fieldProps.showSearch | 下拉框支持搜索'
+                      },
+                      propType: 'bool',
+                      setter: 'BoolSetter'
+                    },
+                    {
                       name: 'render',
                       title: {
                         label: '自定义渲染',
