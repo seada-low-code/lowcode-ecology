@@ -164,7 +164,6 @@ export const snippets: Snippet[] = [
           defaultCollapsed: false,
           resetText: '',
           searchText: '',
-          collapsed: false,
           labelWidth: 'auto'
         },
         toolBarRender: {
@@ -222,7 +221,7 @@ export const snippets: Snippet[] = [
           defaultCollapsed: false,
           resetText: '',
           searchText: '',
-          collapsed: false
+          labelWidth: 'auto'
         }
       }
     }
@@ -249,20 +248,39 @@ export const snippets: Snippet[] = [
               {
                 componentName: 'ProTable',
                 props: {
+                  columns: [
+                    { title: 'Date', dataIndex: 'date', key: 'date' },
+                    { title: 'Name', dataIndex: 'name', key: 'name' },
+                    {
+                      title: 'Upgrade Status',
+                      dataIndex: 'upgradeNum',
+                      key: 'upgradeNum'
+                    }
+                  ],
+                  headerTitle: false,
                   search: false,
-                  dataSource: getDataSource(),
-                  columns: getColumns(),
-                  rowKey: 'id',
-                  pagination: false,
-                  manualRequest: false,
-                  loading: false,
-                  showHeader: true,
-                  size: 'default',
-                  tableLayout: '',
-                  scroll: {
-                    scrollToFirstRowOnChange: true
-                  },
-                  rowSelection: false
+                  options: false,
+                  dataSource: [
+                    {
+                      key: 0,
+                      date: '2014-12-24 23:12:00',
+                      name: 'This is production name',
+                      upgradeNum: 'Upgraded: 56'
+                    },
+                    {
+                      key: 1,
+                      date: '2014-12-24 23:12:00',
+                      name: 'This is production name',
+                      upgradeNum: 'Upgraded: 57'
+                    },
+                    {
+                      key: 2,
+                      date: '2014-12-24 23:12:00',
+                      name: 'This is production name',
+                      upgradeNum: 'Upgraded: 58'
+                    }
+                  ],
+                  pagination: false
                 }
               }
             ]

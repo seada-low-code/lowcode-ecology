@@ -39,10 +39,10 @@ module.exports = {
               },
               {
                 package: 'antd',
-                version: '4.19.5',
+                version: '4.22.8',
                 urls: [
-                  `//g.alicdn.com/code/lib/antd/4.19.4/antd.min.js`,
-                  `//g.alicdn.com/code/lib/antd/4.19.4/antd.min.css`
+                  `//g.alicdn.com/code/lib/antd/4.22.8/antd.min.js`,
+                  `//g.alicdn.com/code/lib/antd/4.22.8/antd.min.css`
                 ],
                 library: 'antd'
               },

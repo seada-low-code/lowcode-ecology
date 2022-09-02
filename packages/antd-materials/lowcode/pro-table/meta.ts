@@ -1339,6 +1339,7 @@ const ProTableMeta = {
             },
             propType: 'bool',
             setter: 'BoolSetter',
+            defaultValue: true,
             condition: {
               type: 'JSFunction',
               value: 'target => !!target.getProps().getPropValue("search")'

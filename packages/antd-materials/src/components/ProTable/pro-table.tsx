@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { Component, createRef } from 'react'
 import {
-  default as OriginalProTable,
+  ProTable as OriginalProTable,
   ActionType,
   ProColumnType
-} from '@ant-design/pro-table'
-import type { ProFormInstance } from '@ant-design/pro-form'
+} from '@ant-design/pro-components'
+import type { ProFormInstance } from '@ant-design/pro-components'
 import { Tag } from 'antd'
 import { defineGetterProperties, isPlainObj } from '../../shared/index'
 
@@ -31,7 +31,7 @@ class ProTable extends Component<IProTableProps, any> {
     collapsed:
       this.props.search === false
         ? undefined
-        : this.props.search.defaultCollapsed // 之前设置的this.props.search.collapsed会失效，但问题不大
+        : this.props.search?.defaultCollapsed // 之前设置的this.props.search.collapsed会失效，但问题不大
   }
 
   actionRef = createRef<ActionType>()
@@ -86,20 +86,24 @@ class ProTable extends Component<IProTableProps, any> {
     return (
       <OriginalProTable
         {...this.props}
-        search={{
-          ...this.props.search,
-          collapsed,
-          onCollapse: () => {
-            if (this.props.search === false) return
-            this.setState({
-              collapsed: !collapsed
-            })
-            if (this.props.search.onCollapse) {
-              // 如果设置了函数则继续执行
-              this.props.search.onCollapse(!collapsed)
-            }
-          }
-        }}
+        search={
+          typeof this.props.search === 'boolean'
+            ? this.props.search
+            : {
+                ...this.props.search,
+                collapsed,
+                onCollapse: () => {
+                  if (this.props.search === false) return
+                  this.setState({
+                    collapsed: !collapsed
+                  })
+                  if (this.props.search.onCollapse) {
+                    // 如果设置了函数则继续执行
+                    this.props.search.onCollapse(!collapsed)
+                  }
+                }
+              }
+        }
         rowSelection={
           rowSelection
             ? {
