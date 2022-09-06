@@ -3,7 +3,7 @@
   "scripts": {
     "build": "umi build",
     "dev": "umi dev",
-    "postinstall": "umi setup",
+    "postinstall": "patch-package & umi setup",
     "start": "npm run dev"
   },
   "dependencies": {
@@ -24,7 +24,9 @@
     "@formily/antd": "^2.1.4",
     "@formily/core": "^2.1.4",
     "@formily/react": "^2.1.4",
-    "antd": "^4.20.2"
+    "antd": "^4.20.2",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
   },
   "devDependencies": {
     "@alilc/lowcode-engine": "^1.0.9",
