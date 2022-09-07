@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { Component, createRef } from 'react'
 import {
-  default as OriginalProTable,
+  ProTable as OriginalProTable,
   ActionType,
   ProColumnType
-} from '@ant-design/pro-table'
-import type { ProFormInstance } from '@ant-design/pro-form'
+} from '@ant-design/pro-components'
+import type { ProFormInstance } from '@ant-design/pro-components'
+import type { TablePaginationConfig } from 'antd'
 import { Tag } from 'antd'
 import { defineGetterProperties, isPlainObj } from '../../shared/index'
 
@@ -31,7 +32,7 @@ class ProTable extends Component<IProTableProps, any> {
     collapsed:
       this.props.search === false
         ? undefined
-        : this.props.search.defaultCollapsed // 之前设置的this.props.search.collapsed会失效，但问题不大
+        : this.props.search?.defaultCollapsed // 之前设置的this.props.search.collapsed会失效，但问题不大
   }
 
   actionRef = createRef<ActionType>()
@@ -83,23 +84,38 @@ class ProTable extends Component<IProTableProps, any> {
       }
     })
 
+    const pagination = this.props.pagination as TablePaginationConfig
+
+    // current 让用户自己配置的话，用户需要自己监听 onChange 事件去修改，对低代码平台不友好
+    if (typeof pagination?.current === 'number') {
+      delete pagination.current
+    }
+
+    if (typeof pagination?.total === 'number') {
+      delete pagination.total
+    }
+
     return (
       <OriginalProTable
         {...this.props}
-        search={{
-          ...this.props.search,
-          collapsed,
-          onCollapse: () => {
-            if (this.props.search === false) return
-            this.setState({
-              collapsed: !collapsed
-            })
-            if (this.props.search.onCollapse) {
-              // 如果设置了函数则继续执行
-              this.props.search.onCollapse(!collapsed)
-            }
-          }
-        }}
+        search={
+          typeof this.props.search === 'boolean'
+            ? this.props.search
+            : {
+                ...this.props.search,
+                collapsed,
+                onCollapse: () => {
+                  if (this.props.search === false) return
+                  this.setState({
+                    collapsed: !collapsed
+                  })
+                  if (this.props.search.onCollapse) {
+                    // 如果设置了函数则继续执行
+                    this.props.search.onCollapse(!collapsed)
+                  }
+                }
+              }
+        }
         rowSelection={
           rowSelection
             ? {

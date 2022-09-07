@@ -1,6 +1,6 @@
 {
   "name": "@seada/antd-materials",
-  "version": "1.0.0-rc.13",
+  "version": "1.0.0-rc.15",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -29,12 +29,11 @@
     "build-plugin-component-multiple": "^1.0.0-beta.5"
   },
   "dependencies": {
-    "@ant-design/pro-layout": "^6.38.9",
-    "@ant-design/pro-table": "^2.71.4",
+    "@ant-design/pro-components": "^2.3.5",
     "@types/react": "^18.0.14"
   },
   "componentConfig": {
-    "materialSchema": "https://unpkg.com/@seada/antd-materials@1.0.0-rc.12/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@seada/antd-materials@1.0.0-rc.14/build/lowcode/assets-prod.json"
   },
   "publishConfig": {
     "access": "public"
