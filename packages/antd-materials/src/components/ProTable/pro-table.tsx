@@ -6,6 +6,7 @@ import {
   ProColumnType
 } from '@ant-design/pro-components'
 import type { ProFormInstance } from '@ant-design/pro-components'
+import type { TablePaginationConfig } from 'antd'
 import { Tag } from 'antd'
 import { defineGetterProperties, isPlainObj } from '../../shared/index'
 
@@ -82,6 +83,17 @@ class ProTable extends Component<IProTableProps, any> {
         }
       }
     })
+
+    const pagination = this.props.pagination as TablePaginationConfig
+
+    // current 让用户自己配置的话，用户需要自己监听 onChange 事件去修改，对低代码平台不友好
+    if (typeof pagination?.current === 'number') {
+      delete pagination.current
+    }
+
+    if (typeof pagination?.total === 'number') {
+      delete pagination.total
+    }
 
     return (
       <OriginalProTable

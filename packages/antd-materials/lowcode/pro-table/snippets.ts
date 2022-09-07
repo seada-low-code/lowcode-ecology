@@ -97,6 +97,7 @@ export const snippets: Snippet[] = [
     schema: {
       componentName: 'ProTable',
       props: {
+        cardBordered: true,
         dataSource: getDataSource(),
         columns: [
           ...getColumns(),
@@ -157,8 +158,7 @@ export const snippets: Snippet[] = [
         ],
         rowKey: 'id',
         pagination: {
-          pageSize: 10,
-          current: 1
+          pageSize: 10
         },
         search: {
           defaultCollapsed: false,
@@ -210,12 +210,12 @@ export const snippets: Snippet[] = [
     schema: {
       componentName: 'ProTable',
       props: {
+        cardBordered: true,
         dataSource: getDataSource(),
         columns: getColumns(),
         rowKey: 'id',
         pagination: {
-          pageSize: 10,
-          current: 1
+          pageSize: 10
         },
         search: {
           defaultCollapsed: false,
@@ -233,12 +233,12 @@ export const snippets: Snippet[] = [
     schema: {
       componentName: 'ProTable',
       props: {
+        cardBordered: true,
         dataSource: getDataSource(),
         columns: getColumns(),
         rowKey: 'id',
         pagination: {
-          pageSize: 10,
-          current: 1
+          pageSize: 10
         },
         expandable: {
           expandedRowRender: {

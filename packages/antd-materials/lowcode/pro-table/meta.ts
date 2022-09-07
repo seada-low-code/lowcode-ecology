@@ -81,6 +81,15 @@ const ProTableMeta = {
             setter: 'BoolSetter'
           },
           {
+            name: 'cardBordered',
+            title: {
+              label: '边框',
+              tip: 'cardBordered | Table 和 Search 外围 Card 组件的边框'
+            },
+            propType: 'bool',
+            setter: 'BoolSetter'
+          },
+          {
             name: 'rowKey',
             title: {
               label: '行Key',
@@ -633,16 +642,16 @@ const ProTableMeta = {
               value: 'target => !!target.getProps().getPropValue("pagination")'
             }
           },
-          {
-            name: 'pagination.total',
-            title: { label: '数据总数', tip: 'pagination.total | 数据总数' },
-            propType: 'number',
-            setter: 'NumberSetter',
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("pagination")'
-            }
-          },
+          // {
+          //   name: 'pagination.total',
+          //   title: { label: '数据总数', tip: 'pagination.total | 数据总数' },
+          //   propType: 'number',
+          //   setter: 'NumberSetter',
+          //   condition: {
+          //     type: 'JSFunction',
+          //     value: 'target => !!target.getProps().getPropValue("pagination")'
+          //   }
+          // },
           {
             name: 'pagination.defaultCurrent',
             title: {
@@ -656,38 +665,38 @@ const ProTableMeta = {
               value: 'target => !!target.getProps().getPropValue("pagination")'
             }
           },
-          {
-            name: 'pagination.current',
-            title: { label: '当前页数', tip: 'pagination.current | 当前页数' },
-            propType: 'number',
-            setter: 'NumberSetter',
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("pagination")'
-            }
-          },
-          {
-            name: 'pagination.showTotal',
-            title: {
-              label: '显示总数',
-              tip: 'pagination.showTotal | 用于显示数据总量和当前数据顺序'
-            },
-            propType: 'func',
-            setter: [
-              {
-                componentName: 'FunctionSetter',
-                props: {
-                  template:
-                    'showTotal(total,range,${extParams}){\n// 用于格式化显示表格数据总量\nreturn `共 ${total} 条`;\n}'
-                }
-              },
-              'VariableSetter'
-            ],
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("pagination")'
-            }
-          },
+          // {
+          //   name: 'pagination.current',
+          //   title: { label: '当前页数', tip: 'pagination.current | 当前页数' },
+          //   propType: 'number',
+          //   setter: 'NumberSetter',
+          //   condition: {
+          //     type: 'JSFunction',
+          //     value: 'target => !!target.getProps().getPropValue("pagination")'
+          //   }
+          // },
+          // {
+          //   name: 'pagination.showTotal',
+          //   title: {
+          //     label: '显示总数',
+          //     tip: 'pagination.showTotal | 用于显示数据总量和当前数据顺序'
+          //   },
+          //   propType: 'func',
+          //   setter: [
+          //     {
+          //       componentName: 'FunctionSetter',
+          //       props: {
+          //         template:
+          //           'showTotal(total,range,${extParams}){\n// 用于格式化显示表格数据总量\nreturn `共 ${total} 条`;\n}'
+          //       }
+          //     },
+          //     'VariableSetter'
+          //   ],
+          //   condition: {
+          //     type: 'JSFunction',
+          //     value: 'target => !!target.getProps().getPropValue("pagination")'
+          //   }
+          // },
           {
             name: 'pagination.showSizeChanger',
             title: {
