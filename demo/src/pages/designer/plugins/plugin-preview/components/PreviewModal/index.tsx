@@ -84,17 +84,19 @@ export const PreviewModal: FC = () => {
       <Button onClick={openModal} style={{ marginRight: '8px' }}>
         预览
       </Button>
-      <Drawer
-        destroyOnClose
-        title="本地预览"
-        visible={visible}
-        onClose={closeModal}
-        width="94vw"
-        bodyStyle={{ padding: 0 }}
-        footer={null}
-      >
-        <Renderer />
-      </Drawer>
+      {visible && (
+        <Drawer
+          destroyOnClose
+          title="本地预览"
+          visible={visible}
+          onClose={closeModal}
+          width="94vw"
+          bodyStyle={{ padding: 0 }}
+          footer={null}
+        >
+          <Renderer />
+        </Drawer>
+      )}
     </React.Fragment>
   )
 }
