@@ -8,7 +8,7 @@
 
 ```bash
 // 根目录安装依赖
-yarn
+yarn bootstrap
 ```
 
 ## setters 和 plugins 开发
