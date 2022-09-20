@@ -29,6 +29,7 @@ class ProTable extends Component<IProTableProps, any> {
   // pro-table 未对批量操作进行封装，自己封了
   state = {
     selectedRowKeys: (this.props.rowSelection as any)?.selectedRowKeys ?? [],
+    selectedRows: [],
     collapsed:
       this.props.search === false
         ? undefined
@@ -41,12 +42,17 @@ class ProTable extends Component<IProTableProps, any> {
 
   onSelectRowsChange = (selectedRowKeys, selectedRows) => {
     this.setState({
-      selectedRowKeys
+      selectedRowKeys,
+      selectedRows
     })
   }
 
   getSelectedRowKeys() {
     return this.state.selectedRowKeys
+  }
+
+  getSelectedRows() {
+    return this.state.selectedRows
   }
 
   setSelectedRowKeys(selectedRowKeys) {
