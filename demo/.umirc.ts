@@ -64,8 +64,8 @@ export default {
     lodash: 'var window._'
   },
   scripts: [
-    'https://g.alicdn.com/code/lib/react/18.0.0/umd/react.production.min.js',
-    'https://g.alicdn.com/code/lib/react-dom/18.0.0/umd/react-dom.production.min.js',
+    'https://g.alicdn.com/code/lib/react/17.0.0/umd/react.production.min.js',
+    'https://g.alicdn.com/code/lib/react-dom/17.0.0/umd/react-dom.production.min.js',
     'https://g.alicdn.com/code/lib/prop-types/15.7.2/prop-types.js',
     'https://g.alicdn.com/platform/c/react15-polyfill/0.0.1/dist/index.js',
     'https://g.alicdn.com/platform/c/lodash/4.6.1/lodash.min.js',

@@ -125,10 +125,10 @@ export default async function registerPlugins() {
       component: SelectSetter,
       isDynamic: false
     } as RegisteredSetter
-    setterMap['EventsSetter'] = {
-      component: EventsSetter,
-      isDynamic: false
-    } as RegisteredSetter
+    // setterMap['EventsSetter'] = {
+    //   component: EventsSetter,
+    //   isDynamic: false
+    // } as RegisteredSetter
     setterMap['RadioGroupSetter'] = {
       component: RadioGroupSetter,
       isDynamic: false
