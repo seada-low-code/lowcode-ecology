@@ -1,6 +1,6 @@
 {
   "name": "@seada/antd-setters",
-  "version": "1.0.0-rc.18",
+  "version": "1.0.0-rc.19",
   "description": "",
   "main": "lib/index.js",
   "module": "esm/index.js",

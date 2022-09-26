@@ -50,7 +50,7 @@ export const IconWidget: React.FC<IIconWidgetProps> & {
           viewBox: infer.props.viewBox || '0 0 1024 1024',
           focusable: 'false',
           'aria-hidden': 'true'
-        })
+        } as any)
       } else if (infer.type === 'path' || infer.type === 'g') {
         return (
           <svg
