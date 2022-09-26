@@ -1,9 +1,13 @@
 import { ProjectSchema } from '@alilc/lowcode-types'
 import { cloneDeep } from 'lodash'
 import coerce from 'semver/functions/coerce'
-import { FlattenFile } from '@alilc/lowcode-code-generator/types/types/file.d'
 import { Code, IFile } from './types'
 
+/**
+ * 修正schema，添加一些额外信息，否则信息不足会导致出码方法报错
+ * @param schema 源schema
+ * @returns
+ */
 export function fixSchema(schema: ProjectSchema): ProjectSchema {
   const copied = cloneDeep(schema)
   copied.componentsMap = copied.componentsMap
@@ -13,6 +17,13 @@ export function fixSchema(schema: ProjectSchema): ProjectSchema {
       // 修正版本号，对于没有有效版本号的组件，默认使用latest
       return item
     })
+  copied.componentsTree[0].meta = {
+    title: '测试',
+    router: '/test',
+    ...copied.componentsTree[0].meta
+  }
+  copied.componentsTree[0].fileName =
+    copied.componentsTree[0].fileName || 'test'
   return copied
 }
 
@@ -136,6 +147,7 @@ export function fixPreviewCode(code: Code) {
 }
 
 export async function createCodeSandbox(parameters) {
+  console.log('parameters:', parameters)
   const res = await fetch(
     'https://codesandbox.io/api/v1/sandboxes/define?json=1',
     {
@@ -177,20 +189,4 @@ export function pickKeys(data, keys) {
     }
     return acc
   }, {})
-}
-
-export function fixResult(originResult: FlattenFile[]) {
-  const result = cloneDeep(originResult)
-  // 不知道为什么只有components目录而没有pages目录，先hard code将components的数据写进去好了
-  result.forEach((item) => {
-    const { pathName, content } = item
-    if (pathName.startsWith('src/components')) {
-      const path = pathName.slice(14)
-      result.push({
-        pathName: `src/pages/${path}`,
-        content: content || '\n' // 如果为空在codesandbox会显示为文件夹，所以写个换行符进去
-      })
-    }
-  })
-  return result
 }
