@@ -36,6 +36,19 @@ const CodeGenPreview: React.FC<ICodeGenPreviewProps> = ({ code, height }) => {
       //   isBinary: false,
       //   content: `\n// 目前需要单独引入样式文件\nimport "antd/dist/antd.css";\n// 引入入口文件\nimport \'./app\';\n`
       // }
+      // 加入sandbox的配置
+      files['sandbox.config.json'] = {
+        isBinary: false,
+        content: `{
+          "infiniteLoopProtection": true,
+          "hardReloadOnChange": false,
+          "view": "browser",
+          "container": {
+            "port": 8000
+          },
+          "template": "node"
+        }`
+      }
     }
     return {
       files,
