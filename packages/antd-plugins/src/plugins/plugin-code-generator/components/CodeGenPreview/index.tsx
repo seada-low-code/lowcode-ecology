@@ -1,7 +1,7 @@
 import React, { CSSProperties, useMemo, useState } from 'react'
 import { useAsyncEffect } from 'ahooks'
 import { Spin } from 'antd'
-import { createCodeSandbox, fixPreviewCode } from '../../helper'
+import { createCodeSandbox } from '../../helper'
 import { Code, CodeSandboxParams } from '../../types'
 import './index.less'
 interface ICodeGenPreviewProps {
@@ -31,11 +31,6 @@ const CodeGenPreview: React.FC<ICodeGenPreviewProps> = ({ code, height }) => {
           content: file.code as string
         }
       })
-      // 入口文件需要引入样式，先hard code好了
-      // files['src/index.js'] = {
-      //   isBinary: false,
-      //   content: `\n// 目前需要单独引入样式文件\nimport "antd/dist/antd.css";\n// 引入入口文件\nimport \'./app\';\n`
-      // }
       // 加入sandbox的配置
       files['sandbox.config.json'] = {
         isBinary: false,
