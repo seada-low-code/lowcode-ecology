@@ -11,7 +11,7 @@ const FormilyInputMeta = {
     package: '@seada/formily-materials',
     version: 'latest',
     exportName: 'FormilyInput',
-    main: 'src/index.tsx',
+    main: '',
     destructuring: true,
     subName: '',
   },

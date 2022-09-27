@@ -11,7 +11,7 @@ const FormilyComponentMeta = {
     package: '@seada/formily-materials',
     version: 'latest',
     exportName: 'FormilyPassword',
-    main: 'src/index.tsx',
+    main: '',
     destructuring: true,
     subName: '',
   },

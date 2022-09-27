@@ -13,7 +13,7 @@ const ProTableMeta = {
     package: '@seada/antd-materials',
     version: 'latest',
     exportName: 'ProTable',
-    main: 'src/index.tsx',
+    main: '',
     destructuring: true,
     subName: ''
   },

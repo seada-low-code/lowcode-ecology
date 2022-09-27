@@ -11,7 +11,7 @@ const FormilyComponentMeta = {
     package: '@seada/formily-materials',
     version: 'latest',
     exportName: 'FormilySwitch',
-    main: 'src/index.tsx',
+    main: '',
     destructuring: true,
     subName: '',
   },

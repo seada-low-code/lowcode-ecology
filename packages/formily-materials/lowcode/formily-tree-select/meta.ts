@@ -11,7 +11,7 @@ const FormilyComponentMeta = {
     package: '@seada/formily-materials',
     version: 'latest',
     exportName: 'FormilyTreeSelect',
-    main: 'src/index.tsx',
+    main: '',
     destructuring: true,
     subName: '',
   },

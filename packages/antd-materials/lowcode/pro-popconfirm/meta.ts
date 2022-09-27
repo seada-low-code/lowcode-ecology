@@ -36,7 +36,7 @@ export default {
     package: '@seada/antd-materials',
     version: 'latest',
     exportName: 'ProPopconfirm',
-    main: 'src/index.tsx',
+    main: '',
     destructuring: true,
     subName: ''
   },

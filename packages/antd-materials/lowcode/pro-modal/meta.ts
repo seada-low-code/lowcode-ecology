@@ -13,7 +13,7 @@ const ProModalMeta = {
     package: '@seada/antd-materials',
     version: 'latest',
     exportName: 'ProModal',
-    main: 'src/index.tsx',
+    main: '',
     destructuring: true,
     subName: ''
   },

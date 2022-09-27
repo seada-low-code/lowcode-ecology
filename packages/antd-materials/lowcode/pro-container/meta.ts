@@ -13,7 +13,7 @@ const ProContainerMeta: ComponentMetadata = {
     package: '@seada/antd-materials',
     version: 'latest',
     exportName: 'ProContainer',
-    main: 'src/index.tsx',
+    main: '',
     destructuring: true,
     subName: ''
   },

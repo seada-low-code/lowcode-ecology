@@ -14,7 +14,7 @@ export default {
     package: '@seada/antd-materials',
     version: 'latest',
     exportName: 'ProDrawer',
-    main: 'src/index.tsx',
+    main: '',
     destructuring: true,
     subName: ''
   },

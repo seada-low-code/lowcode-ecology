@@ -12,7 +12,7 @@ const FormilyFormMeta = {
     package: '@seada/formily-materials',
     version: 'latest',
     exportName: 'FormilyForm',
-    main: 'src/index.tsx',
+    main: '',
     destructuring: true,
     subName: '',
   },
