@@ -87,6 +87,26 @@
         "https://unpkg.com/@seada/formily-materials@1.0.0-rc.15/build/lowcode/view.js",
         "https://unpkg.com/@seada/formily-materials@1.0.0-rc.15/build/lowcode/view.css"
       ]
+    },
+    {
+      "package": "@seada/rich-editor",
+      "version": "0.1.6",
+      "library": "SeadaRichEditor",
+      "urls": [
+        "https://unpkg.com/@seada/rich-editor@0.1.6/build/lowcode/render/default/view.js",
+        "https://unpkg.com/@seada/rich-editor@0.1.6/build/lowcode/render/default/view.css"
+      ],
+      "editUrls": [
+        "https://unpkg.com/@seada/rich-editor@0.1.6/build/lowcode/view.js",
+        "https://unpkg.com/@seada/rich-editor@0.1.6/build/lowcode/view.css"
+      ],
+      "advancedUrls": {
+        "default": [
+          "https://unpkg.com/@seada/rich-editor@0.1.6/build/lowcode/render/default/view.js",
+          "https://unpkg.com/@seada/rich-editor@0.1.6/build/lowcode/render/default/view.css"
+        ]
+      },
+      "advancedEditUrls": {}
     }
   ],
   "components": [
@@ -125,6 +145,22 @@
       "advancedUrls": {
         "default": [
           "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.9/build/lowcode/meta.js"
+        ]
+      }
+    },
+    {
+      "exportName": "SeadaRichEditorMeta",
+      "npm": {
+        "package": "@seada/rich-editor",
+        "version": "0.1.6"
+      },
+      "url": "https://unpkg.com/@seada/rich-editor@0.1.6/build/lowcode/meta.js",
+      "urls": {
+        "default": "https://unpkg.com/@seada/rich-editor@0.1.6/build/lowcode/meta.js"
+      },
+      "advancedUrls": {
+        "default": [
+          "https://unpkg.com/@seada/rich-editor@0.1.6/build/lowcode/meta.js"
         ]
       }
     }
