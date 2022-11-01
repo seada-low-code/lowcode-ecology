@@ -199,7 +199,8 @@ export const snippets: Snippet[] = [
               }
             }
           ]
-        }
+        },
+        intl: 'zhCNIntl'
       }
     }
   },
@@ -222,7 +223,8 @@ export const snippets: Snippet[] = [
           resetText: '',
           searchText: '',
           labelWidth: 'auto'
-        }
+        },
+        intl: 'zhCNIntl'
       }
     }
   },
@@ -285,7 +287,8 @@ export const snippets: Snippet[] = [
               }
             ]
           }
-        }
+        },
+        intl: 'zhCNIntl'
       }
     }
   }

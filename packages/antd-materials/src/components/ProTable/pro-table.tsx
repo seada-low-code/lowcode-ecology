@@ -7,7 +7,9 @@ import {
 } from '@ant-design/pro-components'
 import type { ProFormInstance } from '@ant-design/pro-components'
 import type { TablePaginationConfig } from 'antd'
-import { Tag } from 'antd'
+import { Tag, ConfigProvider } from 'antd'
+import zhCNIntl from 'antd/es/locale/zh_CN'
+import enUSIntl from 'antd/es/locale/en_US'
 import { defineGetterProperties, isPlainObj } from '../../shared/index'
 
 interface IValueEnum {
@@ -23,6 +25,12 @@ type IExtendsColType = ProColumnType & {
 
 export type IProTableProps = React.ComponentProps<typeof OriginalProTable> & {
   columns?: IExtendsColType
+  intl?: string
+}
+
+const intlMap = {
+  zhCNIntl,
+  enUSIntl
 }
 
 class ProTable extends Component<IProTableProps, any> {
@@ -69,7 +77,7 @@ class ProTable extends Component<IProTableProps, any> {
   }
 
   render() {
-    const { columns, rowSelection } = this.props
+    const { columns, rowSelection, intl } = this.props
 
     const { selectedRowKeys, collapsed } = this.state
 
@@ -102,43 +110,45 @@ class ProTable extends Component<IProTableProps, any> {
     }
 
     return (
-      <OriginalProTable
-        {...this.props}
-        search={
-          typeof this.props.search === 'boolean'
-            ? this.props.search
-            : {
-                ...this.props.search,
-                collapsed,
-                onCollapse: () => {
-                  if (this.props.search === false) return
-                  this.setState({
-                    collapsed: !collapsed
-                  })
-                  if (this.props.search.onCollapse) {
-                    // 如果设置了函数则继续执行
-                    this.props.search.onCollapse(!collapsed)
+      <ConfigProvider locale={intlMap[intl || 'zhCNIntl']}>
+        <OriginalProTable
+          {...this.props}
+          search={
+            typeof this.props.search === 'boolean'
+              ? this.props.search
+              : {
+                  ...this.props.search,
+                  collapsed,
+                  onCollapse: () => {
+                    if (this.props.search === false) return
+                    this.setState({
+                      collapsed: !collapsed
+                    })
+                    if (this.props.search.onCollapse) {
+                      // 如果设置了函数则继续执行
+                      this.props.search.onCollapse(!collapsed)
+                    }
                   }
                 }
-              }
-        }
-        rowSelection={
-          rowSelection
-            ? {
-                ...rowSelection,
-                defaultSelectedRowKeys: selectedRowKeys,
-                selectedRowKeys,
-                onChange: (...args) => {
-                  rowSelection?.onChange?.(...args)
-                  this.onSelectRowsChange(...args)
+          }
+          rowSelection={
+            rowSelection
+              ? {
+                  ...rowSelection,
+                  defaultSelectedRowKeys: selectedRowKeys,
+                  selectedRowKeys,
+                  onChange: (...args) => {
+                    rowSelection?.onChange?.(...args)
+                    this.onSelectRowsChange(...args)
+                  }
                 }
-              }
-            : false
-        }
-        columns={columns}
-        actionRef={this.actionRef}
-        formRef={this.formRef}
-      />
+              : false
+          }
+          columns={columns}
+          actionRef={this.actionRef}
+          formRef={this.formRef}
+        />
+      </ConfigProvider>
     )
   }
 }

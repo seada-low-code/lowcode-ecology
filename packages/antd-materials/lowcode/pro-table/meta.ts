@@ -1435,6 +1435,39 @@ const ProTableMeta = {
             }
           }
         ]
+      },
+      {
+        title: '国际化',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'language',
+                'zh-CN': '语言'
+              },
+              tip: '支持中文和英文'
+            },
+            name: 'intl',
+            setter: {
+              componentName: 'SelectSetter',
+              props: {
+                options: [
+                  {
+                    title: '简体中文',
+                    value: 'zhCNIntl'
+                  },
+                  {
+                    title: 'enUS',
+                    value: 'enUSIntl'
+                  }
+                ]
+              }
+            }
+          }
+        ]
       }
     ],
     supports: {
