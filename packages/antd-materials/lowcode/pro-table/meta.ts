@@ -1438,7 +1438,7 @@ const ProTableMeta = {
             name: 'dateFormatter',
             title: {
               label: '时间格式化',
-              tip: 'dateFormatter | number string 或自定义 默认是moment对象'
+              tip: 'dateFormatter | number string 或自定义'
             },
             propType: { type: 'oneOfType', value: ['string', 'func'] },
             setter: [
