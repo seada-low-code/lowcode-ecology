@@ -1433,6 +1433,33 @@ const ProTableMeta = {
                 ]
               }
             }
+          },
+          {
+            name: 'dateFormatter',
+            title: {
+              label: '时间格式化',
+              tip: 'dateFormatter | number string 或自定义'
+            },
+            propType: { type: 'oneOfType', value: ['string', 'func'] },
+            setter: [
+              {
+                componentName: 'SelectSetter',
+                props: {
+                  options: [
+                    {
+                      title: '数字类型',
+                      value: 'number'
+                    },
+                    {
+                      title: '字符串类型',
+                      value: 'string'
+                    }
+                  ]
+                }
+              },
+              'FunctionSetter'
+            ],
+            defaultValue: 'string'
           }
         ]
       },
