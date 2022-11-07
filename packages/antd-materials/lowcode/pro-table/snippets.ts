@@ -158,7 +158,7 @@ export const snippets: Snippet[] = [
         ],
         rowKey: 'id',
         pagination: {
-          pageSize: 10
+          defaultPageSize: 10
         },
         search: {
           defaultCollapsed: false,
@@ -216,7 +216,7 @@ export const snippets: Snippet[] = [
         columns: getColumns(),
         rowKey: 'id',
         pagination: {
-          pageSize: 10
+          defaultPageSize: 10
         },
         search: {
           defaultCollapsed: false,
@@ -240,7 +240,7 @@ export const snippets: Snippet[] = [
         columns: getColumns(),
         rowKey: 'id',
         pagination: {
-          pageSize: 10
+          defaultPageSize: 10
         },
         expandable: {
           expandedRowRender: {
