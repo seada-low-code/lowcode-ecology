@@ -13,7 +13,7 @@ import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
 import {
-  // PluginCodeGenerator,
+  PluginCodeGenerator,
   PluginFormily,
   PluginSave,
   PluginSimulatorResizer,
@@ -21,7 +21,6 @@ import {
 } from '@seada/antd-plugins'
 import {
   BoolSetter,
-  EventsSetter,
   NumberSetter,
   RadioGroupSetter,
   SelectSetter,
@@ -29,8 +28,6 @@ import {
   StringSetter,
   TextAreaSetter
 } from '@seada/antd-setters'
-import { Button } from 'antd'
-import React from 'react'
 import assets from '../../assets/assets.json'
 import { getPageSchema, saveSchema } from './helper'
 import CodeEditor from '@alilc/lowcode-plugin-code-editor'
@@ -170,7 +167,7 @@ export default async function registerPlugins() {
   await plugins.register(ZhEnPlugin)
 
   // await plugins.register(PluginCodeGen)
-  // await plugins.register(PluginCodeGenerator)
+  await plugins.register(PluginCodeGenerator)
 
   CodeEditor.pluginName = 'CodeEditor'
   await plugins.register(CodeEditor)

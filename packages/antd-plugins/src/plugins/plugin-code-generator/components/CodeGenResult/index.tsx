@@ -49,36 +49,6 @@ const CodeGenResult: React.FC<ICodeGenResultProps> = ({ result, schema }) => {
         }
       }, {})
     }
-    let foundEntry = false // 是否找到入口文件标识
-    const entryNameList: string[] = [
-      'index.js',
-      'index.ts',
-      'index.tsx',
-      'app.js',
-      'app.ts',
-      'app.tsx'
-    ]
-    for (const name of entryNameList) {
-      const filePath = `/src/${name}`
-      if (code.modules[filePath]) {
-        foundEntry = true
-        if (name === 'index.js') {
-          code.modules[filePath].entry = 1
-        } else {
-          code.modules['/src/index.js'] = {
-            fpath: '/src/index.js',
-            entry: 1,
-            code: 'import "./' + name.replace(/\.\w+$/, '') + '"'
-          }
-        }
-        break
-      }
-    }
-    if (!foundEntry) {
-      if (!foundEntry) {
-        console.warn('Failed to find entry file for demo.')
-      }
-    }
     Object.assign(code.modules, schemaFiles)
     return code
   }

@@ -1,7 +1,7 @@
 import React, { CSSProperties, useMemo, useState } from 'react'
 import { useAsyncEffect } from 'ahooks'
 import { Spin } from 'antd'
-import { createCodeSandbox, fixPreviewCode } from '../../helper'
+import { createCodeSandbox } from '../../helper'
 import { Code, CodeSandboxParams } from '../../types'
 import './index.less'
 interface ICodeGenPreviewProps {
@@ -24,22 +24,30 @@ const CodeGenPreview: React.FC<ICodeGenPreviewProps> = ({ code, height }) => {
     // 返回codesandbox的参数，决定codesandbox里面的内容
     const files: CodeSandboxParams['files'] = {}
     if (code?.modules) {
-      const fixedCode = fixPreviewCode(code)
+      const fixedCode = code
       Object.values(fixedCode.modules).forEach((file) => {
         files[file.fpath.slice(1)] = {
           isBinary: false,
           content: file.code as string
         }
       })
-      // 入口文件需要引入样式，先hard code好了
-      files['src/index.js'] = {
+      // 加入sandbox的配置
+      files['sandbox.config.json'] = {
         isBinary: false,
-        content: `\n// 目前需要单独引入样式文件\nimport "antd/dist/antd.css";\n// 引入入口文件\nimport \'./app\';\n`
+        content: `{
+          "infiniteLoopProtection": true,
+          "hardReloadOnChange": false,
+          "view": "browser",
+          "container": {
+            "port": 8000
+          },
+          "template": "node"
+        }`
       }
     }
     return {
       files,
-      template: 'create-react-app'
+      template: 'umi4'
     }
   }, [code])
 
@@ -64,7 +72,7 @@ const CodeGenPreview: React.FC<ICodeGenPreviewProps> = ({ code, height }) => {
         sandboxId
       })
     }
-  }, [parameters, state.sandboxId, state.parameters])
+  }, [])
 
   return (
     <div
