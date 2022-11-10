@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import * as CodeGenerator from '@alilc/lowcode-code-generator/standalone-loader'
+import * as CodeGenerator from '@seada/lowcode-code-generator/standalone-loader'
 import { ProjectSchema } from '@alilc/lowcode-types'
 import { Collapse } from 'antd'
 import SourcesView from '../SourcesView'

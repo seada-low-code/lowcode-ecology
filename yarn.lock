@@ -4150,7 +4150,7 @@
 
 "@seada/lowcode-code-generator@^1.0.0":
   version "1.0.1-beta.2"
-  resolved "https://npm.shopee.io/@seada%2flowcode-code-generator/-/lowcode-code-generator-1.0.1-beta.2.tgz#9061391ddc6af3d4541b2fbe216e7333967dc357"
+  resolved "https://registry.yarnpkg.com/@seada/lowcode-code-generator/-/lowcode-code-generator-1.0.1-beta.2.tgz#9061391ddc6af3d4541b2fbe216e7333967dc357"
   integrity sha512-YJYXmgI27uef1/TW8KRWHxZPeKgQC4Nod6UBqv3ZIe1izcvbM1ATVzTH43hQVHx1vfhs+UFyVtFdbMHHa6Ujew==
   dependencies:
     "@alilc/lowcode-types" "^1.0.0"
