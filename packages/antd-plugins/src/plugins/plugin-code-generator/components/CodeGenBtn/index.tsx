@@ -2,8 +2,8 @@ import React, { useRef, useState } from 'react'
 import { Button, Drawer, Spin } from 'antd'
 import { project } from '@alilc/lowcode-engine'
 import { TransformStage } from '@alilc/lowcode-types'
-import * as CodeGenerator from '@trhuo/lowcode-code-generator/standalone-loader'
-import { FlattenFile } from '@alilc/lowcode-code-generator/types/types/file.d'
+import * as CodeGenerator from '@seada/lowcode-code-generator/standalone-loader'
+import { FlattenFile } from '@seada/lowcode-code-generator/types/types/file.d'
 import CodeGenResult, { ICodeGenResultProps } from '../CodeGenResult'
 import { fixSchema } from '../../helper'
 
@@ -25,8 +25,7 @@ const CodeGenBtn: React.FC = () => {
     const result = (await CodeGenerator.generateCode({
       solution: 'umi',
       schema,
-      flattenResult: true,
-      workerJsUrl: 'http://localhost:8080/standalone-worker.js' // 支持自定义传入worker url
+      flattenResult: true
     })) as FlattenFile[]
 
     loading.current = false

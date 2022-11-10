@@ -13,7 +13,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@alilc/lowcode-code-generator": "^1.0.4",
+    "@seada/lowcode-code-generator": "^1.0.0",
     "@alilc/lowcode-engine": "^1.0.9",
     "@alilc/lowcode-types": "^1.0.10"
   },
