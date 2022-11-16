@@ -3,7 +3,7 @@ import { Button, Drawer, Spin } from 'antd'
 import { project } from '@alilc/lowcode-engine'
 import { TransformStage } from '@alilc/lowcode-types'
 import * as CodeGenerator from '@seada/lowcode-code-generator/standalone-loader'
-import { FlattenFile } from '@seada/lowcode-code-generator/types/types/file.d'
+import { FlattenFile } from '@seada/lowcode-code-generator'
 import CodeGenResult, { ICodeGenResultProps } from '../CodeGenResult'
 import { fixSchema } from '../../helper'
 
