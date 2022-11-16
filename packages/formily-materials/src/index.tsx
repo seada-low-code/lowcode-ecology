@@ -28,3 +28,5 @@ export { default as FormilyTransfer } from './components/Transfer';
 export { default as FormilyUpload } from './components/Upload';
 export { default as FormilyUploadDragger } from './components/UploadDragger';
 export { default as FormilyObjectContainer } from './components/Object';
+export { default as FormilyTimePicker } from './components/TimePicker';
+export { default as FormilyTimeRangePicker } from './components/TimeRangePicker';
