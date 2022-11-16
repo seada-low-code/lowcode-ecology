@@ -4148,10 +4148,10 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@seada/lowcode-code-generator@^1.0.0":
-  version "1.0.1-beta.2"
-  resolved "https://registry.yarnpkg.com/@seada/lowcode-code-generator/-/lowcode-code-generator-1.0.1-beta.2.tgz#9061391ddc6af3d4541b2fbe216e7333967dc357"
-  integrity sha512-YJYXmgI27uef1/TW8KRWHxZPeKgQC4Nod6UBqv3ZIe1izcvbM1ATVzTH43hQVHx1vfhs+UFyVtFdbMHHa6Ujew==
+"@seada/lowcode-code-generator@^1.0.1-beta.1":
+  version "1.0.1-beta.1"
+  resolved "https://npm.shopee.io/@seada%2flowcode-code-generator/-/lowcode-code-generator-1.0.1-beta.1.tgz#c29b2b24f709bc10157759bcacad0ab4ee28ee3e"
+  integrity sha512-OmPclB91NN7ybuDMEhH8x8RrGOxi7PeKJaYkCJyXzb2y3BeYbS1ndtL4u1Ky7xshTJWAOMMotF16GDJKEV/sKg==
   dependencies:
     "@alilc/lowcode-types" "^1.0.0"
     "@babel/generator" "^7.12.11"

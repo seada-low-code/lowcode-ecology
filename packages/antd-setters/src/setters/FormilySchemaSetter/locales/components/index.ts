@@ -16,6 +16,7 @@ import { Space } from './Space'
 import { Transfer } from './Transfer'
 import { Upload, UploadDragger } from './Upload'
 import { FormLayout } from './FormLayout'
+import { TimePicker } from './TimePicker'
 
 GlobalRegistry.registerDesignerLocales(Component)
 GlobalRegistry.registerDesignerLocales(TextArea)
@@ -35,3 +36,4 @@ GlobalRegistry.registerDesignerLocales(Transfer)
 GlobalRegistry.registerDesignerLocales(Upload)
 GlobalRegistry.registerDesignerLocales(UploadDragger)
 GlobalRegistry.registerDesignerLocales(FormLayout)
+GlobalRegistry.registerDesignerLocales(TimePicker)
