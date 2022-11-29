@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@seada/antd-setters": "1.0.0-rc.23",
+    "@seada/lowcode-code-generator": "^1.0.4",
     "ahooks": "^3.7.0",
     "string-natural-compare": "^3.0.1"
   },
