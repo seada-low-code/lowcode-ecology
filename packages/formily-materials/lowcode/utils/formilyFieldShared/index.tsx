@@ -13,9 +13,9 @@ export const createFormItemSchema = (componentsSchema: any, initial?: IDefaultPr
       name: 'fieldProps',
       title: '字段属性',
       display: 'accordion',
-      defaultValue: initial?.field,
       setter: {
         componentName: 'FormilySchemaSetter',
+        initialValue: initial?.field,
         props: {
           propsSchema: fieldSchema,
         },
@@ -25,9 +25,9 @@ export const createFormItemSchema = (componentsSchema: any, initial?: IDefaultPr
       name: 'componentProps',
       title: '组件属性',
       display: 'accordion',
-      defaultValue: initial?.component,
       setter: {
         componentName: 'FormilySchemaSetter',
+        initialValue: initial?.component,
         props: {
           // 多包一层是为了复用locale翻译
           propsSchema: {
@@ -42,9 +42,9 @@ export const createFormItemSchema = (componentsSchema: any, initial?: IDefaultPr
       name: 'decoratorProps',
       title: '容器属性',
       display: 'accordion',
-      defaultValue: initial?.decorator,
       setter: {
         componentName: 'FormilySchemaSetter',
+        initialValue: initial?.decorator,
         props: {
           propsSchema: {
             properties: {
@@ -63,9 +63,9 @@ export const createVoidItemSchema = (componentsSchema: any, initial?: IDefaultPr
       name: 'fieldProps',
       title: '字段属性',
       display: 'accordion',
-      defaultValue: initial?.field,
       setter: {
         componentName: 'FormilySchemaSetter',
+        initialValue: initial?.field,
         props: {
           propsSchema: fieldSchema,
         },
@@ -75,9 +75,9 @@ export const createVoidItemSchema = (componentsSchema: any, initial?: IDefaultPr
       name: 'componentProps',
       title: '组件属性',
       display: 'accordion',
-      defaultValue: initial?.component,
       setter: {
         componentName: 'FormilySchemaSetter',
+        initialValue: initial?.component,
         props: {
           // 多包一层是为了复用locale翻译
           propsSchema: {
