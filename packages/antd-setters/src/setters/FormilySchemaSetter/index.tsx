@@ -37,7 +37,8 @@ const FormilySchemaSetter: React.FC<IFormilySchemaSetterProps> & {
 
   const form = useMemo(() => {
     return createForm({
-      initialValues: defaultValue,
+      initialValues:
+        typeof defaultValue === 'function' ? defaultValue() : defaultValue,
       values: value,
       effects(form) {
         useLocales()

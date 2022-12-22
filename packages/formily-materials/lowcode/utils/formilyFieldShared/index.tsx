@@ -13,11 +13,12 @@ export const createFormItemSchema = (componentsSchema: any, initial?: IDefaultPr
       name: 'fieldProps',
       title: '字段属性',
       display: 'accordion',
-      defaultValue: initial?.field,
+      // defaultValue: initial?.field,
       setter: {
         componentName: 'FormilySchemaSetter',
         props: {
           propsSchema: fieldSchema,
+          defaultValue: initial?.field,
         },
       },
     },
@@ -25,7 +26,7 @@ export const createFormItemSchema = (componentsSchema: any, initial?: IDefaultPr
       name: 'componentProps',
       title: '组件属性',
       display: 'accordion',
-      defaultValue: initial?.component,
+      // defaultValue: initial?.component,
       setter: {
         componentName: 'FormilySchemaSetter',
         props: {
@@ -35,6 +36,7 @@ export const createFormItemSchema = (componentsSchema: any, initial?: IDefaultPr
               'x-component-props': componentsSchema,
             },
           },
+          defaultValue: initial?.component,
         },
       },
     },
@@ -42,7 +44,7 @@ export const createFormItemSchema = (componentsSchema: any, initial?: IDefaultPr
       name: 'decoratorProps',
       title: '容器属性',
       display: 'accordion',
-      defaultValue: initial?.decorator,
+      // defaultValue: initial?.decorator,
       setter: {
         componentName: 'FormilySchemaSetter',
         props: {
@@ -51,6 +53,7 @@ export const createFormItemSchema = (componentsSchema: any, initial?: IDefaultPr
               'x-decorator-props': formItemSchema,
             },
           },
+          defaultValue: initial?.decorator,
         },
       },
     },
@@ -63,11 +66,12 @@ export const createVoidItemSchema = (componentsSchema: any, initial?: IDefaultPr
       name: 'fieldProps',
       title: '字段属性',
       display: 'accordion',
-      defaultValue: initial?.field,
+      // defaultValue: initial?.field,
       setter: {
         componentName: 'FormilySchemaSetter',
         props: {
           propsSchema: fieldSchema,
+          defaultValue: initial?.field,
         },
       },
     },
@@ -75,7 +79,7 @@ export const createVoidItemSchema = (componentsSchema: any, initial?: IDefaultPr
       name: 'componentProps',
       title: '组件属性',
       display: 'accordion',
-      defaultValue: initial?.component,
+      // defaultValue: initial?.component,
       setter: {
         componentName: 'FormilySchemaSetter',
         props: {
@@ -85,6 +89,7 @@ export const createVoidItemSchema = (componentsSchema: any, initial?: IDefaultPr
               'x-component-props': componentsSchema,
             },
           },
+          defaultValue: initial?.component,
         },
       },
     },
