@@ -3,7 +3,6 @@ import { Button, Drawer, Spin } from 'antd'
 import { project } from '@alilc/lowcode-engine'
 import { TransformStage } from '@alilc/lowcode-types'
 import * as CodeGenerator from '@seada/lowcode-code-generator/standalone-loader'
-import { FlattenFile } from '@seada/lowcode-code-generator'
 import CodeGenResult, { ICodeGenResultProps } from '../CodeGenResult'
 import { fixSchema } from '../../helper'
 
@@ -22,11 +21,11 @@ const CodeGenBtn: React.FC = () => {
     const originSchema = project.exportSchema(TransformStage.Save)
     const schema = fixSchema(originSchema)
     // 通过schema来进行出码，这里是通过web worker线程来跑的
-    const result = (await CodeGenerator.generateCode({
+    const result = await CodeGenerator.generateCode({
       solution: 'umi',
       schema,
       flattenResult: true
-    })) as FlattenFile[]
+    })
 
     loading.current = false
     setResultState({
