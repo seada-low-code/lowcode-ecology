@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { createForm, onFormValuesChange } from '@formily/core'
-import { Form } from '@formily/antd'
+import { Form, FormProps } from '@formily/antd'
 import { IFormilySchemaSetterProps } from './type'
 import { SchemaField } from './SchemaField'
 import { useLocales } from './locales'
 import { isPlainObj } from '@formily/shared'
+import { isEqual } from 'lodash'
 
 const traverse = (obj, cb) => {
   if (isPlainObj(obj)) {
@@ -21,11 +22,9 @@ let shouldRenderVarFromDecorator = false
 const FormilySchemaSetter: React.FC<IFormilySchemaSetterProps> & {
   toggleVarDecorator: (f: boolean) => void
 } = (props) => {
-  const { defaultValue, value, effects, propsSchema, onChange } = props
+  const formRef = useRef<FormProps['form']>(null)
 
-  if (!propsSchema) {
-    return null
-  }
+  const { defaultValue, value, effects, propsSchema, onChange } = props
 
   if (shouldRenderVarFromDecorator) {
     traverse(propsSchema, (key, value) => {
@@ -35,25 +34,36 @@ const FormilySchemaSetter: React.FC<IFormilySchemaSetterProps> & {
     })
   }
 
-  const form = useMemo(() => {
-    return createForm({
-      initialValues:
-        typeof defaultValue === 'function' ? defaultValue() : defaultValue,
-      values: value,
+  // 减少form实例创建次数
+  if (propsSchema && !formRef.current) {
+    formRef.current = createForm({
       effects(form) {
         useLocales()
-        onFormValuesChange((form) => {
-          onChange(form.values)
+        onFormValuesChange((f) => {
+          onChange(f.values)
         })
         effects?.(form)
       }
     })
-  }, [])
+  }
 
-  const render = () => {
-    return (
+  useEffect(() => {
+    if (!value && defaultValue) {
+      onChange(
+        typeof defaultValue === 'function' ? defaultValue() : defaultValue
+      )
+    }
+
+    // 防止死循环
+    if (!isEqual(formRef.current.values, value)) {
+      formRef.current?.setValues(value)
+    }
+  }, [defaultValue, onChange, value])
+
+  return (
+    formRef.current && (
       <Form
-        form={form}
+        form={formRef.current}
         colon={false}
         labelWidth={120}
         labelAlign="left"
@@ -65,9 +75,7 @@ const FormilySchemaSetter: React.FC<IFormilySchemaSetterProps> & {
         <SchemaField schema={propsSchema} />
       </Form>
     )
-  }
-
-  return render()
+  )
 }
 
 FormilySchemaSetter.displayName = 'FormilySchemaSetter'
