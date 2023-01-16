@@ -249,10 +249,23 @@ const ProTableMeta = {
                             {
                               title: '颜色选择器',
                               value: 'color'
+                            },
+                            {
+                              title: '级联选择器',
+                              value: 'cascader'
                             }
                           ]
                         }
                       }
+                    },
+                    {
+                      name: 'fieldProps',
+                      title: {
+                        label: '字段属性',
+                        tip: 'fieldProps | 字段属性'
+                      },
+                      propType: 'object',
+                      setter: 'JsonSetter'
                     },
                     {
                       name: 'renderTag',
