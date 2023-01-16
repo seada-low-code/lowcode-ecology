@@ -167,7 +167,7 @@ export default async function registerPlugins() {
   await plugins.register(ZhEnPlugin)
 
   // await plugins.register(PluginCodeGen)
-  await plugins.register(PluginCodeGenerator)
+  // await plugins.register(PluginCodeGenerator)
 
   CodeEditor.pluginName = 'CodeEditor'
   await plugins.register(CodeEditor)
