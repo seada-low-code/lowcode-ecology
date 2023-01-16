@@ -11,6 +11,7 @@ import { Tag, ConfigProvider } from 'antd'
 import zhCNIntl from 'antd/es/locale/zh_CN'
 import enUSIntl from 'antd/es/locale/en_US'
 import { defineGetterProperties, isPlainObj } from '../../shared/index'
+import { FormProps } from 'rc-field-form/lib/Form'
 
 interface IValueEnum {
   text: string
@@ -26,6 +27,7 @@ type IExtendsColType = ProColumnType & {
 export type IProTableProps = React.ComponentProps<typeof OriginalProTable> & {
   columns?: IExtendsColType
   intl?: string
+  onValuesChange?: FormProps['onValuesChange']
 }
 
 const intlMap = {
@@ -77,7 +79,7 @@ class ProTable extends Component<IProTableProps, any> {
   }
 
   render() {
-    const { columns, rowSelection, intl } = this.props
+    const { columns, rowSelection, intl, onValuesChange } = this.props
 
     const { selectedRowKeys, collapsed } = this.state
 
@@ -147,6 +149,7 @@ class ProTable extends Component<IProTableProps, any> {
           columns={columns}
           actionRef={this.actionRef}
           formRef={this.formRef}
+          form={{ onValuesChange: onValuesChange }}
         />
       </ConfigProvider>
     )
