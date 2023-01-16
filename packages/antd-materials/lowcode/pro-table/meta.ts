@@ -302,6 +302,16 @@ const ProTableMeta = {
                       }
                     },
                     {
+                      name: 'options',
+                      title: {
+                        label: 'options',
+                        tip: '支持select, checkbox, radio, radioButton'
+                      },
+                      description: '数据源',
+                      propType: 'object',
+                      setter: 'JsonSetter'
+                    },
+                    {
                       name: 'width',
                       title: { label: '宽度', tip: 'width | 宽度' },
                       propType: {
@@ -1566,6 +1576,10 @@ const ProTableMeta = {
         {
           name: 'onRequestError',
           description: '数据加载失败时触发'
+        },
+        {
+          name: 'onValuesChange',
+          description: 'Form onValuesChange'
         }
       ],
       style: true,
