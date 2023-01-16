@@ -639,10 +639,23 @@ const ProTableMeta = {
               setValue: (target, value) => {
                 if (value) {
                   target.parent.setPropValue('pagination', {
-                    pageSize: 10
+                    defaultPageSize: 10
                   })
                 }
               }
+            }
+          },
+          {
+            name: 'pagination.defaultPageSize',
+            title: {
+              label: '默认每页条数',
+              tip: 'pagination.defaultPageSize | 默认每页条数'
+            },
+            propType: 'number',
+            setter: 'NumberSetter',
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("pagination")'
             }
           },
           {
@@ -653,7 +666,8 @@ const ProTableMeta = {
             condition: {
               type: 'JSFunction',
               value: 'target => !!target.getProps().getPropValue("pagination")'
-            }
+            },
+            supportVariable: true
           },
           // {
           //   name: 'pagination.total',
