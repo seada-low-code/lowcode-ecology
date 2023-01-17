@@ -13,7 +13,6 @@ import ManualPlugin from '@alilc/lowcode-plugin-manual'
 import SchemaPlugin from '@alilc/lowcode-plugin-schema'
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en'
 import {
-  PluginCodeGenerator,
   PluginFormily,
   PluginSave,
   PluginSimulatorResizer,

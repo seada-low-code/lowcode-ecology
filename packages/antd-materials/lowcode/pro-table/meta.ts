@@ -262,7 +262,16 @@ const ProTableMeta = {
                       name: 'fieldProps',
                       title: {
                         label: '字段属性',
-                        tip: 'fieldProps | 字段属性'
+                        tip: 'fieldProps | 字段属性，会透传给表单项'
+                      },
+                      propType: 'object',
+                      setter: 'JsonSetter'
+                    },
+                    {
+                      name: 'formItemProps',
+                      title: {
+                        label: 'Form.Item 属性',
+                        tip: 'formItemProps | 传递给 Form.Item 的配置,可以配置 rules'
                       },
                       propType: 'object',
                       setter: 'JsonSetter'
