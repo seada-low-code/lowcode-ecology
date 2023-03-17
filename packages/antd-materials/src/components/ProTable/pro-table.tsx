@@ -79,7 +79,7 @@ class ProTable extends Component<IProTableProps, any> {
   }
 
   render() {
-    const { columns, rowSelection, intl, onValuesChange } = this.props
+    const { columns, rowSelection, intl, onValuesChange, toolBarRender, toolBarRenderOpen } = this.props
 
     const { selectedRowKeys, collapsed } = this.state
 
@@ -110,6 +110,18 @@ class ProTable extends Component<IProTableProps, any> {
     if (typeof pagination?.total === 'number') {
       delete pagination.total
     }
+    
+    const toolBarRenderFunc = () => {
+      if (toolBarRenderOpen) {
+        if (toolBarRender === false) {
+          return null;
+        } else {
+          return toolBarRender;
+        }
+      } else {
+        return false;
+      }
+    };
 
     return (
       <ConfigProvider locale={intlMap[intl || 'zhCNIntl']}>
@@ -150,6 +162,7 @@ class ProTable extends Component<IProTableProps, any> {
           actionRef={this.actionRef}
           formRef={this.formRef}
           form={{ onValuesChange: onValuesChange }}
+          toolBarRender={toolBarRenderFunc()}
         />
       </ConfigProvider>
     )
