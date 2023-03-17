@@ -1190,6 +1190,15 @@ const ProTableMeta = {
         type: 'group',
         items: [
           {
+            name: 'toolBarRenderOpen',
+            title: {
+              label: '启用工具栏',
+              tip: 'toolBarRenderOpen | 是否启用工具栏',
+            },
+            propType: 'bool',
+            setter: 'BoolSetter',
+          },
+          {
             name: 'toolBarRender',
             title: { label: '工具栏操作', tip: 'toolbar | 工具栏操作' },
             propType: 'func',
@@ -1200,18 +1209,48 @@ const ProTableMeta = {
                 initialValue: {
                   type: 'JSSlot',
                   params: ['currentPageData'],
-                  value: []
-                }
+                  value: [],
+                },
               },
               {
                 componentName: 'FunctionSetter',
                 props: {
                   template:
-                    'renderToolBar(currentPageData,${extParams}){\n// 自定义渲染表格顶部\nreturn "表格顶部";\n}'
-                }
+                    'renderToolBar(currentPageData,${extParams}){\n// 自定义渲染表格顶部\nreturn "表格顶部";\n}',
+                },
               },
-              'VariableSetter'
-            ]
+              'VariableSetter',
+            ],
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("toolBarRenderOpen")',
+            },
+          },
+          {
+            name: 'toolbar.title',
+            title: {
+              label: '标题',
+              tip: 'toolbar.title | 自定义标题',
+            },
+            propType: 'string',
+            setter: 'StringSetter',
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("toolBarRenderOpen")',
+            },
+          },
+          {
+            name: 'toolbar.subTitle',
+            title: {
+              label: '子标题',
+              tip: 'toolbar.subTitle | 自定义子标题',
+            },
+            propType: 'string',
+            setter: 'StringSetter',
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("toolBarRenderOpen")',
+            },
           },
           {
             name: 'title',
