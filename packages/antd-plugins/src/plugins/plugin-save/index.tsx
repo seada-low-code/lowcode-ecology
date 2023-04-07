@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button } from 'antd'
-import { ILowCodePluginContext } from '@alilc/lowcode-engine'
+import { IPublicModelPluginContext } from '@alilc/lowcode-types'
 
-const plugin = (ctx: ILowCodePluginContext) => {
+const plugin = (ctx: IPublicModelPluginContext) => {
   return {
     name: 'PluginSave',
     dep: [],

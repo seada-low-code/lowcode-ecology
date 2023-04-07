@@ -29,9 +29,9 @@
     "postinstall-postinstall": "^2.1.0"
   },
   "devDependencies": {
-    "@alilc/lowcode-engine": "^1.0.9",
+    "@alilc/lowcode-engine": "^1.1.5",
     "@alilc/lowcode-engine-ext": "^1.0.0",
-    "@alilc/lowcode-types": "^1.0.9",
+    "@alilc/lowcode-types": "^1.1.5",
     "@types/react": "^17",
     "@types/react-dom": "^17",
     "@umijs/lint": "^4.0.1",

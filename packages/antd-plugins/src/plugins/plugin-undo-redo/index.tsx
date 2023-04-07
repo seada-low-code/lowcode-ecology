@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Button, Tooltip } from 'antd'
-import { ILowCodePluginContext, project } from '@alilc/lowcode-engine'
+import { project } from '@alilc/lowcode-engine'
+import { IPublicModelPluginContext } from '@alilc/lowcode-types'
 import { History } from '@alilc/lowcode-shell'
 import Icon from '@ant-design/icons'
 import { BackSvg, NextSvg } from './icon'
@@ -51,7 +52,7 @@ const UndoRedo: React.FC = () => {
   )
 }
 
-const plugin = (ctx: ILowCodePluginContext) => {
+const plugin = (ctx: IPublicModelPluginContext) => {
   return {
     name: 'PluginUndoRedo',
     dep: [],

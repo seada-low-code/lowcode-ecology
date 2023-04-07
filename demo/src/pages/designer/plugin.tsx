@@ -1,10 +1,8 @@
+import { event, plugins, project } from '@alilc/lowcode-engine'
 import {
-  event,
-  ILowCodePluginContext,
-  plugins,
-  project,
-  RegisteredSetter
-} from '@alilc/lowcode-engine'
+  IPublicModelPluginContext,
+  IPublicTypeRegisteredSetter
+} from '@alilc/lowcode-types'
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext'
 // import PluginCodeGen from '@alilc/lowcode-plugin-code-generator'
 import ComponentsPane from '@alilc/lowcode-plugin-components-pane'
@@ -25,11 +23,12 @@ import {
   SelectSetter,
   SlotSetter,
   StringSetter,
-  TextAreaSetter
+  TextAreaSetter,
+  PaddingSetter
 } from '@seada/antd-setters'
+import CodeEditor from '@alilc/lowcode-plugin-code-editor'
 import assets from '../../assets/assets.json'
 import { getPageSchema, saveSchema } from './helper'
-import CodeEditor from '@alilc/lowcode-plugin-code-editor'
 import LowcodePluginPreview from './plugins/plugin-preview/index'
 
 export default async function registerPlugins() {
@@ -40,7 +39,7 @@ export default async function registerPlugins() {
   SchemaPlugin.pluginName = 'SchemaPlugin'
   await plugins.register(SchemaPlugin)
 
-  const editorInit = (ctx: ILowCodePluginContext) => {
+  const editorInit = (ctx: IPublicModelPluginContext) => {
     return {
       name: 'editor-init',
       async init() {
@@ -71,7 +70,7 @@ export default async function registerPlugins() {
 
   await plugins.register(PluginFormily)
 
-  const builtinPluginRegistry = (ctx: ILowCodePluginContext) => {
+  const builtinPluginRegistry = (ctx: IPublicModelPluginContext) => {
     return {
       name: 'builtin-plugin-registry',
       async init() {
@@ -101,26 +100,26 @@ export default async function registerPlugins() {
   await plugins.register(builtinPluginRegistry)
 
   // 设置内置 setter 和事件绑定、插件绑定面板
-  const setterRegistry = (ctx: ILowCodePluginContext) => {
+  const setterRegistry = (ctx: IPublicModelPluginContext) => {
     const { setterMap, pluginMap } = AliLowCodeEngineExt
 
     setterMap['BoolSetter'] = BoolSetter
     setterMap['NumberSetter'] = {
       component: NumberSetter,
       isDynamic: false
-    } as RegisteredSetter
+    } as IPublicTypeRegisteredSetter
     setterMap['TextAreaSetter'] = {
       component: TextAreaSetter,
       isDynamic: false
-    } as RegisteredSetter
+    } as IPublicTypeRegisteredSetter
     setterMap['StringSetter'] = {
       component: StringSetter,
       isDynamic: false
-    } as RegisteredSetter
+    } as IPublicTypeRegisteredSetter
     setterMap['SelectSetter'] = {
       component: SelectSetter,
       isDynamic: false
-    } as RegisteredSetter
+    } as IPublicTypeRegisteredSetter
     // setterMap['EventsSetter'] = {
     //   component: EventsSetter,
     //   isDynamic: false
@@ -128,16 +127,27 @@ export default async function registerPlugins() {
     setterMap['RadioGroupSetter'] = {
       component: RadioGroupSetter,
       isDynamic: false
-    } as RegisteredSetter
+    } as IPublicTypeRegisteredSetter
+    // setterMap['PaddingSetter'] = {
+    //   component: PaddingSetter,
+    //   isDynamic: false
+    // } as IPublicTypeRegisteredSetter
 
     setterMap.SlotSetter = SlotSetter as any
+
+    const newSetterMap: { [key: string]: IPublicTypeRegisteredSetter } = {
+      PaddingSetter: {
+        component: PaddingSetter,
+        isDynamic: false
+      }
+    }
 
     return {
       name: 'ext-setters-registry',
       async init() {
         const { setters, skeleton } = ctx
         // 注册setterMap
-        setters.registerSetter(setterMap as any)
+        setters.registerSetter({ ...setterMap, ...newSetterMap })
         // 注册插件
         // 注册事件绑定面板
         skeleton.add({

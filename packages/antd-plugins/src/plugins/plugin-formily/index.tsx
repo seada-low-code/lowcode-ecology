@@ -1,7 +1,7 @@
-import { ILowCodePluginContext } from '@alilc/lowcode-engine'
+import { IPublicModelPluginContext } from '@alilc/lowcode-types'
 import { FormilySchemaSetter } from '@seada/antd-setters'
 
-const LowcodePluginFormily = (ctx: ILowCodePluginContext) => {
+const LowcodePluginFormily = (ctx: IPublicModelPluginContext) => {
   return {
     // 插件名，注册环境下唯一
     name: 'LowcodePluginFormily',

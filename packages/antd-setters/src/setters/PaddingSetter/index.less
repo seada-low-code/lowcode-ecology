@@ -1,0 +1,49 @@
+.wrapper {
+  background-color: #e6e6e6;
+  height: 96px;
+  position: relative;
+
+  .padding-display-value {
+    position: absolute;
+    text-align: center;
+
+    input {
+      width: 60px;
+      text-align: center;
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+
+    &.top {
+      top: 0;
+      width: 100%;
+      height: 30px;
+    }
+    &.bottom {
+      width: 100%;
+      bottom: 0;
+      height: 30px;
+    }
+    &.left {
+      left: 0;
+      height: 100%;
+      line-height: 96px;
+      width: 20%;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    &.right {
+      right: 0;
+      height: 100%;
+      line-height: 96px;
+      width: 20%;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

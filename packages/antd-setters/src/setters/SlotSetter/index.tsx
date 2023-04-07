@@ -2,8 +2,7 @@ import React from 'react'
 import { Input, Switch } from 'antd'
 import { isArr } from '@formily/shared'
 import { CloseOutlined } from '@ant-design/icons'
-import { isJSSlot } from '@alilc/lowcode-types'
-import { RegisteredSetter } from '@alilc/lowcode-engine'
+import { isJSSlot, IPublicTypeRegisteredSetter } from '@alilc/lowcode-types'
 import './index.less'
 
 export interface ISlotSetterProps {
@@ -119,4 +118,4 @@ export default {
   },
   recommend: true,
   valueType: ['JSSlot']
-} as RegisteredSetter
+} as IPublicTypeRegisteredSetter

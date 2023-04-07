@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { ILowCodePluginContext, project } from '@alilc/lowcode-engine'
+import { project } from '@alilc/lowcode-engine'
 import { InputNumber } from 'antd'
 import { MobileSVG, PadSVG, PcSVG } from './icons'
 import './index.less'
+import { IPublicModelPluginContext } from '@alilc/lowcode-types'
 
 const devices = [{ key: 'desktop' }, { key: 'tablet' }, { key: 'phone' }]
 
@@ -85,7 +86,7 @@ export const SimulatorPane: React.FC = () => {
   )
 }
 
-const plugin = (ctx: ILowCodePluginContext) => {
+const plugin = (ctx: IPublicModelPluginContext) => {
   return {
     name: 'SimulatorPane',
     // 插件的初始化函数，在引擎初始化之后会立刻调用

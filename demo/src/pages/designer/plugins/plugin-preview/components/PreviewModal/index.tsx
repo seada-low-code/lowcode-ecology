@@ -1,7 +1,6 @@
 import React, { FC, useState, useCallback } from 'react'
 import { Drawer, Button, Spin } from 'antd'
 import { event } from '@alilc/lowcode-engine'
-import './index.less'
 import ReactRenderer from '@alilc/lowcode-react-renderer'
 import {
   buildComponents,
@@ -11,6 +10,7 @@ import {
 } from '@alilc/lowcode-utils'
 import { injectComponents } from '@alilc/lowcode-plugin-inject'
 import { getProjectSchema, getPagePackages } from '../../../../helper'
+import './index.less'
 
 const Renderer: FC = () => {
   const [data, setData] = useState<any>({})
