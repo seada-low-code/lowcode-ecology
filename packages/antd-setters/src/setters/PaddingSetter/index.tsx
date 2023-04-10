@@ -1,99 +1,82 @@
 import React from 'react'
-import { Input } from 'antd'
+import { Input, Tooltip } from 'antd'
 import './index.less'
 
-export type PaddingValue = {
-  paddingTop?: string
-  paddingBottom?: string
-  paddingLeft?: string
-  paddingRight?: string
-}
-
 export type PaddingSetterProps = {
-  value?: PaddingValue
-  onChange?: (value?: PaddingValue) => void
+  value?: number[]
+  onChange?: (value?: number[]) => void
 }
 
 const PaddingSetter: React.FC<PaddingSetterProps> = ({
-  value = {
-    paddingBottom: '0px',
-    paddingTop: '0px',
-    paddingLeft: '0px',
-    paddingRight: '0px'
-  },
+  value = [0, 0, 0, 0],
   onChange
 }) => {
-  /**
-   * 移除单位
-   */
-  const removeUnit = (val = '0px') => {
-    return isNaN(parseInt(val)) ? null : `${parseInt(val)}`
-  }
-
-  const addUnit = (val: string, unit = 'px') => {
-    return val + unit
-  }
-
   const handleValueChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    key: string
+    index: number
   ) => {
-    const val = e.target.value
+    const val = parseInt(e.target.value)
+    const copied = [...value]
     // 输入的不是数字
-    if (isNaN(parseInt(val))) {
-      onChange?.({
-        ...value,
-        [key]: null
-      })
+    if (isNaN(val)) {
+      copied.splice(index, 1, null)
+      onChange?.(copied)
+      return
     }
-    onChange?.({
-      ...value,
-      [key]: addUnit(val)
-    })
+    copied.splice(index, 1, val)
+    onChange?.(copied)
   }
 
-  const { paddingBottom, paddingTop, paddingLeft, paddingRight } = value
   return (
     <div className="wrapper">
+      <div className="padding-inner-box" />
       <div className="padding-display-value top">
-        <Input
-          maxLength={3}
-          bordered={false}
-          value={removeUnit(paddingTop)}
-          onChange={(e) => {
-            handleValueChange(e, 'paddingTop')
-          }}
-        />
+        <Tooltip title="上间距">
+          <Input
+            maxLength={3}
+            bordered={false}
+            value={value[0]}
+            onChange={(e) => {
+              handleValueChange(e, 0)
+            }}
+          />
+        </Tooltip>
       </div>
       <div className="padding-display-value right">
-        <Input
-          maxLength={3}
-          bordered={false}
-          value={removeUnit(paddingRight)}
-          onChange={(e) => {
-            handleValueChange(e, 'paddingRight')
-          }}
-        />
+        <Tooltip title="右间距">
+          <Input
+            maxLength={3}
+            bordered={false}
+            value={value[1]}
+            onChange={(e) => {
+              handleValueChange(e, 1)
+            }}
+          />
+        </Tooltip>
       </div>
       <div className="padding-display-value bottom">
-        <Input
-          maxLength={3}
-          bordered={false}
-          value={removeUnit(paddingBottom)}
-          onChange={(e) => {
-            handleValueChange(e, 'paddingBottom')
-          }}
-        />
+        <Tooltip title="下间距">
+          <Input
+            maxLength={3}
+            bordered={false}
+            value={value[2]}
+            onChange={(e) => {
+              handleValueChange(e, 2)
+            }}
+          />
+        </Tooltip>
       </div>
       <div className="padding-display-value left">
-        <Input
-          maxLength={3}
-          bordered={false}
-          value={removeUnit(paddingLeft)}
-          onChange={(e) => {
-            handleValueChange(e, 'paddingLeft')
-          }}
-        />
+        <Tooltip title="左间距">
+          <Input
+            maxLength={3}
+            bordered={false}
+            value={value[3]}
+            onChange={(e) => {
+              handleValueChange(e, 3)
+            }}
+          />
+        </Tooltip>
       </div>
     </div>
   )

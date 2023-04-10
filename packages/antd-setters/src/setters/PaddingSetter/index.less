@@ -2,6 +2,18 @@
   background-color: #e6e6e6;
   height: 96px;
   position: relative;
+  border-radius: 4px;
+
+  .padding-inner-box {
+    height: 20px;
+    width: 40px;
+    border: 1px solid #c7c7c7;
+    top: calc(50% - 10px);
+    left: calc(50% - 20px);
+    position: absolute;
+    border-radius: 4px;
+    background-color: #ededed;
+  }
 
   .padding-display-value {
     position: absolute;
@@ -12,6 +24,7 @@
       text-align: center;
       padding-left: 2px;
       padding-right: 2px;
+      font-size: 12px;
     }
 
     &.top {
