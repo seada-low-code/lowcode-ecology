@@ -30,3 +30,4 @@ export { default as FormilyUploadDragger } from './components/UploadDragger';
 export { default as FormilyObjectContainer } from './components/Object';
 export { default as FormilyTimePicker } from './components/TimePicker';
 export { default as FormilyTimeRangePicker } from './components/TimeRangePicker';
+export { default as FormilyAutoComplete } from './components/AutoComplete';
