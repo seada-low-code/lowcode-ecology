@@ -49,13 +49,8 @@ const FormilySchemaSetter: React.FC<IFormilySchemaSetterProps> & {
 
   useEffect(() => {
     if (!value && defaultValue) {
-      onChange(
-        typeof defaultValue === 'function' ? defaultValue() : defaultValue
-      )
-    }
-
-    // 防止死循环
-    if (!isEqual(formRef.current.values, value)) {
+      const val = defaultValue === 'function' ? defaultValue() : defaultValue
+      onChange(val)
       formRef.current?.setValues(value)
     }
   }, [defaultValue, onChange, value])
