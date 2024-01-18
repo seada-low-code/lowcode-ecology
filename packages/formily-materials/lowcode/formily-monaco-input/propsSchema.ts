@@ -49,6 +49,10 @@ export const propsSchema = {
       'x-component': 'Select',
       default: 'on',
     },
+    onEditorDidMount: {
+      title: '编辑器加载完成',
+      'x-decorator': 'FormItem',
+    },
   },
 };
 

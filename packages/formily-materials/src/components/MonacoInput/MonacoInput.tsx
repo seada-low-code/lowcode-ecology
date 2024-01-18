@@ -18,6 +18,7 @@ export interface IMonacoInputProps {
   theme: 'vs-dark' | 'light';
   onChange: (value: any) => void;
   loading?: boolean;
+  onEditorDidMount?: (editor: any, monaco?: any) => void;
 }
 
 export default class MonacoInput extends Component<IMonacoInputProps, any> {
@@ -36,8 +37,9 @@ export default class MonacoInput extends Component<IMonacoInputProps, any> {
     return this.editorRef.current;
   }
 
-  onEditorMount(editor) {
+  onEditorMount(editor, monaco) {
     this.editorRef.current = editor;
+    this.props?.onEditorDidMount?.(editor, monaco);
   }
 
   onEditorChange(value) {
