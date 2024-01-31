@@ -22,9 +22,20 @@ let shouldRenderVarFromDecorator = false
 const FormilySchemaSetter: React.FC<IFormilySchemaSetterProps> & {
   toggleVarDecorator: (f: boolean) => void
 } = (props) => {
-  const formRef = useRef<FormProps['form']>(null)
-
   const { defaultValue, value, effects, propsSchema, onChange } = props
+
+  const formRef = useRef<FormProps['form']>(
+    createForm({
+      values: value,
+      effects(form) {
+        useLocales()
+        onFormValuesChange((f) => {
+          onChange(f.values)
+        })
+        effects?.(form)
+      }
+    })
+  )
 
   if (shouldRenderVarFromDecorator) {
     traverse(propsSchema, (key, value) => {
@@ -34,26 +45,13 @@ const FormilySchemaSetter: React.FC<IFormilySchemaSetterProps> & {
     })
   }
 
-  // 减少form实例创建次数
-  if (propsSchema && !formRef.current) {
-    formRef.current = createForm({
-      effects(form) {
-        useLocales()
-        onFormValuesChange((f) => {
-          onChange(f.values)
-        })
-        effects?.(form)
-      }
-    })
-  }
-
   useEffect(() => {
     if (!value && defaultValue) {
-      const val = defaultValue === 'function' ? defaultValue() : defaultValue
-      onChange(val)
-      formRef.current?.setValues(value)
+      const val =
+        typeof defaultValue === 'function' ? defaultValue() : defaultValue
+      formRef.current?.setValues(val)
     }
-  }, [defaultValue, onChange, value])
+  }, [defaultValue, value])
 
   return (
     formRef.current && (

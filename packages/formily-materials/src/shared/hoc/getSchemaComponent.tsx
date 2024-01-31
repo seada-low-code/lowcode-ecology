@@ -36,6 +36,9 @@ export const createSchemaComponent = (options: ICreateSchemaComponent) => {
 
     const form = useForm();
 
+    if (!props.fieldProps) {
+      return null;
+    }
     const schema = useSchema(props);
 
     schema.mapProperties((s, key) => {

@@ -77,6 +77,7 @@ export class BaseDialog extends Component<any> {
           {this.props?.operations?.map((item) => {
             return (
               <Button
+                loading={this.props?.confirmLoading}
                 key={uuid()}
                 type={item?.type}
                 onClick={getActionHandler(item?.action)}
