@@ -1,6 +1,6 @@
 {
   "name": "@seada/formily-materials",
-  "version": "1.0.0-rc.31",
+  "version": "1.0.0-rc.32",
   "description": "formily-materials",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -68,7 +68,7 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/@seada/formily-materials@1.0.0-rc.30/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@seada/formily-materials@1.0.0-rc.31/build/lowcode/assets-prod.json"
   },
   "publishConfig": {
     "access": "public"
