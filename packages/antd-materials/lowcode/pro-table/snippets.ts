@@ -166,6 +166,7 @@ export const snippets: Snippet[] = [
           searchText: '',
           labelWidth: 'auto'
         },
+        toolBarRenderOpen: true,
         toolBarRender: {
           type: 'JSSlot',
           params: ['currentPageData'],

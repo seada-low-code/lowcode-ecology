@@ -119,14 +119,13 @@ class ProTable extends Component<IProTableProps, any> {
     }
 
     const toolBarRenderFunc = () => {
-      if (toolBarRenderOpen) {
-        if (toolBarRender === false) {
-          return null
-        } else {
-          return toolBarRender
-        }
-      } else {
+      if (toolBarRenderOpen === false) {
         return false
+      }
+      if (toolBarRender === false) {
+        return null
+      } else {
+        return toolBarRender
       }
     }
 
