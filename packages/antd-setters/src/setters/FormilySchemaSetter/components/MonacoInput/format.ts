@@ -15,12 +15,22 @@ const cache: { prettier: Promise<IPrettierModule> } = {
   prettier: null
 }
 
+/**
+ * global prettierUrl
+ */
+let prettierUrl = '//cdn.jsdelivr.net/npm/prettier@2.x/esm/standalone.mjs'
+
+/**
+ * set global prettierUrl
+ * @param u
+ */
+export const setPrettierUrl = (u: string) => {
+  prettierUrl = u
+}
+
 export const format = async (language: string, source: string) => {
   cache.prettier =
-    cache.prettier ||
-    new Function(
-      `return import("//cdn.jsdelivr.net/npm/prettier@2.x/esm/standalone.mjs")`
-    )()
+    cache.prettier || new Function(`return import("${prettierUrl}")`)()
   return cache.prettier.then((module) => {
     if (
       language === 'javascript.expression' ||
