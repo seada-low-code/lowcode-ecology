@@ -7,7 +7,7 @@ import { Tooltip } from 'antd'
 import { parseExpression, parse } from '@babel/parser'
 import { uid } from '../../utils'
 import { Help as HelpIcon } from '../../icons'
-import { format } from './format'
+import { format, setPrettierUrl } from './format'
 import cls from 'classnames'
 import './styles.less'
 import './config'
@@ -20,6 +20,10 @@ export interface MonacoInputProps extends EditorProps {
   helpCodeViewWidth?: number | string
   extraLib?: string
   onChange?: (value: string) => void
+  /**
+   * custom prettier resource
+   */
+  prettierUrl?: string
 }
 
 export const MonacoInput: React.FC<MonacoInputProps> & {
@@ -36,6 +40,7 @@ export const MonacoInput: React.FC<MonacoInputProps> & {
   onMount,
   onChange,
   theme = 'light',
+  prettierUrl,
   ...props
 }) => {
   const [loaded, setLoaded] = useState(false)
@@ -53,6 +58,12 @@ export const MonacoInput: React.FC<MonacoInputProps> & {
   const uidRef = useRef(uid())
   const prefix = 'dn-monaco-input'
   const input = props.value || props.defaultValue
+
+  useEffect(() => {
+    if (prettierUrl) {
+      setPrettierUrl(prettierUrl)
+    }
+  }, [prettierUrl])
 
   useEffect(() => {
     unmountedRef.current = false

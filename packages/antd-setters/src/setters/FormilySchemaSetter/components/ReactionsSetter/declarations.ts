@@ -1,3 +1,4 @@
+import { IReactionsSetterProps } from '.'
 import { MonacoInput } from '../MonacoInput'
 
 export interface IDependency {
@@ -5,23 +6,33 @@ export interface IDependency {
   path: string
 }
 
-const loadDependencies = async (deps: IDependency[]) => {
+const loadDependencies = async (
+  deps: IDependency[],
+  {
+    libraryDomain = '//cdn.jsdelivr.net/npm'
+  }: Pick<IReactionsSetterProps['initProps'], 'libraryDomain'>
+) => {
   return Promise.all(
     deps.map(async ({ name, path }) => ({
       name,
       path,
-      library: await fetch(`//cdn.jsdelivr.net/npm/${name}/${path}`).then(
-        (res) => res.text()
+      library: await fetch(`${libraryDomain}/${name}/${path}`).then((res) =>
+        res.text()
       )
     }))
   )
 }
 
-export const initDeclaration = async () => {
+export const initDeclaration = async (
+  prop?: IReactionsSetterProps['initProps']
+) => {
   return MonacoInput.loader.init().then(async (monaco) => {
-    const deps = await loadDependencies([
-      { name: '@formily/core', path: 'dist/formily.core.all.d.ts' }
-    ])
+    const deps = await loadDependencies(
+      [{ name: '@formily/core', path: 'dist/formily.core.all.d.ts' }],
+      {
+        libraryDomain: prop?.libraryDomain
+      }
+    )
     deps?.forEach(({ name, library }) => {
       monaco.languages.typescript.typescriptDefaults.addExtraLib(
         `declare module '${name}'{ ${library} }`,

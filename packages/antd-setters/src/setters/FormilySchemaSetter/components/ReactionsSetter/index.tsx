@@ -5,7 +5,7 @@ import { createSchemaField } from '@formily/react'
 import { GlobalRegistry } from '../../registry'
 import { requestIdle } from '../../utils'
 import { TextWidget } from '../TextWidget'
-import { MonacoInput } from '../MonacoInput'
+import { MonacoInput, MonacoInputProps } from '../MonacoInput'
 import {
   Form,
   ArrayTable,
@@ -26,6 +26,10 @@ import './styles.less'
 export interface IReactionsSetterProps {
   value?: IReaction
   onChange?: (value: IReaction) => void
+  initProps?: {
+    libraryDomain?: string
+    prettierUrl?: MonacoInputProps['prettierUrl']
+  }
 }
 
 const TypeView = ({ value }) => {
@@ -156,7 +160,7 @@ export const ReactionsSetter: React.FC<IReactionsSetterProps> = (props) => {
     if (modalVisible) {
       requestIdle(
         () => {
-          initDeclaration().then(() => {
+          initDeclaration(props?.initProps).then(() => {
             setInnerVisible(true)
           })
         },
@@ -413,7 +417,8 @@ export const ReactionsSetter: React.FC<IReactionsSetterProps> = (props) => {
                           minimap: {
                             enabled: false
                           }
-                        }
+                        },
+                        prettierUrl: props?.initProps?.prettierUrl
                       }}
                       x-reactions={(field) => {
                         const deps = field.query('dependencies').value()
